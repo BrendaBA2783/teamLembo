@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/styles-general.css">
+    <script src="../views/components/js/header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Integración del header.html -->
+    <div class="hero--unique"></div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="main__container">
+            <h3 class="main__title">Inicio de sesión</h3>
+
+            <div class="main__group">
+                <h4 class="main__label">Correo electrónico</h4>
+                <input class="main__field" type="text" />
+            </div><!-- main__group -->
+            <div class="main__group">
+                <h4 class="main__label">Contraseña</h4>
+                <input class="main__field" type="password" />
+            </div><!-- main__group -->
+
+            <!-- enlace de recirección a recuperar contraseña -->
+            <a href="recover-password.html">
+                <h4 class="main__password--link">¿Olvidaste tu contraseña?</h4>
+            </a>
+
+            <!-- botón de inicio de sesión -->
+            <a href="home-before.html">
+                <button>INICIAR SESIÓN</button>
+            </a>
+        </div><!-- main__container -->
+    </main>
+
+    <!-- sección de botón final, retroceder -->
+    <div class="button-end">
+        <a href="index.html">
+            <button class="button-end__return" type="button">VOLVER</button>
+        </a>
+    </div>
+</body>
+</html>

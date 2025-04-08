@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilitar/deshabilitar usuario</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../../css/id-enable-disable.css">
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Integración del general_header.hmtl -->
+    <div class="hero--general"></div>
+
+    <!-- Form -->
+    <form class="form">
+        <div class="form__container">
+            <div class="form__header">
+                <h2 class="form__title">Usuarios</h2>
+                <p class="form__text">Por favor, ingrese el ID del usuario</p>
+            </div>
+            <div class="form__container-input">
+                <input class="form__input" type="text" />
+            </div><br>
+
+            <div class="form__box">
+                <button type="button" onclick="location.href='enabled.html'">HABILITAR</button><br/>
+                <button type="button" onclick="location.href='disable.html'">DESHABILITAR</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Sección de botón final, regresar -->
+    <div class="button-end">
+        <a href="table.html">
+            <button class="button-end__return" type="button">CANCELAR</button>
+        </a>
+    </div>
+</body>
+</html>

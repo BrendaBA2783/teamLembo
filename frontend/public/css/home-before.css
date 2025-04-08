@@ -1,0 +1,40 @@
+/* header */
+header {
+    border-bottom: 0.4rem solid var(--primary_green_900);
+}
+
+/* Main */
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+.main__cards {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-bottom: 0.5rem;
+}
+.main__card {
+    background-color: var(--white);
+    padding: 2rem;
+    border: 0.1rem solid var(--secundary_green_950);
+    border-radius: 1rem;
+    box-shadow: 0 0.3rem 1rem var(--primary_green_900);
+}
+.main__card-image {
+    width: 30rem;
+    height: 15rem;
+}
+.main__card-title {
+    margin-bottom: 0rem;
+    margin-top: 0.9rem;
+}
+@media (max-width: 768px) {
+    .main {
+        margin-top: 2rem;
+    }
+}

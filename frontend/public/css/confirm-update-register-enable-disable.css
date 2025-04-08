@@ -1,0 +1,32 @@
+/* Header */
+header {
+    border-bottom: 0.4rem solid var(--primary_green_900);
+}
+
+/* User Status */
+.container {
+    margin: 0 auto;
+    background-color: var(--white);
+    height: auto;
+    padding: 6rem;
+    width: 60vw;
+    margin-top: 8rem;
+    border-radius: 1rem;
+    box-shadow: 0px 3px 15px 0px var(--primary_green_900);
+    text-align: center;
+}
+.container__message {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 70vw;
+        padding: 3rem;
+    }
+}
+@media (max-width: 530px) {
+    .container__button {
+        width: 16rem;
+    }
+}
