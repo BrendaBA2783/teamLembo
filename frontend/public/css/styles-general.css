@@ -271,8 +271,13 @@ button:hover {
 .hero__dropdown-link:hover {
     background-color: var(--secundary_green_200);
 }
-
-
+.hero__dropdown-li:hover {
+    background-color: var(--secundary_green_200);
+    border-radius: 0.6rem;
+}
+.hero__dropdown-anchor {
+    margin-left: 0.6rem;
+}
 .hero__dropdown-list:has( :checked) {
     --rows: 1fr;
     --rotate: rotate(180deg);
