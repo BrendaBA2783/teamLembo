@@ -1,5 +1,6 @@
-👤 Autor:[Ing. Edwar Hernando Velásquez]
+Autores del proyecto lembo:[Brenda Bedoya Arenas - Laura Cortés - Jacobo Murillo]
 
+👤 Autor:[Edwar Velasquez]
 📧 Email: ricoprogramar@gmail.com
 🔗 LinkedIn: linkedin.com/in/tuusuario
 🐙 GitHub: github.com/The-Mechatronic
@@ -8,13 +9,12 @@
 # Mi Proyecto
 
 ## Descripción
-Este proyecto es una aplicación web que integra un backend en Node.js con Express y un frontend basado en HTML, CSS y JavaScript. 
-Además, maneja una base de datos para gestionar usuarios, sensores, contacto y servicios.
+Este proyecto es un aplicativo web para el lembo de santa rosa. (Mejorar descripcion)
 
 ## Estructura del Proyecto
 
 ```
-/mi-proyecto
+/teamLembo
 │-- /backend/                # Todo el backend organizado aquí
 │   │-- server.js            # Punto de entrada del servidor
 │   │-- /config/             # Configuración del proyecto
@@ -35,8 +35,7 @@ Además, maneja una base de datos para gestionar usuarios, sensores, contacto y 
 │   │   ├── contacModel.js
 │   │   ├── servicesModel.js
 │   │-- /middlewares/        # Middlewares (autenticación, logs, validaciones)
-│   │   ├── authMiddleware.js
-│   │   ├── logger.js
+│   │   ├── user-validacion.js
 │   │-- /utils/              # Utilidades y funciones reutilizables
 │   │   ├── helpers.js
 │   │-- package.json         # Dependencias del backend
@@ -44,11 +43,21 @@ Además, maneja una base de datos para gestionar usuarios, sensores, contacto y 
 │
 │-- /frontend/               # Todo el frontend organizado aquí
 │   │-- /public/             # Archivos estáticos (CSS, JS, imágenes)
-│   │   ├── /css/            # Estilos
-│   │   │-- main.css             # Archivo principal que importa los demás
-│   │   │-- reset.css            # Normalización y reseteo de estilos
-│   │   │-- variables.css        # Variables de colores, tipografías, etc.
-│   │   │-- layout.css           # Estructura general (grid, flexbox, espaciados)
+│   │   ├── /css/            # Carpeta de estilos
+│   │   │-- user/                              # Carpeta para un archivo css unico de usuario
+│   │   │   ├── register-credentials.css       # Estilos de la vista de credenciales de usuario
+│   │   │-- index.css                              # Archivo principal que contiene los estilos del primer home
+│   │   │-- login.css                              # Archivo que contiene los estilos del login
+│   │   │-- styles-general.css                         # Archivo principal que contiene los estilos generales
+│   │   │-- home-before.css                            # Archivo que contiene los estilos del home depués de iniciar sesión
+│   │   │-- id-enable-disable.css                      # Archivo que contiene los estilos para la solicitud de id para habilitar y deshabilitar
+│   │   │-- id-update-visualise.css                         # Archivo que contiene los estilos de solicitud de id para actualizar y visualizar
+│   │   │-- form-update-register.css                        # Archivo que contiene los estilos generales de los formularios actualizar y registrar
+│   │   │-- table.css                                       # Archivo que contiene los estilos generales para las tablas
+│   │   │-- visualise.css                                   # Archivo que contiene los estilos generales para visualizar asociaciones
+│   │   │-- enable-disable.css                              # Archivo que contiene los estilos generales para habilitar y deshabilitar elemento
+│   │   │-- recover-password.css                            # Archivo que contiene los estilos para las vistas de recuperar contraseña
+│   │   │-- confirm-update-register-enable-disable.css      # Estilos para la ventana de confirmación de acciones
 │   │   │-- components/
 │   │   │   ├── navbar.css       # Estilos del navbar
 │   │   │   ├── footer.css       # Estilos del footer
