@@ -18,10 +18,13 @@ header {
     display: flex;
     justify-content: end;
     margin-right: 3rem;
+    position: relative;
+    z-index: 1;
 }
 .search__image {
     width: 4rem;
     height: 4rem;
+    position: absolute;
 }
 .search__input {
     width: 36rem;
