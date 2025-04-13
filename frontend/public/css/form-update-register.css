@@ -48,6 +48,21 @@ header {
     margin: 2rem;
 }
 
+/* Estilos para los campos con error */
+.main__form-field.error {
+    border: 1px solid #ffcc00;
+    background-color: #fffdf5;
+    color: black;
+}
+
+/* Estilos para los mensajes de error */
+.mensaje-error {
+    color: #ffcc00;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
 /* Media querie para una mejor adaptación a las diferentes pantallas 950px */
 @media (max-width: 950px) {
     .main__container {
