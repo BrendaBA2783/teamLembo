@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/form-update-register.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
+    <script src="../js/validacion_sensor.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,40 +27,40 @@
             <div class="main__container-form">
                 <div class="main__form-group">
                     <p class="main__form-label">ID del sensor</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field id-sensor">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Unidad de medida</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field unidad-medida">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de sensor</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field tipo-sensor">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Tiempo escaneo</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field tiempo-escaneo">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Nombre</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field nombre">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input type="text" class="main__form-field">
+                    <input type="text" class="main__form-field estado">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Imágen del sensor</p>
-                    <input type="text" class="main__form-field" placeholder="Cargar imágen...">
+                    <input type="file" class="main__form-field imagen-sensor" placeholder="Cargar imágen...">
                 </div>
                 <div class="main__form-group form__field-group--description">
                     <p class="main__form-label">Descripción</p>
-                    <input type="text" class="main__form-field main__form-field--description">
+                    <input type="text" class="main__form-field main__form-field--description descripcion">
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
                 <a href="confirm-update-register-enable-disable.html">
-                    <button class="main__form-button">ACTUALIZAR</button>
+                    <button class="main__form-button main__form-button">ACTUALIZAR</button>
                 </a>
             </div><!-- main__form-end -->
         </div><!-- main__container -->

@@ -21,12 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Patrón para validar que solo haya números
     const patronSoloNumeros = /^[0-9]+$/;
     
-    // Patrón para validar fechas (No letras)
+    // Patrón para validar fechas (solo números y caracteres especiales, pero NO letras)
     const patronFecha = /^[^a-zA-Z]+$/;
     
     // Patrón para validar campos sin números (solo letras y caracteres básicos)
     const patronSinNumeros = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s.,]+$/;
     
+
     // Función para validar todos los campos
     function validarFormulario() {
         let esValido = true;
