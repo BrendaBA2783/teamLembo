@@ -404,35 +404,3 @@ button:hover {
         top: 102rem;
     }
 }
-
-/* .error {
-    background-color: var(--yellow_secundary_200);
-    border: 0.1rem solid var(--yellow_secundary_950);
-    color: var(--yellow_secundary_950);
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 46rem;
-    margin-right: 38rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    position: absolute;
-}
-
-.correct {
-    background-color: var(--secundary_green_200);
-    border: 0.1rem solid var(--primary_green_900);
-    color: var(--primary_green_900);
-    padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 46rem;
-    margin-right: 32rem;
-    border-radius: 0.5rem;
-    text-align: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    position: absolute;
-} */

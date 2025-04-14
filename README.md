@@ -58,11 +58,6 @@ Este proyecto es un aplicativo web para el lembo de santa rosa. (Mejorar descrip
 │   │   │-- enable-disable.css                              # Archivo que contiene los estilos generales para habilitar y deshabilitar elemento
 │   │   │-- recover-password.css                            # Archivo que contiene los estilos para las vistas de recuperar contraseña
 │   │   │-- confirm-update-register-enable-disable.css      # Estilos para la ventana de confirmación de acciones
-│   │   │-- components/
-│   │   │   ├── navbar.css       # Estilos del navbar
-│   │   │   ├── footer.css       # Estilos del footer
-│   │   │   ├── sidebar.css      # Estilos del sidebar
-│   │   │   ├── form.css         # Estilos del formulario
 │   │   │-- pages/
 │   │   │   ├── home.css         # Estilos de la página de inicio
 │   │   │   ├── register.css     # Estilos de la página de registro

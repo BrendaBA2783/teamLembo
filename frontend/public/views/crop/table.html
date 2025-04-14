@@ -56,54 +56,138 @@
     <main class="main">
         <div class="main__table-container">
             <table class="main__table">
-                <tr class="main__table-row">
-                    <th class="main__table-header">ID CULTIVO</th>
-                    <th class="main__table-header">TIPO CULTIVO</th>
-                    <th class="main__table-header">NOMBRE</th>
-                    <th class="main__table-header">TAMAÑO</th>
-                    <th class="main__table-header">DESCRIPCIÓN</th>
-                    <th class="main__table-header">IMÁGEN</th>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Granos</td>
-                    <td class="main__table-cell">Trigo</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Frutas</td>
-                    <td class="main__table-cell">Manzana</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Hortalizas</td>
-                    <td class="main__table-cell">Zanahoria</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">04</td>
-                    <td class="main__table-cell">Legumbres</td>
-                    <td class="main__table-cell">Lentejas</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">05</td>
-                    <td class="main__table-cell">Tubérculos</td>
-                    <td class="main__table-cell">Papa</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>                
+                <thead class="main__thead">
+                    <tr class="main__table-row">
+                        <th class="main__table-header">ID CULTIVO</th>
+                        <th class="main__table-header">TIPO CULTIVO</th>
+                        <th class="main__table-header">NOMBRE</th>
+                        <th class="main__table-header">TAMAÑO</th>
+                        <th class="main__table-header">DESCRIPCIÓN</th>
+                        <th class="main__table-header">IMÁGEN</th>
+                    </tr>
+                </thead>
+                <tbody class="main__tbody">
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">01</td>
+                        <td class="main__table-cell">Granos</td>
+                        <td class="main__table-cell">Trigo</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">02</td>
+                        <td class="main__table-cell">Frutas</td>
+                        <td class="main__table-cell">Manzana</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">03</td>
+                        <td class="main__table-cell">Hortalizas</td>
+                        <td class="main__table-cell">Zanahoria</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">04</td>
+                        <td class="main__table-cell">Legumbres</td>
+                        <td class="main__table-cell">Lentejas</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">05</td>
+                        <td class="main__table-cell">Tubérculos</td>
+                        <td class="main__table-cell">Papa</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">01</td>
+                        <td class="main__table-cell">Granos</td>
+                        <td class="main__table-cell">Trigo</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">02</td>
+                        <td class="main__table-cell">Frutas</td>
+                        <td class="main__table-cell">Manzana</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">03</td>
+                        <td class="main__table-cell">Hortalizas</td>
+                        <td class="main__table-cell">Zanahoria</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">04</td>
+                        <td class="main__table-cell">Legumbres</td>
+                        <td class="main__table-cell">Lentejas</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">05</td>
+                        <td class="main__table-cell">Tubérculos</td>
+                        <td class="main__table-cell">Papa</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">01</td>
+                        <td class="main__table-cell">Granos</td>
+                        <td class="main__table-cell">Trigo</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">02</td>
+                        <td class="main__table-cell">Frutas</td>
+                        <td class="main__table-cell">Manzana</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">03</td>
+                        <td class="main__table-cell">Hortalizas</td>
+                        <td class="main__table-cell">Zanahoria</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">04</td>
+                        <td class="main__table-cell">Legumbres</td>
+                        <td class="main__table-cell">Lentejas</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                    <tr class="main__table-row">
+                        <td class="main__table-cell main__table-cell--left">05</td>
+                        <td class="main__table-cell">Tubérculos</td>
+                        <td class="main__table-cell">Papa</td>
+                        <td class="main__table-cell">Kilogramos</td>
+                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                        <td class="main__table-cell main__table-cell--right">Imágen</td>
+                    </tr>
+                </tbody>                
             </table>
         </div>
     </main>

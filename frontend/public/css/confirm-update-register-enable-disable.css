@@ -3,7 +3,7 @@ header {
     border-bottom: 0.4rem solid var(--primary_green_900);
 }
 
-/* User Status */
+/* confirm */
 .container {
     margin: 0 auto;
     background-color: var(--white);
@@ -14,14 +14,6 @@ header {
     border-radius: 1rem;
     box-shadow: 0px 3px 15px 0px var(--primary_green_900);
     text-align: center;
-}
-.container__message {
-    text-align: center;
-}
-.container__button {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 @media (max-width: 1200px) {
