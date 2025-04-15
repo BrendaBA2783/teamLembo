@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
+    <script src="/backend/middleware.js/display_drop-down.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +24,7 @@
     <div class="table-title">
         <h2 class="table-title__title">Sensores</h2>
     </div>
-    
+
     <!-- Sección de búsqueda -->
     <div class="search">
         <input class="search__input" type="text" placeholder="Buscar..."/>
@@ -33,20 +34,24 @@
     <!-- Opciones de la tabla -->
     <div class="table-options">
         <a class="table-options__link" href="id-enable-disable.html">
-            <h4>Deshabilitar/Habilitar
+            <h4 class="table-options__title">Deshabilitar/Habilitar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
         </a>
         <a class="table-options__link" href="reporte.html">
-            <h4>Descargar
+            <h4 class="table-options__title">Descargar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
         </a>
-        <a class="table-options__link" href="id-visualise.html">
-            <h4>Visualizar
+        <div class="table-options__link visualizar-dropdown">
+            <h4 class="table-options__title" id="visualizarBtn">Visualizar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-        </a>
+            <div class="dropdown-menu" id="visualizarMenu">
+                <a href="../id-visualise-association.html">Visualizar asociación</a>
+                <a href="id-visualise.html">Visualizar datos</a>
+            </div>
+        </div>
         <a class="table-options__link" href="filtro.html">
             <img class="table-options__image--filter" src="../../img/icono_filtro.png" />
         </a>
@@ -56,138 +61,54 @@
     <main class="main">
         <div class="main__table-container">
             <table class="main__table">
-                <thead class="main__thead">
-                    <tr class="main__table-row">
-                        <th class="main__table-header">ID SENSOR</th>
-                        <th class="main__table-header">TIPO SENSOR</th>
-                        <th class="main__table-header">NOMBRE</th>
-                        <th class="main__table-header">TIEMPO ESCANEO</th>
-                        <th class="main__table-header">DESCRIPCIÓN</th>
-                        <th class="main__table-header">IMÁGEN</th>
-                    </tr>
-                </thead>
-                <tbody class="main__tbody">
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Temperatura</td>
-                        <td class="main__table-cell">Sensor T1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Mide la temperatura ambiental</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Humedad</td>
-                        <td class="main__table-cell">Sensor H1</td>
-                        <td class="main__table-cell">10 segundos</td>
-                        <td class="main__table-cell">Detecta la humedad relativa del aire</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Presión</td>
-                        <td class="main__table-cell">Sensor P1</td>
-                        <td class="main__table-cell">15 segundos</td>
-                        <td class="main__table-cell">Registra la presión atmosférica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Movimiento</td>
-                        <td class="main__table-cell">Sensor M1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Detecta movimientos en un área</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Luz</td>
-                        <td class="main__table-cell">Sensor L1</td>
-                        <td class="main__table-cell">8 segundos</td>
-                        <td class="main__table-cell">Mide la intensidad lumínica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Temperatura</td>
-                        <td class="main__table-cell">Sensor T1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Mide la temperatura ambiental</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Humedad</td>
-                        <td class="main__table-cell">Sensor H1</td>
-                        <td class="main__table-cell">10 segundos</td>
-                        <td class="main__table-cell">Detecta la humedad relativa del aire</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Presión</td>
-                        <td class="main__table-cell">Sensor P1</td>
-                        <td class="main__table-cell">15 segundos</td>
-                        <td class="main__table-cell">Registra la presión atmosférica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Movimiento</td>
-                        <td class="main__table-cell">Sensor M1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Detecta movimientos en un área</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Luz</td>
-                        <td class="main__table-cell">Sensor L1</td>
-                        <td class="main__table-cell">8 segundos</td>
-                        <td class="main__table-cell">Mide la intensidad lumínica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Temperatura</td>
-                        <td class="main__table-cell">Sensor T1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Mide la temperatura ambiental</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Humedad</td>
-                        <td class="main__table-cell">Sensor H1</td>
-                        <td class="main__table-cell">10 segundos</td>
-                        <td class="main__table-cell">Detecta la humedad relativa del aire</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Presión</td>
-                        <td class="main__table-cell">Sensor P1</td>
-                        <td class="main__table-cell">15 segundos</td>
-                        <td class="main__table-cell">Registra la presión atmosférica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Movimiento</td>
-                        <td class="main__table-cell">Sensor M1</td>
-                        <td class="main__table-cell">5 segundos</td>
-                        <td class="main__table-cell">Detecta movimientos en un área</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Luz</td>
-                        <td class="main__table-cell">Sensor L1</td>
-                        <td class="main__table-cell">8 segundos</td>
-                        <td class="main__table-cell">Mide la intensidad lumínica</td>
-                        <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
-                    </tr>
-                </tbody>
+                <tr class="main__table-row">
+                    <th class="main__table-header">ID SENSOR</th>
+                    <th class="main__table-header">TIPO SENSOR</th>
+                    <th class="main__table-header">NOMBRE</th>
+                    <th class="main__table-header">TIEMPO ESCANEO</th>
+                    <th class="main__table-header">DESCRIPCIÓN</th>
+                    <th class="main__table-header">IMÁGEN</th>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">01</td>
+                    <td class="main__table-cell">Temperatura</td>
+                    <td class="main__table-cell">Sensor T1</td>
+                    <td class="main__table-cell">5 segundos</td>
+                    <td class="main__table-cell">Mide la temperatura ambiental</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">02</td>
+                    <td class="main__table-cell">Humedad</td>
+                    <td class="main__table-cell">Sensor H1</td>
+                    <td class="main__table-cell">10 segundos</td>
+                    <td class="main__table-cell">Detecta la humedad relativa del aire</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">03</td>
+                    <td class="main__table-cell">Presión</td>
+                    <td class="main__table-cell">Sensor P1</td>
+                    <td class="main__table-cell">15 segundos</td>
+                    <td class="main__table-cell">Registra la presión atmosférica</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">04</td>
+                    <td class="main__table-cell">Movimiento</td>
+                    <td class="main__table-cell">Sensor M1</td>
+                    <td class="main__table-cell">5 segundos</td>
+                    <td class="main__table-cell">Detecta movimientos en un área</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">05</td>
+                    <td class="main__table-cell">Luz</td>
+                    <td class="main__table-cell">Sensor L1</td>
+                    <td class="main__table-cell">8 segundos</td>
+                    <td class="main__table-cell">Mide la intensidad lumínica</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
+                </tr>
             </table>
         </div>
     </main>
