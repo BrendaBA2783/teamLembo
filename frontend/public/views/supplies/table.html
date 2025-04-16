@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
+    <script src="/backend/middleware.js/display_drop-down.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,16 +38,24 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
         </a>
-        <a class="table-options__link" href="reporte.html">
-            <h4 class="table-options__title">Descargar
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="descargarBtn">Descargar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-        </a>
-        <a class="table-options__link" href="id-visualise.html">
-            <h4 class="table-options__title">Visualizar
+            <div class="dropdown-menu" id="descargarMenu">
+                <a href="#">PDF</a>
+                <a href="#">EXCEL</a>
+            </div>
+        </div>
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="visualizarBtn">Visualizar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-        </a>
+            <div class="dropdown-menu" id="visualizarMenu">
+                <a href="../id-visualise-association.html">Visualizar asociación</a>
+                <a href="id-visualise.html">Visualizar datos</a>
+            </div>
+        </div>
         <a class="table-options__link" href="filtro.html">
             <img class="table-options__image--filter" src="../../img/icono_filtro.png" />
         </a>

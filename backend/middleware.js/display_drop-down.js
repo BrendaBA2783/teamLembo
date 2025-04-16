@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const visualizarBtn = document.getElementById('visualizarBtn');
-    const visualizarMenu = document.getElementById('visualizarMenu');
-    
-    // Función para mostrar/ocultar el menú desplegable
-    visualizarBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        visualizarMenu.classList.toggle('show');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+
+    dropdownToggles.forEach((toggle, index) => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Ocultar todos los menús excepto el actual
+            dropdownMenus.forEach((menu, i) => {
+                if (i !== index) {
+                    menu.classList.remove('show');
+                }
+            });
+            // Mostrar/ocultar el menú actual
+            dropdownMenus[index].classList.toggle('show');
+        });
     });
-    
-    // Cerrar el menú desplegable si se hace clic fuera de él
+
+    // Cerrar los menús desplegables si se hace clic fuera de ellos
     window.addEventListener('click', function(e) {
-        if (!visualizarBtn.contains(e.target)) {
-            visualizarMenu.classList.remove('show');
-        }
+        dropdownMenus.forEach(menu => {
+            const relatedToggle = menu.previousElementSibling; // El botón está antes del menú
+            if (menu.classList.contains('show') && !menu.contains(e.target) && relatedToggle && !relatedToggle.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
     });
 });
