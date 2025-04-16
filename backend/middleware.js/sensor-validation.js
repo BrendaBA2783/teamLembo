@@ -32,6 +32,35 @@ estado.addEventListener('input', readText);
 imagen.addEventListener('input', readText);
 descripcion.addEventListener('input', readText);
 
+// Validaciones adicionales para campos específicos
+idSensor.addEventListener('input', function(e) {
+    if (isNaN(e.target.value)) {
+        e.preventDefault();
+        showError('El ID del sensor debe contener solo números');
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    }
+});
+
+unidadMedida.addEventListener('input', function(e) {
+    if (isNaN(e.target.value)) {
+        e.preventDefault();
+        showError('La unidad de medida debe contener solo números');
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    }
+});
+
+// Nueva validación para tipoSensor - no permitir caracteres especiales
+tipoSensor.addEventListener('input', function(e) {
+    // Expresión regular que permite solo letras y números
+    const regex = /[^a-zA-Z0-9\s]/;
+    
+    if (regex.test(e.target.value)) {
+        e.preventDefault();
+        showError('El tipo de sensor no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(regex, '');
+    }
+});
+
 // Event listener para el botón de actualizar
 botonActualizar.addEventListener('click', function(e) {
     e.preventDefault();
@@ -49,6 +78,28 @@ botonActualizar.addEventListener('click', function(e) {
     // Validación específica para tiempo de escaneo (asegurando que sea numérico)
     if (isNaN(tiempoEscaneo)) {
         showError('El tiempo de escaneo debe ser un valor numérico');
+        return;
+    }
+    
+    // Validación específica para imagen (asegurando que se haya subido una)
+    if (imagen === '') {
+        showError('Debe subir una imagen del sensor');
+        return;
+    }
+    
+    // Validación para asegurar que ID y unidad de medida contengan solo números
+    if (!/^\d+$/.test(idSensor)) {
+        showError('El ID del sensor debe contener solo números');
+        return;
+    }
+    
+    if (!/^\d+$/.test(unidadMedida)) {
+        showError('La unidad de medida debe contener solo números');
+        return;
+    }
+    
+    if (/[^a-zA-Z0-9\s]/.test(tipoSensor)) {
+        showError('El tipo de sensor no puede contener caracteres especiales');
         return;
     }
     

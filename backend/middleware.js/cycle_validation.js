@@ -32,6 +32,45 @@ fechaInicio.addEventListener('input', readText);
 fechaFin.addEventListener('input', readText);
 descripcion.addEventListener('input', readText);
 
+// Validación específica para el ID del ciclo (solo números)
+idCiclo.addEventListener('input', function(e) {
+    if (isNaN(e.target.value)) {
+        e.preventDefault();
+        showError('El ID del ciclo debe contener solo números');
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    }
+});
+
+// Validación para nombre del ciclo (sin caracteres especiales)
+nombreCiclo.addEventListener('input', function(e) {
+    if (hasSpecialChars(e.target.value)) {
+        e.preventDefault();
+        showError('El nombre del ciclo no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+    }
+});
+
+// Validación para descripción (sin caracteres especiales)
+descripcion.addEventListener('input', function(e) {
+    if (hasSpecialChars(e.target.value)) {
+        e.preventDefault();
+        showError('La descripción no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+    }
+});
+
+// Validación para las fechas
+fechaFin.addEventListener('change', function(e) {
+    const inicio = new Date(fechaInicio.value);
+    const fin = new Date(fechaFin.value);
+    
+    if (inicio && fin && inicio >= fin) {
+        e.preventDefault();
+        showError('La fecha inicial debe ser menor a la fecha final');
+        fechaFin.value = ''; // Limpiar el campo de fecha final
+    }
+});
+
 // Event listener para el botón de registrar
 botonRegistrar.addEventListener('click', function(e) {
     e.preventDefault();
@@ -46,9 +85,26 @@ botonRegistrar.addEventListener('click', function(e) {
         return;
     }
     
+    // Validar que el ID solo contenga números
+    if (!/^\d+$/.test(idCiclo)) {
+        showError('El ID del ciclo debe contener solo números');
+        return;
+    }
+    
+    // Validar que los campos específicos no contengan caracteres especiales
+    if (hasSpecialChars(nombreCiclo)) {
+        showError('El nombre del ciclo no puede contener caracteres especiales');
+        return;
+    }
+    
+    if (hasSpecialChars(descripcion)) {
+        showError('La descripción no puede contener caracteres especiales');
+        return;
+    }
+    
     // Validar que la fecha fin sea posterior a la fecha inicio
     if (new Date(fechaFin) <= new Date(fechaInicio)) {
-        showError('La fecha de fin debe ser posterior a la fecha de inicio');
+        showError('La fecha inicial debe ser menor a la fecha final');
         return;
     }
     
