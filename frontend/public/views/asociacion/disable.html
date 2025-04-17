@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deshabilitar asociacion</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../../css/enable-disable.css">
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Integración del general_header.hmtl -->
+    <div class="hero--general"></div>
+
+    <!-- Form -->
+    <form class="form">
+        <div class="form__container">
+            <h2 class="form__title">Habilitado</h2>
+            <div class="form__message-container">
+                <h4 class="form__message">La asociación con el siguiente ID</h4>
+                <h4 class="form__message">##############</h4>
+                <h4 class="form__message">Se encuentra habilitada</h4>
+                <h4 class="form__message">¿La desea deshabilitar?</h4>
+            </div><br>
+
+            <div class="form__box">
+                <a href="confirm-update-register-enable-disable.html">
+                    <button class="form__box-button" type="button">DESHABILITAR</button>
+                </a>
+                <br>
+            </div>
+        </div>
+    </form>
+
+    <!-- Sección de botón final, regresar -->
+    <div class="button-end">
+        <a href="table.html"><button class="button-end__return" type="submit">CANCELAR</button></a>
+    </div>
+</body>
+</html>
