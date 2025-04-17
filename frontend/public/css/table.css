@@ -30,7 +30,7 @@ header {
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
- 
+
 .dropdown-menu.show {
     display: block;
     opacity: 1;
@@ -94,9 +94,23 @@ header {
 
 /* Main */
 .main {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
+    max-height: 380px;
+    overflow-y: auto;
+    border-bottom: 0.4rem solid var(--white);
 }
+.main__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.main__thead {
+    position: sticky;
+    top: -0.1rem;
+    z-index: 1;
+    background-color: var(--gray_20);
+    box-shadow: inset 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* Tamaño de los campos */
 .main__table-header,
 .main__table-cell {
@@ -116,10 +130,6 @@ header {
 }
 .main__table-cell--right {
     box-shadow: inset -4px 0px 6px rgba(0, 0, 0, 0.1);
-}
-/* Sombra en la última fila (inferior interna) */
-.main__table-row:last-child .main__table-cell {
-    box-shadow: inset 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Media queries */

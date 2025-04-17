@@ -62,8 +62,8 @@
     </div>
     <!-- Tabla -->
     <main class="main">
-        <div class="main__table-container">
-            <table class="main__table">
+        <table class="main__table">
+            <thead class="main__thead">
                 <tr class="main__table-row">
                     <th class="main__table-header">ID INSUMO</th>
                     <th class="main__table-header">TIPO INSUMO</th>
@@ -72,6 +72,8 @@
                     <th class="main__table-header">DESCRIPCIÓN</th>
                     <th class="main__table-header">ESTADO</th>
                 </tr>
+            </thead>
+            <tbody class="main__tbody">
                 <tr class="main__table-row">
                     <td class="main__table-cell main__table-cell--left">01</td>
                     <td class="main__table-cell">Granos</td>
@@ -112,8 +114,24 @@
                     <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
                     <td class="main__table-cell main__table-cell--right">Disponible</td>
                 </tr>
-            </table>
-        </div>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">04</td>
+                    <td class="main__table-cell">Legumbres</td>
+                    <td class="main__table-cell">Lentejas</td>
+                    <td class="main__table-cell">Kilogramos</td>
+                    <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                    <td class="main__table-cell main__table-cell--right">Disponible</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">05</td>
+                    <td class="main__table-cell">Tubérculos</td>
+                    <td class="main__table-cell">Papa</td>
+                    <td class="main__table-cell">Kilogramos</td>
+                    <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                    <td class="main__table-cell main__table-cell--right">Disponible</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <!-- Seccion de botones finales - registrar/actualizar-->
