@@ -63,8 +63,8 @@
 
     <!-- Tabla -->
     <main class="main">
-        <div class="main__table-container">
-            <table class="main__table">
+        <table class="main__table">
+            <thead class="main__thead">
                 <tr class="main__table-row">
                     <th class="main__table-header">ID SENSOR</th>
                     <th class="main__table-header">TIPO SENSOR</th>
@@ -72,6 +72,48 @@
                     <th class="main__table-header">TIEMPO ESCANEO</th>
                     <th class="main__table-header">DESCRIPCIÓN</th>
                     <th class="main__table-header">IMÁGEN</th>
+                </tr>
+            </thead>
+            <tbody class="main__tbody">
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">01</td>
+                    <td class="main__table-cell">Temperatura</td>
+                    <td class="main__table-cell">Sensor T1</td>
+                    <td class="main__table-cell">5 segundos</td>
+                    <td class="main__table-cell">Mide la temperatura ambiental</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">02</td>
+                    <td class="main__table-cell">Humedad</td>
+                    <td class="main__table-cell">Sensor H1</td>
+                    <td class="main__table-cell">10 segundos</td>
+                    <td class="main__table-cell">Detecta la humedad relativa del aire</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">03</td>
+                    <td class="main__table-cell">Presión</td>
+                    <td class="main__table-cell">Sensor P1</td>
+                    <td class="main__table-cell">15 segundos</td>
+                    <td class="main__table-cell">Registra la presión atmosférica</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">04</td>
+                    <td class="main__table-cell">Movimiento</td>
+                    <td class="main__table-cell">Sensor M1</td>
+                    <td class="main__table-cell">5 segundos</td>
+                    <td class="main__table-cell">Detecta movimientos en un área</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">05</td>
+                    <td class="main__table-cell">Luz</td>
+                    <td class="main__table-cell">Sensor L1</td>
+                    <td class="main__table-cell">8 segundos</td>
+                    <td class="main__table-cell">Mide la intensidad lumínica</td>
+                    <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
                 </tr>
                 <tr class="main__table-row">
                     <td class="main__table-cell main__table-cell--left">01</td>
@@ -113,8 +155,8 @@
                     <td class="main__table-cell">Mide la intensidad lumínica</td>
                     <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
                 </tr>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </main>
 
     <!-- Seccion de botones finales - registrar/actualizar-->
