@@ -61,17 +61,29 @@ header {
 .search {
     display: flex;
     justify-content: end;
-    margin-right: 3rem;
+    margin-right: 1.4rem;
 }
-.search__image {
-    width: 4rem;
-    height: 4rem;
+.search__container {
+    display: flex;
+    align-items: center;
+    width: 36rem;
+    background-color: var(--white);
+    border: 0.1rem solid #ccc;
+    border-radius: 2px;
+    overflow: hidden;
 }
 .search__input {
-    width: 36rem;
-    height: auto;
-    padding: 1rem;
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
 }
+.search__icon {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+}
+
 
 /* Opciones de la tabla */
 .table-options {
