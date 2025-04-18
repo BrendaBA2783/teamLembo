@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar insumo</title>
+    <title>Registrar asociacion</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/form-update-register.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
+    <script src="/backend/middleware.js/supplies-validacion.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,89 +20,49 @@
     <!-- Integración del general_header.hmtl -->
     <div class="hero--general"></div>
 
-    <div class="main__form-group">
-        <p class="main__form-label">Tipo de usuario</p>
-        <input 
-            class="main__form-field main__form-field--userType" 
-            type="text"/>
-    </div>
-
-
-
     <!-- Main -->
     <main class="main">
         <div class="main__container">
-            <h2 class="main__title">Registrar insumo agrícola</h2>
+            <h2 class="main__title">Registrar asociación</h2>
             <div class="main__container-form">
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del insumo</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesId" 
-                        type="text" />
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del ciclo de cultivo</p>
-                    <input 
-                        class="main__form-field main__form-field--cropId" 
-                        type="text">
-                </div>
-
                 <div class="main__form-group">
                     <p class="main__form-label">ID del cultivo</p>
-                    <input 
-                        class="main__form-field" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo</p>
                     <input class="main__form-field" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Cantidad</p>
+                    <p class="main__form-label">ID del sensor asociado</p>
                     <input class="main__form-field" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Nombre</p>
+                    <p class="main__form-label">ID del insumo asociado</p>
                     <input class="main__form-field" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
+                    <p class="main__form-label">ID del usuario asociado</p>
                     <input class="main__form-field" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Valor unitario</p>
+                    <p class="main__form-label">ID de la asociación</p>
                     <input class="main__form-field" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Valor total</p>
+                    <p class="main__form-label">ID de la asociación</p>
                     <input class="main__form-field" type="text">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Unidad de medida</p>
-                    <input class="main__form-field" type="text">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Descripción</p>
-                    <input class="main__form-field main__form-field--description" type="text" />
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
                 <a href="confirm-update-register-enable-disable.html" >
                     <button class="main__form-button">REGISTRAR</button>
                 </a>
-            </div>
+            </div><!-- main__form-end -->
         </div> <!-- main__container -->
     </main>
 
     <!-- Sección de botón final, regresar -->
     <div class="button-end">
-        <a href="table.html"><button class="button-end__return" type="submit">CANCELAR</button></a>
+        <a href="table.html">
+            <button class="button-end__return" type="button">CANCELAR</button>
+        </a>
     </div>
-
-    <!-- Enlace de script para validaciones de insumos -->
-    <script src="/backend/middleware.js/supplies-validacion.js"></script>
 </body>
 </html>

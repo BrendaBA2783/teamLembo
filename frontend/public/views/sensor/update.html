@@ -19,51 +19,49 @@
     <!-- Integración del general_header.hmtl -->
     <div class="hero--general"></div>
 
-    <!-- Main -->
-    <main class="main">
-        <div class="main__container">
-            <h2 class="main__title">Actualizar sensor</h2>
-            <div class="main__container-form">
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del sensor</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Unidad de medida</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo de sensor</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Tiempo escaneo</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Nombre</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
-                    <input type="text" class="main__form-field">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">Imágen del sensor</p>
-                    <input type="text" class="main__form-field" placeholder="Cargar imágen...">
-                </div>
-                <div class="main__form-group form__field-group--description">
-                    <p class="main__form-label">Descripción</p>
-                    <input type="text" class="main__form-field main__form-field--description">
-                </div>
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-                <a href="confirm-update-register-enable-disable.html">
-                    <button class="main__form-button">ACTUALIZAR</button>
-                </a>
-            </div><!-- main__form-end -->
-        </div><!-- main__container -->
-    </main>
+  <!-- Main -->
+  <main class="main">
+    <div class="main__container">
+        <h2 class="main__title">Actualizar sensor</h2>
+        <div class="main__container-form">
+            <div class="main__form-group">
+                <p class="main__form-label">ID del sensor</p>
+                <input type="text" class="main__form-field id-sensor">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Unidad de medida</p>
+                <input type="text" class="main__form-field unidad-medida">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Tipo de sensor</p>
+                <input type="text" class="main__form-field tipo-sensor">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Tiempo escaneo</p>
+                <input type="text" class="main__form-field tiempo-escaneo">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Nombre</p>
+                <input type="text" class="main__form-field nombre">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Estado</p>
+                <input type="text" class="main__form-field estado">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Imágen del sensor</p>
+                <input type="file" class="main__form-field imagen-sensor">
+            </div>
+            <div class="main__form-group form__field-group--description">
+                <p class="main__form-label">Descripción</p>
+                <input type="text" class="main__form-field main__form-field--description descripcion">
+            </div>
+        </div><!-- main__container-form -->
+        <div class="main__form-end">
+            <button class="main__form-button main__form-button">ACTUALIZAR</button>
+        </div>
+    </div><!-- main__container -->
+</main>
 
     <!-- Sección de botón final, regresar -->
     <div class="button-end">
@@ -71,5 +69,8 @@
             <button class="button-end__return" type="button">CANCELAR</button>
         </a>
     </div>
+
+    <script src="/backend/middleware.js/sensor-validation.js"></script>
+
 </body>
 </html>

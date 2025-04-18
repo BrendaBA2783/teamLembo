@@ -48,6 +48,16 @@ header {
     margin: 2rem;
 }
 
+.imagen-sensor-container {
+    position: relative;
+}
+.imagen-sensor-preview {
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 10px;
+    display: none;
+}
+
 /* Media querie para una mejor adaptación a las diferentes pantallas 950px */
 @media (max-width: 950px) {
     .main__container {
@@ -101,3 +111,4 @@ header {
         padding: 0 1rem;
     }
 }
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociaciones</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../../css/table.css">
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+    <script src="/backend/middleware.js/display_drop-down.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Integración del general_header.hmtl -->
+    <div class="hero--general"></div>
+
+    <!-- Título de la tabla -->
+    <div class="table-title">
+        <h2 class="table-title__title">Asociaciones</h2>
+    </div>
+
+    <!-- Sección de búsqueda -->
+    <div class="search">
+        <div class="search__container">
+            <input type="text" class="search__input" placeholder="Buscar...">
+            <img src="/frontend/public/img/icono_lupa.png" alt="Buscar" class="search__icon">
+        </div>
+    </div>
+
+    <!-- Opciones de la tabla -->
+    <div class="table-options">
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle">Deshabilitar/Habilitar
+                <img class="table-options__image" src="../../img/icono_flecha.png" />
+            </h4>
+            <div class="dropdown-menu" id="habilitarDeshabilitarMenu">
+                <a href="id-enable.html">Habilitar asociación</a>
+                <a href="id-disable.html">Deshabilitar asociación</a>
+            </div>
+        </div>
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="descargarBtn">Descargar
+                <img class="table-options__image" src="../../img/icono_flecha.png" />
+            </h4>
+            <div class="dropdown-menu" id="descargarMenu">
+                <a href="#">PDF</a>
+                <a href="#">EXCEL</a>
+            </div>
+        </div>
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="visualizarBtn">Visualizar
+                <img class="table-options__image" src="../../img/icono_flecha.png" />
+            </h4>
+            <div class="dropdown-menu" id="visualizarMenu">
+                <a href="../id-visualise-association.html">Visualizar asociación</a>
+                <a href="id-visualise.html">Visualizar datos</a>
+            </div>
+        </div>
+        <a class="table-options__link" href="filtro.html">
+            <img class="table-options__image--filter" src="../../img/icono_filtro.png" />
+        </a>
+    </div>
+
+
+    <!-- Tabla -->
+    <main class="main">
+        <table class="main__table">
+            <thead class="main__thead">
+                <tr class="main__table-row">
+                    <th class="main__table-header">CULTIVO</th>
+                    <th class="main__table-header">SENSOR ASOCIADO</th>
+                    <th class="main__table-header">INSUMO ASOCIADO</th>
+                    <th class="main__table-header">CICLO ASOCIADO</th>
+                    <th class="main__table-header">USUARIO ASOCIADO</th>
+                    <th class="main__table-header">ESTADO</th>
+                </tr>
+            </thead>
+            <tbody class="main__tbody">
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Maíz</td>
+                    <td class="main__table-cell">Sensor de humedad</td>
+                    <td class="main__table-cell">Fertilizante NPK</td>
+                    <td class="main__table-cell">Ciclo Primavera</td>
+                    <td class="main__table-cell">Carlos Pérez</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Fresas</td>
+                    <td class="main__table-cell">Sensor de temperatura</td>
+                    <td class="main__table-cell">Fungicida orgánico</td>
+                    <td class="main__table-cell">Ciclo Invierno</td>
+                    <td class="main__table-cell">Laura Gómez</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Zanahoria</td>
+                    <td class="main__table-cell">Sensor de pH</td>
+                    <td class="main__table-cell">Compost</td>
+                    <td class="main__table-cell">Ciclo Verano</td>
+                    <td class="main__table-cell">Miguel Torres</td>
+                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Arroz</td>
+                    <td class="main__table-cell">Sensor de nivel de agua</td>
+                    <td class="main__table-cell">Herbicida selectivo</td>
+                    <td class="main__table-cell">Ciclo Otoño</td>
+                    <td class="main__table-cell">Ana Martínez</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Tomate</td>
+                    <td class="main__table-cell">Sensor de luz</td>
+                    <td class="main__table-cell">Pesticida natural</td>
+                    <td class="main__table-cell">Ciclo Primavera</td>
+                    <td class="main__table-cell">David Ríos</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Zanahoria</td>
+                    <td class="main__table-cell">Sensor de pH</td>
+                    <td class="main__table-cell">Compost</td>
+                    <td class="main__table-cell">Ciclo Verano</td>
+                    <td class="main__table-cell">Miguel Torres</td>
+                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Arroz</td>
+                    <td class="main__table-cell">Sensor de nivel de agua</td>
+                    <td class="main__table-cell">Herbicida selectivo</td>
+                    <td class="main__table-cell">Ciclo Otoño</td>
+                    <td class="main__table-cell">Ana Martínez</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Tomate</td>
+                    <td class="main__table-cell">Sensor de luz</td>
+                    <td class="main__table-cell">Pesticida natural</td>
+                    <td class="main__table-cell">Ciclo Primavera</td>
+                    <td class="main__table-cell">David Ríos</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Zanahoria</td>
+                    <td class="main__table-cell">Sensor de pH</td>
+                    <td class="main__table-cell">Compost</td>
+                    <td class="main__table-cell">Ciclo Verano</td>
+                    <td class="main__table-cell">Miguel Torres</td>
+                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Arroz</td>
+                    <td class="main__table-cell">Sensor de nivel de agua</td>
+                    <td class="main__table-cell">Herbicida selectivo</td>
+                    <td class="main__table-cell">Ciclo Otoño</td>
+                    <td class="main__table-cell">Ana Martínez</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">Tomate</td>
+                    <td class="main__table-cell">Sensor de luz</td>
+                    <td class="main__table-cell">Pesticida natural</td>
+                    <td class="main__table-cell">Ciclo Primavera</td>
+                    <td class="main__table-cell">David Ríos</td>
+                    <td class="main__table-cell main__table-cell--right">Activo</td>
+                </tr>
+            </tbody>            
+        </table>
+    </main>
+
+    <!-- Seccion de botones finales - registrar/actualizar-->
+    <div class="button-end">
+        <a href="register.html">
+            <button class="button-end__return--top-none" type="button">REGISTRAR</button>
+        </a>
+        <a href="id-update.html">
+            <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
+        </a>
+    </div>
+</body>
+</html>

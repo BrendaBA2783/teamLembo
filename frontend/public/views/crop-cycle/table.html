@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciclo de cultivo</title>
+    <title>Ciclo Cultivos</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/table.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
+    <script src="/backend/middleware.js/display_drop-down.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,15 +22,17 @@
 
     <!-- Título de la tabla -->
     <div class="table-title">
-        <h2 class="table-title__title">Ciclos de cultivo</h2>
+        <h2 class="table-title__title">Ciclo Cultivos</h2>
     </div>
 
     <!-- Sección de búsqueda -->
     <div class="search">
-        <input class="search__input" type="text" placeholder="Buscar..."/>
-        <img class="search__image" src="../../img/icono_lupa.png" />
+        <div class="search__container">
+            <input type="text" class="search__input" placeholder="Buscar...">
+            <img src="/frontend/public/img/icono_lupa.png" alt="Buscar" class="search__icon">
+        </div>
     </div>
-
+    
     <!-- Opciones de la tabla -->
     <div class="table-options">
         <a class="table-options__link" href="id-enable-disable.html">
@@ -37,16 +40,24 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
         </a>
-        <a class="table-options__link" href="reporte.html">
-            <h4 class="table-options__title">Descargar
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="descargarBtn">Descargar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-        </a>
-        <a class="table-options__link" href="id-visualise.html">
-            <h4 class="table-options__title">Visualizar
+            <div class="dropdown-menu" id="descargarMenu">
+                <a href="#">PDF</a>
+                <a href="#">EXCEL</a>
+            </div>
+        </div>
+        <div class="table-options__link dropdown-wrapper">
+            <h4 class="table-options__title dropdown-toggle" id="visualizarBtn">Visualizar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-        </a>
+            <div class="dropdown-menu" id="visualizarMenu">
+                <a href="../id-visualise-association.html">Visualizar asociación</a>
+                <a href="id-visualise.html">Visualizar datos</a>
+            </div>
+        </div>
         <a class="table-options__link" href="filtro.html">
             <img class="table-options__image--filter" src="../../img/icono_filtro.png" />
         </a>
@@ -54,144 +65,102 @@
 
     <!-- Tabla -->
     <main class="main">
-        <div class="main__table-container">
-            <table class="main__table">
-                <thead class="main__thead">
-                    <tr class="main__table-row">
-                        <th class="main__table-header">ID CICLO</th>
-                        <th class="main__table-header">TIPO CICLO</th>
-                        <th class="main__table-header">NOMBRE</th>
-                        <th class="main__table-header">TIEMPO</th>
-                        <th class="main__table-header">DESCRIPCIÓN</th>
-                        <th class="main__table-header">IMÁGEN</th>
-                    </tr>
-                </thead>
-                <tbody class="main__tbody">
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">120 días</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">150 días</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">90 días</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">110 días</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">100 días</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">120 días</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">150 días</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">90 días</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">110 días</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">100 días</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">120 días</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">150 días</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">90 días</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">110 días</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">100 días</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Imágen</td>
-                    </tr>
-                </tbody>                
-            </table>
-        </div>
+        <table class="main__table">
+            <thead class="main__thead">
+                <tr class="main__table-row">
+                    <th class="main__table-header">ID CICLO</th>
+                    <th class="main__table-header">TIPO CICLO</th>
+                    <th class="main__table-header">NOMBRE</th>
+                    <th class="main__table-header">TIEMPO</th>
+                    <th class="main__table-header">DESCRIPCIÓN</th>
+                    <th class="main__table-header">IMÁGEN</th>
+                </tr>
+            </thead>
+            <tbody class="main__tbody">
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">01</td>
+                    <td class="main__table-cell">Granos</td>
+                    <td class="main__table-cell">Trigo</td>
+                    <td class="main__table-cell">120 días</td>
+                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">02</td>
+                    <td class="main__table-cell">Frutas</td>
+                    <td class="main__table-cell">Manzana</td>
+                    <td class="main__table-cell">150 días</td>
+                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">03</td>
+                    <td class="main__table-cell">Hortalizas</td>
+                    <td class="main__table-cell">Zanahoria</td>
+                    <td class="main__table-cell">90 días</td>
+                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">04</td>
+                    <td class="main__table-cell">Legumbres</td>
+                    <td class="main__table-cell">Lentejas</td>
+                    <td class="main__table-cell">110 días</td>
+                    <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">05</td>
+                    <td class="main__table-cell">Tubérculos</td>
+                    <td class="main__table-cell">Papa</td>
+                    <td class="main__table-cell">100 días</td>
+                    <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">01</td>
+                    <td class="main__table-cell">Granos</td>
+                    <td class="main__table-cell">Trigo</td>
+                    <td class="main__table-cell">120 días</td>
+                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">02</td>
+                    <td class="main__table-cell">Frutas</td>
+                    <td class="main__table-cell">Manzana</td>
+                    <td class="main__table-cell">150 días</td>
+                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">03</td>
+                    <td class="main__table-cell">Hortalizas</td>
+                    <td class="main__table-cell">Zanahoria</td>
+                    <td class="main__table-cell">90 días</td>
+                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">04</td>
+                    <td class="main__table-cell">Legumbres</td>
+                    <td class="main__table-cell">Lentejas</td>
+                    <td class="main__table-cell">110 días</td>
+                    <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>
+                <tr class="main__table-row">
+                    <td class="main__table-cell main__table-cell--left">05</td>
+                    <td class="main__table-cell">Tubérculos</td>
+                    <td class="main__table-cell">Papa</td>
+                    <td class="main__table-cell">100 días</td>
+                    <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
+                    <td class="main__table-cell main__table-cell--right">Imágen</td>
+                </tr>    
+            </tbody>
+        </table>
     </main>
-
+    
     <!-- Seccion de botones finales - registrar/actualizar-->
     <div class="button-end">
         <a href="register.html">
