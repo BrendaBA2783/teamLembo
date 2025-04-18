@@ -13,7 +13,7 @@ header {
 .main__container {
     display: flex;
     flex-direction: column;
-    padding: 2rem 4rem;
+    padding: 2rem 4rem 4rem;
     background-color: var(--white);
     width: 80%;
     height: auto;
