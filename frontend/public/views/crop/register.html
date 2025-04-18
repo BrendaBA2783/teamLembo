@@ -21,48 +21,48 @@
 
     <!-- Main -->
     <main class="main">
-        <div class="main__container">
+        <form class="main__container main__container--userForm">
             <h2 class="main__title">Registrar cultivo</h2>
             <div class="main__container-form">
                 <div class="main__form-group">
                     <p class="main__form-label">ID del cultivo</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropId" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de cultivo</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropType" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Ubicación</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropLocation" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Tamaño</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropSize" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Nombre</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropName" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input class="main__form-field" type="text">
+                    <input class="main__form-field main__form-field--cropState" type="text">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Imágen</p>
-                    <input class="main__form-field" type="text" placeholder="Cargar imágen...">
+                    <input class="main__form-field main__form-field--cropImage" type="text" placeholder="Cargar imágen...">
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Descripción</p>
-                    <input class="main__form-field main__form-field--description" type="text" />
+                    <input class="main__form-field main__form-field--description main__form-field--cropDescription" type="text" />
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
                 <a href="confirm-update-register-enable-disable.html" >
-                    <button class="main__form-button">REGISTRAR</button>
+                    <button type="submit" class="main__form-button main__form-button--register">REGISTRAR</button>
                 </a>
             </div><!-- main__form-end -->
-        </div> <!-- main__container -->
+        </form> <!-- main__container -->
     </main>
 
     <!-- Sección de botón final, regresar -->
@@ -71,5 +71,8 @@
             <button class="button-end__return" type="button">CANCELAR</button>
         </a>
     </div>
+
+    <script src="/backend/middleware.js/crop-validation-register.js"></script>
+
 </body>
 </html>

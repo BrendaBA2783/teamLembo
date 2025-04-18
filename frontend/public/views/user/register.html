@@ -28,42 +28,48 @@
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de usuario</p>
                     <input 
-                        class="main__form-field main__form-field--userType" 
+                        class="main__form-field main__form-field--userType
+                        main__form-field--letters" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de documento</p>
                     <input 
-                        class="main__form-field main__form-field--userDocumentType" required
+                        class="main__form-field main__form-field--userDocumentType
+                        main__form-field--letters"
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Número de identificación</p>
                     <input 
-                        class="main__form-field main__form-field--userIdentificationNumber" 
+                        class="main__form-field main__form-field--userIdentificationNumber
+                        main__form-field--number" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Nombre/s</p>
                     <input 
-                        class="main__form-field main__form-field--userName" 
+                        class="main__form-field main__form-field--userName
+                        main__form-field--letters" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Apellido/s</p>
                     <input 
-                        class="main__form-field main__form-field--userLastName" 
+                        class="main__form-field main__form-field--userLastName 
+                        main__form-field--letters" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Número telefónico</p>
                     <input 
-                        class="main__form-field main__form-field--userCellPhone" 
+                        class="main__form-field main__form-field--userCellPhone
+                        main__form-field--number" 
                         type="text"/>
                 </div>
 
@@ -76,20 +82,20 @@
                     <p class="main__form-label">Correo electrónico</p>
                     <input 
                         class="main__form-field main__form-field--userEmail" 
-                        type="text"/>
+                        type="email"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Confirmación de correo electrónico</p>
                     <input 
                         class="main__form-field main__form-field--user main__form-field--userConfirmationEmail" 
-                        type="text"/>
+                        type="email"/>
                 </div>
 
             </div><!-- main__container-form -->
             <div class="main__form-end">
                 <!-- <a href="register-credentials.html"> -->
-                    <button type="submit" class="main__form-button">CONTINUAR</button>
+                    <button type="submit" class="main__form-button main__form-button--continue">CONTINUAR</button>
                 <!-- </a> -->
             </div> <!-- main__form-end -->
         </form><!-- main__container -->
@@ -102,6 +108,6 @@
         </a>
     </div>
 
-    <script src="/backend/middleware.js/user-validacion.js"></script>
+    <script src="/backend/middleware.js/user-validation-register.js"></script>
 </body>
 </html>

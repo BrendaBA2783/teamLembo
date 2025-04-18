@@ -1,3 +1,4 @@
+//VALIDACIÓN 
 //Se realiza un objeto con las clases que se acaban de poner en el index 
 const userData = {
     userType: '',
@@ -43,7 +44,7 @@ userForm.addEventListener("submit", function(e) {
             showError('Todos los campos son obligatorios');
             return;
     }
-    showSuccess('Tus datos han sido enviados satisfactoriamente');/*  */
+    showSuccess('Tus datos han sido enviados satisfactoriamente');
 })
 
 function showError(message) {
@@ -57,7 +58,7 @@ function showError(message) {
     setTimeout(() => {
         error.remove(); 
     }, 4000);
-}
+};
 
 function showSuccess(message) {
     const goodData = document.createElement('P');
@@ -71,9 +72,9 @@ function showSuccess(message) {
         goodData.remove();
 
         // Redirige a otra vista después de que se quite el mensaje
-        window.location.href = '/frontend/public/views/user/register-credentials.html';
+        window.location.href = 'confirm-update-register-enable-disable.html';
     }, 1000);
-}
+};
 
 
 //colback
@@ -102,4 +103,5 @@ function readText(e){
     else if (e.target.classList.contains('main__form-field--userConfirmationEmail')) {
         userData.userConfirmationEmail = e.target.value;
     }
-}
+    console.log(userData); 
+};

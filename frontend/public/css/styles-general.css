@@ -355,7 +355,7 @@ button:hover {
 .correct {
     position: absolute;
     top: 10rem;
-    right: 2rem;
+    right: 60rem;
     padding: 1rem;
     border-radius: 0.5rem;
     font-weight: 600;

@@ -21,16 +21,16 @@
 
     <!-- Main -->
     <main class="main">  
-        <div class="main__container">
+        <form class="main__container main__container--cropIdentification">
             <h2 class="main__title">Actualización de cultivo</h2>
             <p class="main__description">Ingrese el número de identificación del cultivo a actualizar</p>
-            <input type="text" class="main__field">
+            <input type="text" class="main__field main__field--cropUpdate">
             <div class="main__button-container">
                 <a href="update.html">
-                    <button class="main__button">CONTINUAR</button>
+                    <button type="submit" class="main__button">CONTINUAR</button>
                 </a>
             </div>
-        </div>
+        </form>
     </main>
 
     <!-- Sección de botón final, regresar -->
@@ -39,5 +39,8 @@
             <button class="button-end__return" type="button">VOLVER</button>
         </a>
     </div>
+
+    <script src="/backend/middleware.js/crop-validation-enable-disable.js"></script>
+
 </body>
 </html>
