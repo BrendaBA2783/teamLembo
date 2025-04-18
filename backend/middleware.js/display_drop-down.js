@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const dropdownToggles = document.querySelectorAll('.table-options__title--dropdown-toggle');
     const dropdownMenus = document.querySelectorAll('.dropdown-menu');
 
     dropdownToggles.forEach((toggle, index) => {

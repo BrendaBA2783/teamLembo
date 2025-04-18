@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar sensor</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../../css/form-visualisase-date.css">
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <!-- Integración del general_header.hmtl -->
+    <div class="hero--general"></div>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="main__container">
+        <h2 class="main__title">Visualizar sensor</h2>
+        <div class="main__container-form">
+            <div class="main__form-group">
+                <p class="main__form-label">ID del sensor</p>
+                <input type="text" class="main__form-field id-sensor">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Unidad de medida</p>
+                <input type="text" class="main__form-field unidad-medida">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Tipo de sensor</p>
+                <input type="text" class="main__form-field tipo-sensor">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Tiempo escaneo</p>
+                <input type="text" class="main__form-field tiempo-escaneo">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Nombre</p>
+                <input type="text" class="main__form-field nombre">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Estado</p>
+                <input type="text" class="main__form-field estado">
+            </div>
+            <div class="main__form-group">
+                <p class="main__form-label">Imágen del sensor</p>
+                <input type="file" class="main__form-field imagen-sensor">
+            </div>
+            <div class="main__form-group form__field-group--description">
+                <p class="main__form-label">Descripción</p>
+                <input type="text" class="main__form-field main__form-field--description descripcion">
+            </div>
+        </div><!-- main__container-form -->
+    </div><!-- main__container -->
+</main>
+
+    <!-- Sección de botón final, regresar -->
+    <div class="button-end">
+        <a href="table.html">
+            <button class="button-end__return" type="button">CANCELAR</button>
+        </a>
+    </div>
+
+    <script src="/backend/middleware.js/sensor-validation.js"></script>
+
+</body>
+</html>
