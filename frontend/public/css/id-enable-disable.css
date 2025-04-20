@@ -33,6 +33,20 @@ header {
     margin-top: 0.8rem;
 }
 
+/* Estilos para los mensajes de error */
+.error {
+    background-color: #ff585f;
+    color: white;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 80%;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+
+
 /* Media */
 @media (max-width: 768px) {
     .form {

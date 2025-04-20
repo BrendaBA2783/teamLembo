@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar sensor</title>
+    <title>Actualizar Sensor</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/id-update-visualise.css">
@@ -22,12 +22,12 @@
     <!-- Main -->
     <main class="main">  
         <div class="main__container">
-            <h2 class="main__title">Actualización de sensores</h2>
-            <p class="main__description">Ingrese el número de identificación del sensor a actualizar</p>
+            <h2 class="main__title">Actualización de sensor de cultivo</h2>
+            <p class="main__description">Ingrese el número de identificación del sensor de cultivo a actualizar</p>
             <input type="text" class="main__field">
             <div class="main__button-container">
-                <a href="update.html">
-                    <button class="main__button">CONTINUAR</button>
+                <a href="update.html" id="continue-link">
+                    <button class="main__button" type="button">CONTINUAR</button>
                 </a>
             </div>
         </div>
@@ -36,8 +36,11 @@
     <!-- Sección de botón final, regresar -->
     <div class="button-end">
         <a href="table.html">
-            <button class="button-end__return" type="submit">VOLVER</button>
+            <button class="button-end__return" type="button">VOLVER</button>
         </a>
     </div>
+
+    <!-- Script para validación -->
+    <script src="/backend/middleware.js/id-update_validation.js"></script>
 </body>
 </html>
