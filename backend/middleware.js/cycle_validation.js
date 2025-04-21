@@ -112,7 +112,7 @@ botonRegistrar.addEventListener('click', function(e) {
         return;
     }
     
-    showSuccess('Ciclo de cultivo registrado satisfactoriamente');
+    showSuccess('El formulario ha sido completado correctamente');
 });
 
 // Función para mostrar mensajes de error
