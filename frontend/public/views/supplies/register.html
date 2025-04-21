@@ -19,18 +19,9 @@
     <!-- Integración del general_header.hmtl -->
     <div class="hero--general"></div>
 
-    <div class="main__form-group">
-        <p class="main__form-label">Tipo de usuario</p>
-        <input 
-            class="main__form-field main__form-field--userType" 
-            type="text"/>
-    </div>
-
-
-
     <!-- Main -->
     <main class="main">
-        <div class="main__container">
+        <form class="main__container main__container--suppliesForm">
             <h2 class="main__title">Registrar insumo agrícola</h2>
             <div class="main__container-form">
 
@@ -44,57 +35,79 @@
                 <div class="main__form-group">
                     <p class="main__form-label">ID del ciclo de cultivo</p>
                     <input 
-                        class="main__form-field main__form-field--cropId" 
+                        class="main__form-field main__form-field--cropcycleId" 
                         type="text">
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">ID del cultivo</p>
                     <input 
-                        class="main__form-field" 
+                        class="main__form-field 
+                        main__form-field--cropId" 
                         type="text">
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesType" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Cantidad</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesCuantity" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Nombre</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesName" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesState" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Valor unitario</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesUnitvalue" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Valor total</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesTotalvalue" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Unidad de medida</p>
-                    <input class="main__form-field" type="text">
+                    <input 
+                        class="main__form-field main__form-field--suppliesMeasure" 
+                        type="text">
                 </div>
+
                 <div class="main__form-group">
                     <p class="main__form-label">Descripción</p>
-                    <input class="main__form-field main__form-field--description" type="text" />
+                    <input 
+                        class="main__form-field main__form-field--description main__form-field--suppliesDescription" 
+                        type="text" />
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
-                <a href="confirm-update-register-enable-disable.html" >
-                    <button class="main__form-button">REGISTRAR</button>
-                </a>
+                <button class="main__form-button main__form-button--register" type="submit">REGISTRAR</button>
             </div>
-        </div> <!-- main__container -->
-    </main>
+        </form> <!-- main__container -->
+    </main><!-- main -->
 
     <!-- Sección de botón final, regresar -->
     <div class="button-end">
