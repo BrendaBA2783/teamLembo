@@ -11,14 +11,14 @@ const sensorData = {
 };
 
 // Seleccionando los elementos del formulario
-const idSensor = document.querySelector('.id-sensor');
-const unidadMedida = document.querySelector('.unidad-medida');
-const tipoSensor = document.querySelector('.tipo-sensor');
-const tiempoEscaneo = document.querySelector('.tiempo-escaneo');
-const nombre = document.querySelector('.nombre');
-const estado = document.querySelector('.estado');
-const imagen = document.querySelector('.imagen-sensor');
-const descripcion = document.querySelector('.descripcion');
+const idSensor = document.querySelector('.main__form-field--sensor-id');
+const unidadMedida = document.querySelector('.main__form-field--unit-measure');
+const tipoSensor = document.querySelector('.main__form-field--sensor-type');
+const tiempoEscaneo = document.querySelector('.main__form-field--scan-time');
+const nombre = document.querySelector('.main__form-field--name');
+const estado = document.querySelector('.main__form-field--state');
+const imagen = document.querySelector('.main__form-field--sensor-image');
+const descripcion = document.querySelector('.main__form-field--description');
 const botonActualizar = document.querySelector('.main__form-button');
 const mainContainer = document.querySelector('.main__container');
 
@@ -29,7 +29,7 @@ tipoSensor.addEventListener('input', readText);
 tiempoEscaneo.addEventListener('input', readText);
 nombre.addEventListener('input', readText);
 estado.addEventListener('input', readText);
-imagen.addEventListener('input', readText);
+imagen.addEventListener('change', readText); // Cambiado a 'change' para campos tipo file
 descripcion.addEventListener('input', readText);
 
 // Validaciones adicionales para campos específicos
@@ -49,7 +49,7 @@ unidadMedida.addEventListener('input', function(e) {
     }
 });
 
-// Nueva validación para tipoSensor - no permitir caracteres especiales
+// Validación para tipoSensor - no permitir caracteres especiales
 tipoSensor.addEventListener('input', function(e) {
     // Expresión regular que permite solo letras y números
     const regex = /[^a-zA-Z0-9\s]/;
@@ -61,45 +61,56 @@ tipoSensor.addEventListener('input', function(e) {
     }
 });
 
+// Validación para tiempo de escaneo - no permitir caracteres especiales
+tiempoEscaneo.addEventListener('input', function(e) {
+    // Expresión regular que permite solo letras y números
+    const regex = /[^a-zA-Z0-9\s]/;
+    
+    if (regex.test(e.target.value)) {
+        e.preventDefault();
+        showError('El tiempo de escaneo no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(regex, '');
+    }
+});
+
 // Event listener para el botón de actualizar
 botonActualizar.addEventListener('click', function(e) {
     e.preventDefault();
     console.log('Intentando actualizar sensor');
     
-    const { idSensor, unidadMedida, tipoSensor, tiempoEscaneo, nombre, estado, imagen, descripcion } = sensorData;
-    
     // Validar que todos los campos estén completos
-    if (idSensor === '' || unidadMedida === '' || tipoSensor === '' || tiempoEscaneo === '' || 
-        nombre === '' || estado === '' || imagen === '' || descripcion === '') {
+    if (sensorData.idSensor === '' || sensorData.unidadMedida === '' || sensorData.tipoSensor === '' || 
+        sensorData.tiempoEscaneo === '' || sensorData.nombre === '' || sensorData.estado === '' || 
+        sensorData.imagen === '' || sensorData.descripcion === '') {
         showError('Todos los campos son obligatorios');
         return;
     }
     
-    // Validación específica para tiempo de escaneo (asegurando que sea numérico)
-    if (isNaN(tiempoEscaneo)) {
-        showError('El tiempo de escaneo debe ser un valor numérico');
-        return;
-    }
-    
     // Validación específica para imagen (asegurando que se haya subido una)
-    if (imagen === '') {
-        showError('Debe subir una imagen del sensor');
+    if (sensorData.imagen === '') {
+        showError('Es obligatorio subir una imagen');
         return;
     }
     
     // Validación para asegurar que ID y unidad de medida contengan solo números
-    if (!/^\d+$/.test(idSensor)) {
+    if (!/^\d+$/.test(sensorData.idSensor)) {
         showError('El ID del sensor debe contener solo números');
         return;
     }
     
-    if (!/^\d+$/.test(unidadMedida)) {
+    if (!/^\d+$/.test(sensorData.unidadMedida)) {
         showError('La unidad de medida debe contener solo números');
         return;
     }
     
-    if (/[^a-zA-Z0-9\s]/.test(tipoSensor)) {
+    // Validación para asegurar que tipo de sensor y tiempo de escaneo no contengan caracteres especiales
+    if (/[^a-zA-Z0-9\s]/.test(sensorData.tipoSensor)) {
         showError('El tipo de sensor no puede contener caracteres especiales');
+        return;
+    }
+    
+    if (/[^a-zA-Z0-9\s]/.test(sensorData.tiempoEscaneo)) {
+        showError('El tiempo de escaneo no puede contener caracteres especiales');
         return;
     }
     
@@ -139,29 +150,27 @@ function showSuccess(message) {
 
 // Función callback para leer el texto de los inputs
 function readText(e) {
-    // Determinamos qué campo se está modificando basado en su posición
-    const index = Array.from(document.querySelectorAll('.main__form-field')).indexOf(e.target);
-    
-    if (index === 0) {
+    if (e.target.classList.contains('main__form-field--sensor-id')) {
         sensorData.idSensor = e.target.value;
     } 
-    else if (index === 1) {
+    else if (e. target.classList.contains('main__form-field--unit-measure')) {
         sensorData.unidadMedida = e.target.value;
     } 
-    else if (index === 2) {
+    else if (e.target.classList.contains('main__form-field--sensor-type')) {
         sensorData.tipoSensor = e.target.value;
     } 
-    else if (index === 3) {
+    else if (e.target.classList.contains('main__form-field--scan-time')) {
         sensorData.tiempoEscaneo = e.target.value;
     } 
-    else if (index === 4) {
+    else if (e.target.classList.contains('main__form-field--name')) {
         sensorData.nombre = e.target.value;
     } 
-    else if (index === 5) {
+    else if (e.target.classList.contains('main__form-field--state')) {
         sensorData.estado = e.target.value;
     } 
-    else if (index === 6) {
-        sensorData.imagen = e.target.value;
+    else if (e.target.classList.contains('main__form-field--sensor-image')) {
+        // Para campos tipo file, guardamos el nombre del archivo
+        sensorData.imagen = e.target.files.length > 0 ? e.target.files[0].name : '';
     } 
     else if (e.target.classList.contains('main__form-field--description')) {
         sensorData.descripcion = e.target.value;
