@@ -81,7 +81,7 @@ function showSuccess(message) {
 
         // Redirige a otra vista después de que se quite el mensaje
         window.location.href = '/frontend/public/views/supplies/confirm-update-register-enable-disable.html';
-    }, 1000);
+    }, 2000);
 }
 
 

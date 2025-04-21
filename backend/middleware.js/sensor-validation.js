@@ -29,7 +29,7 @@ tipoSensor.addEventListener('input', readText);
 tiempoEscaneo.addEventListener('input', readText);
 nombre.addEventListener('input', readText);
 estado.addEventListener('input', readText);
-imagen.addEventListener('change', readText); // Cambiado a 'change' para campos tipo file
+imagen.addEventListener('change', readText); 
 descripcion.addEventListener('input', readText);
 
 // Validaciones adicionales para campos específicos
