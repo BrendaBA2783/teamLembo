@@ -10,16 +10,22 @@ const cicloData = {
     descripcion: ''
 };
 
+// Función para verificar si contiene caracteres especiales
+function hasSpecialChars(text) {
+    const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    return specialCharsRegex.test(text);
+}
+
 // Seleccionando los elementos del formulario
-const idCiclo = document.querySelector('.id-ciclo');
-const ubicacion = document.querySelector('.ubicacion');
-const nombreCiclo = document.querySelector('.nombre-ciclo');
-const estado = document.querySelector('.estado');
-const novedades = document.querySelector('.novedades');
-const fechaInicio = document.querySelector('.fecha-inicio');
-const fechaFin = document.querySelector('.fecha-fin');
-const descripcion = document.querySelector('.descripcion');
-const botonRegistrar = document.querySelector('.boton-registrar');
+const idCiclo = document.querySelector('.main__form-field--cycle-id');
+const ubicacion = document.querySelector('.main__form-field--location');
+const nombreCiclo = document.querySelector('.main__form-field--cycle-name');
+const estado = document.querySelector('.main__form-field--state');
+const novedades = document.querySelector('.main__form-field--news');
+const fechaInicio = document.querySelector('.main__form-field--start-date');
+const fechaFin = document.querySelector('.main__form-field--end-date');
+const descripcion = document.querySelector('.main__form-field--description');
+const botonRegistrar = document.querySelector('.main__form-field--register-button');
 const mainContainer = document.querySelector('.main__container');
 
 // Agregando event listeners a cada campo
@@ -64,7 +70,7 @@ fechaFin.addEventListener('change', function(e) {
     const inicio = new Date(fechaInicio.value);
     const fin = new Date(fechaFin.value);
     
-    if (inicio && fin && inicio >= fin) {
+    if (fechaInicio.value && fechaFin.value && inicio >= fin) {
         e.preventDefault();
         showError('La fecha inicial debe ser menor a la fecha final');
         fechaFin.value = ''; // Limpiar el campo de fecha final
@@ -76,34 +82,32 @@ botonRegistrar.addEventListener('click', function(e) {
     e.preventDefault();
     console.log('Intentando registrar ciclo de cultivo');
     
-    const { idCiclo, ubicacion, nombreCiclo, estado, novedades, fechaInicio, fechaFin, descripcion } = cicloData;
-    
     // Validar que todos los campos estén completos
-    if (idCiclo === '' || ubicacion === '' || nombreCiclo === '' || estado === '' || 
-        novedades === '' || fechaInicio === '' || fechaFin === '' || descripcion === '') {
+    if (cicloData.idCiclo === '' || cicloData.ubicacion === '' || cicloData.nombreCiclo === '' || cicloData.estado === '' || 
+        cicloData.novedades === '' || cicloData.fechaInicio === '' || cicloData.fechaFin === '' || cicloData.descripcion === '') {
         showError('Todos los campos son obligatorios');
         return;
     }
     
     // Validar que el ID solo contenga números
-    if (!/^\d+$/.test(idCiclo)) {
+    if (!/^\d+$/.test(cicloData.idCiclo)) {
         showError('El ID del ciclo debe contener solo números');
         return;
     }
     
     // Validar que los campos específicos no contengan caracteres especiales
-    if (hasSpecialChars(nombreCiclo)) {
+    if (hasSpecialChars(cicloData.nombreCiclo)) {
         showError('El nombre del ciclo no puede contener caracteres especiales');
         return;
     }
     
-    if (hasSpecialChars(descripcion)) {
+    if (hasSpecialChars(cicloData.descripcion)) {
         showError('La descripción no puede contener caracteres especiales');
         return;
     }
     
     // Validar que la fecha fin sea posterior a la fecha inicio
-    if (new Date(fechaFin) <= new Date(fechaInicio)) {
+    if (new Date(cicloData.fechaFin) <= new Date(cicloData.fechaInicio)) {
         showError('La fecha inicial debe ser menor a la fecha final');
         return;
     }
@@ -144,28 +148,28 @@ function showSuccess(message) {
 
 // Función callback para leer el texto de los inputs
 function readText(e) {
-    if (e.target.classList.contains('id-ciclo')) {
+    if (e.target.classList.contains('main__form-field--cycle-id')) {
         cicloData.idCiclo = e.target.value;
     } 
-    else if (e.target.classList.contains('ubicacion')) {
+    else if (e.target.classList.contains('main__form-field--location')) {
         cicloData.ubicacion = e.target.value;
     } 
-    else if (e.target.classList.contains('nombre-ciclo')) {
+    else if (e.target.classList.contains('main__form-field--cycle-name')) {
         cicloData.nombreCiclo = e.target.value;
     } 
-    else if (e.target.classList.contains('estado')) {
+    else if (e.target.classList.contains('main__form-field--state')) {
         cicloData.estado = e.target.value;
     } 
-    else if (e.target.classList.contains('novedades')) {
+    else if (e.target.classList.contains('main__form-field--news')) {
         cicloData.novedades = e.target.value;
     } 
-    else if (e.target.classList.contains('fecha-inicio')) {
+    else if (e.target.classList.contains('main__form-field--start-date')) {
         cicloData.fechaInicio = e.target.value;
     } 
-    else if (e.target.classList.contains('fecha-fin')) {
+    else if (e.target.classList.contains('main__form-field--end-date')) {
         cicloData.fechaFin = e.target.value;
     } 
-    else if (e.target.classList.contains('descripcion')) {
+    else if (e.target.classList.contains('main__form-field--description')) {
         cicloData.descripcion = e.target.value;
     }
 }
