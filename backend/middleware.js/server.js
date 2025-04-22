@@ -1,20 +1,21 @@
 const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
+const mysql = require('mysql2');
+const cors = require('cors');
 
 const app = express();
-const port = 3000;
+app.use(express.json());
+app.use(cors());
 
 // Configuración de conexión a la base de datos
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root', // Usuario por defecto en XAMPP
-  password: '', // Si no tienes contraseña
-  database: 'sistema_agricola'
+    host: 'localhost',
+    user: 'root',
+    password: '', 
+    database: 'lembo'
 });
 
 // Conectar a la base de datos
-db.connect((err) => {
+db.connect(err => {
   if (err) {
     console.log('Error de conexión a la base de datos:', err);
     return;
@@ -22,26 +23,29 @@ db.connect((err) => {
   console.log('Conectado a la base de datos');
 });
 
-// Middleware para procesar JSON
-app.use(bodyParser.json());
-app.use(express.static('public')); // Para servir archivos estáticos
-
 // Ruta para agregar un usuario
-app.post('/agregar_usuario', (req, res) => {
-  const { nombre, correo, telefono, fecha_nacimiento } = req.body;
+app.post('/users', (req, res) => {
+  const{user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email } = req.body;
 
-  const query = 'INSERT INTO usuarios (nombre, correo, telefono, fecha_nacimiento) VALUES (?, ?, ?, ?)';
-  db.query(query, [nombre, correo, telefono, fecha_nacimiento], (err, result) => {
-    if (err) {
-      res.status(500).send('Error al insertar datos');
-      return;
+  db.query (
+    'INSERT INTO users (user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+
+    [user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email],
+    (err, result) => {
+      if (err) {
+        result.status(500).send('Error al insertar datos');
+        return;
+      }
+        result.status(200).send('Usuario agregado');
     }
-    res.status(200).send('Usuario agregado');
-  });
+  );
 });
 
+app.listen(3000, () => {
+  console.log ('Servidor corriendo en http://localhost:3000/user');
+});
 // Ruta para obtener los usuarios
-app.get('/usuarios', (req, res) => {
+/* app.get('/users', (req, res) => {
   const query = 'SELECT * FROM usuarios ORDER BY id_usuario DESC';
   db.query(query, (err, result) => {
     if (err) {
@@ -54,4 +58,4 @@ app.get('/usuarios', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
-});
+}); */

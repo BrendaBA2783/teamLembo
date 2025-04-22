@@ -21,61 +21,67 @@
 
     <!-- Main -->
     <main class="main">
-        <form class="main__container main__container--user main__container--userForm"><!-- userForm -->
+        <form class="main__container main__container--user main__container--userForm" action="http://localhost:3001/users" method="POST"><!-- userForm -->
             <h2 class="main__title">Registrar usuario del LEMBO SGAL</h2>
             <div class="main__container-form">
 
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de usuario</p>
-                    <input 
-                        class="main__form-field main__form-field--userType
-                        main__form-field--letters" 
-                        type="text"/>
+                    <select class="main__form-field main__form-field--userType">
+                        <option value="">Seleccione una opción</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Técnico">Personal de apoyo</option>
+                        <option value="Agricultor">Visitante</option>
+                    </select>
                 </div>
-
+                
                 <div class="main__form-group">
                     <p class="main__form-label">Tipo de documento</p>
-                    <input 
-                        class="main__form-field main__form-field--userDocumentType
-                        main__form-field--letters"
-                        type="text"/>
-                </div>
+                    <select class="main__form-field main__form-field--userDocumentType">
+                        <option value="">Seleccione una opción</option>
+                        <option value="CC">Cédula de ciudadanía (CC)</option>
+                        <option value="TI">Tarjeta de identidad (TI)</option>
+                        <option value="CE">Cédula de extranjería (CE)</option>
+                        <option value="PEP">Permiso Especial de Permanencia (PEP)</option>
+                        <option value="PPT">Permiso por Protección Temporal (PPT)</option>
+                    </select>
+                </div>                            
 
                 <div class="main__form-group">
                     <p class="main__form-label">Número de identificación</p>
                     <input 
-                        class="main__form-field main__form-field--userIdentificationNumber
-                        main__form-field--number" 
+                        class="main__form-field main__form-field--userIdentificationNumber" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Nombre/s</p>
                     <input 
-                        class="main__form-field main__form-field--userName
-                        main__form-field--letters" 
+                        class="main__form-field main__form-field--userName" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Apellido/s</p>
                     <input 
-                        class="main__form-field main__form-field--userLastName 
-                        main__form-field--letters" 
+                        class="main__form-field main__form-field--userLastName" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Número telefónico</p>
                     <input 
-                        class="main__form-field main__form-field--userCellPhone
-                        main__form-field--number" 
+                        class="main__form-field main__form-field--userCellPhone" 
                         type="text"/>
                 </div>
 
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input class="main__form-field" type="text"/>
+                    <select class="main__form-field main__form-field--userState">
+                        <option value="">Seleccione una opción</option>
+                        <option value="CC">Activo</option>
+                        <option value="TI">Inactivo</option>
+                    </select>
                 </div>
 
                 <div class="main__form-group">
@@ -88,7 +94,7 @@
                 <div class="main__form-group">
                     <p class="main__form-label">Confirmación de correo electrónico</p>
                     <input 
-                        class="main__form-field main__form-field--user main__form-field--userConfirmationEmail" 
+                        class="main__form-field main__form-field--userConfirmationEmail" 
                         type="email"/>
                 </div>
 
