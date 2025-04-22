@@ -79,7 +79,7 @@ buttonRegister.addEventListener('click', function(e) {
     
     // Validar que todos los campos estén completos
     if (userData.userType === '' || userData.userDocumentType === '' || userData.userName === '' || userData.userLastName === '' || 
-        userData.userIdentificationNumber === '' || userData.userCellPhone === '' || userData.userEmail === '' || userData.userConfirmationEmail === '') {
+        userData.userIdentificationNumber === '' || userData.userCellPhone === '' || userData.userEmail === '' || userData.userConfirmationEmail === '' ) {
         showError('Todos los campos son obligatorios');
         return;
     }
@@ -137,7 +137,7 @@ function showSuccess(message) {
         goodData.remove();
 
         // Redirige a otra vista después de que se quite el mensaje
-        window.location.href = '/frontend/public/views/user/register-credentials.html';
+        window.location.href = 'register-credentials.html';
     }, 1000);
 };
 
