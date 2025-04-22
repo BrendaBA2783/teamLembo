@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <!-- Link para icono de carga -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Integración del general_header.hmtl -->
@@ -24,34 +26,54 @@
     <form class="main__container">
         <h2 class="main__title">Registrar sensor</h2>
         <div class="main__container-form">
+
             <div class="main__form-group">
                 <p class="main__form-label">ID del sensor</p>
-                <input type="text" class="main__form-field main__form-field--sensor-id">
+                <input 
+                type="text" 
+                class="main__form-field main__form-field--sensor-id" 
+                />
             </div>
+
             <div class="main__form-group">
                 <p class="main__form-label">Unidad de medida</p>
-                <input type="text" class="main__form-field main__form-field--unit-measure">
+                <input 
+                type="text" 
+                class="main__form-field main__form-field--unit-measure" 
+                />
             </div>
+
             <div class="main__form-group">
                 <p class="main__form-label">Tipo de sensor</p>
                 <input type="text" class="main__form-field main__form-field--sensor-type">
             </div>
+
             <div class="main__form-group">
                 <p class="main__form-label">Tiempo escaneo</p>
                 <input type="text" class="main__form-field main__form-field--scan-time">
             </div>
+
             <div class="main__form-group">
                 <p class="main__form-label">Nombre</p>
                 <input type="text" class="main__form-field main__form-field--name">
             </div>
+
             <div class="main__form-group">
                 <p class="main__form-label">Estado</p>
                 <input type="text" class="main__form-field main__form-field--state">
             </div>
+
             <div class="main__form-group">
-                <p class="main__form-label">Imágen del sensor</p>
-                <input type="file" class="main__form-field main__form-field--sensor-image">
+                <p class="main__form-label">
+                    Imágen del sensor
+                </p>
+                <label class="main__form-field main__form-upload">
+                    <input type="file" class="main__form-field--upload-input" id="imagenSensor">
+                    <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
+                    <i class="main__upload-icon fas fa-upload"></i>
+                </label>
             </div>
+
             <div class="main__form-group form__field-group--description">
                 <p class="main__form-label">Descripción</p>
                 <input type="text" class="main__form-field main__form-field--description">

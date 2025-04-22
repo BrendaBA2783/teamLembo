@@ -15,34 +15,22 @@ const sensorId = document.querySelector('.main__form-field--sensor-id');
 const measureUnit = document.querySelector('.main__form-field--unit-measure');
 const sensorType = document.querySelector('.main__form-field--sensor-type');
 const scanTime = document.querySelector('.main__form-field--scan-time');
-const name = document.querySelector('.main__form-field--name');
-const status = document.querySelector('.main__form-field--state');
+const nameSensor = document.querySelector('.main__form-field--name');
+const statusSensor = document.querySelector('.main__form-field--state');
 const image = document.querySelector('.main__form-field--sensor-image');
 const description = document.querySelector('.main__form-field--description');
 const updateButton = document.querySelector('.main__form-button');
 const mainContainer = document.querySelector('.main__container');
 
-/* <<<<<<< HEAD */
-// Agregando event listeners a cada campo
-idSensor.addEventListener('input', readText);
-unidadMedida.addEventListener('input', readText);
-tipoSensor.addEventListener('input', readText);
-tiempoEscaneo.addEventListener('input', readText);
-nombre.addEventListener('input', readText);
-estado.addEventListener('input', readText);
-imagen.addEventListener('change', readText); 
-descripcion.addEventListener('input', readText);
-/* ======= */
 // Adding event listeners to each field
 sensorId.addEventListener('input', readText);
 measureUnit.addEventListener('input', readText);
 sensorType.addEventListener('input', readText);
 scanTime.addEventListener('input', readText);
-name.addEventListener('input', readText);
-status.addEventListener('input', readText);
+nameSensor.addEventListener('input', readText);
+statusSensor.addEventListener('input', readText);
 image.addEventListener('change', readText); // Changed to 'change' for file fields
 description.addEventListener('input', readText);
-/* >>>>>>> bb0ae63b0825d1e5f99f9d48f85211c2746857ad */
 
 // Specific validations for fields
 sensorId.addEventListener('input', function(e) {
@@ -96,7 +84,7 @@ updateButton.addEventListener('click', function(e) {
     
     // Validate all fields are completed
     if (sensorData.sensorId === '' || sensorData.measureUnit === '' || sensorData.sensorType === '' || 
-        sensorData.scanTime === '' || sensorData.name === '' || sensorData.status === '' || 
+        sensorData.scanTime === '' || sensorData.nameSensor === '' || sensorData.statusSensor === '' || 
         sensorData.image === '' || sensorData.description === '') {
         showError('Todos los campos son obligatorios');
         return;
@@ -180,10 +168,10 @@ function readText(e) {
         sensorData.scanTime = e.target.value;
     } 
     else if (e.target.classList.contains('main__form-field--name')) {
-        sensorData.name = e.target.value;
+        sensorData.nameSensor = e.target.value;
     } 
     else if (e.target.classList.contains('main__form-field--state')) {
-        sensorData.status = e.target.value;
+        sensorData.statusSensor = e.target.value;
     } 
     else if (e.target.classList.contains('main__form-field--sensor-image')) {
         // For file fields, we save the filename
