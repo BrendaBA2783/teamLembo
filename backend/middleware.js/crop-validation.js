@@ -45,6 +45,14 @@ cropId.addEventListener('input', function(e) {
     }
 });
 
+cropType.addEventListener('input', function(e) {
+    if (hasSpecialChars(e.target.value)) {
+        e.preventDefault();
+        showError('El tipo de cultivo no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+    }
+});
+
 cropLocation.addEventListener('input', function(e) {
     if (hasSpecialChars(e.target.value)) {
         e.preventDefault();
@@ -92,6 +100,11 @@ buttonRegister.addEventListener('click', function(e) {
     // Validar que los campos específicos no contengan caracteres especiales
     if (hasSpecialChars(cropData.cropId)) {
         showError('El ID del cultivo no puede contener caracteres especiales');
+        return;
+    }
+
+    if (hasSpecialChars(cropData.cropType)) {
+        showError('El tipo de cultivo no puede contener caracteres especiales');
         return;
     }
     
