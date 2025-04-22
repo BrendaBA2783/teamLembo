@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <!-- Link para icono de carga -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Integración del general_header.hmtl -->
@@ -49,8 +51,14 @@
                     <input class="main__form-field main__form-field--cropState" type="text">
                 </div>
                 <div class="main__form-group">
-                    <p class="main__form-label">Imágen</p>
-                    <input class="main__form-field main__form-field--cropImage" type="text" placeholder="Cargar imágen...">
+                    <p class="main__form-label">
+                        Imágen del cultivo
+                    </p>
+                    <label class="main__form-field main__form-upload">
+                        <input type="file" class="main__form-field--upload-input" id="imagenCrop">
+                        <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
+                        <i class="main__upload-icon fas fa-upload"></i>
+                    </label>
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Descripción</p>
@@ -58,9 +66,7 @@
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
-                <a href="confirm-update-register-enable-disable.html" >
-                    <button type="submit" class="main__form-button main__form-field--buttonRegister">REGISTRAR</button>
-                </a>
+                <button type="submit" class="main__form-button main__form-field--buttonRegister">REGISTRAR</button>
             </div><!-- main__form-end -->
         </form> <!-- main__container -->
     </main>

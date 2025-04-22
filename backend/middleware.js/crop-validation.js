@@ -17,7 +17,7 @@ const cropLocation = document.querySelector('.main__form-field--cropLocation');
 const cropSize = document.querySelector('.main__form-field--cropSize'); 
 const cropName = document.querySelector('.main__form-field--cropName'); 
 const cropState = document.querySelector('.main__form-field--cropState'); 
-const cropImage = document.querySelector('.main__form-field--cropImage'); 
+const cropImage = document.querySelector('.main__form-field--upload-input'); 
 const cropDescription = document.querySelector('.main__form-field--cropDescription'); 
 const buttonRegister = document.querySelector('.main__form-field--buttonRegister'); 
 const cropForm = document.querySelector('.main__container--cropForm'); 
@@ -34,7 +34,7 @@ cropLocation.addEventListener('input', readText);
 cropSize.addEventListener('input', readText); 
 cropName.addEventListener('input', readText); 
 cropState.addEventListener('input', readText); 
-cropImage.addEventListener('input', readText); 
+cropImage.addEventListener('change', readText); 
 cropDescription.addEventListener('input', readText); 
 
 cropId.addEventListener('input', function(e) {
@@ -169,7 +169,7 @@ function readText(e){
     else if (e.target.classList.contains('main__form-field--cropState')) {
         cropData.cropState = e.target.value;
     } 
-    else if (e.target.classList.contains('main__form-field--cropImage')) {
+    else if (e.target.classList.contains('main__form-field--upload-input')) {
         cropData.cropImage = e.target.value;
     } 
     else if (e.target.classList.contains('main__form-field--cropDescription')) {

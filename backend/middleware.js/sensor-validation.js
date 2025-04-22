@@ -151,7 +151,7 @@ updateButton.addEventListener('click', function(e) {
         return;
     }
 
-    showSuccess('Formulario finalizado');
+    showSuccess('El formulario ha sido completado correctamente');
 });
 
 // Función para mostrar mensajes de error
