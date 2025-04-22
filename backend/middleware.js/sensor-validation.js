@@ -81,6 +81,18 @@ scanTime.addEventListener('input', function(e) {
     }
 });
 
+// Validation for nameSensor - no special characters
+nameSensor.addEventListener('input', function(e) {
+    // Regex that allows only letters and numbers
+    const regex = /[^a-zA-Z0-9\s]/;
+    
+    if (regex.test(e.target.value)) {
+        e.preventDefault();
+        showError('El nombre del sensor no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(regex, '');
+    }
+});
+
 // Event listener for update button
 updateButton.addEventListener('click', function(e) {
     e.preventDefault();
@@ -130,6 +142,12 @@ updateButton.addEventListener('click', function(e) {
 
     if (/[^a-zA-Z0-9\s]/.test(sensorData.scanTime)) {
         showError('El tiempo de escaneo no puede contener caracteres especiales');
+        return;
+    }
+
+    // Validation to ensure sensor name doesn't contain special characters
+    if (/[^a-zA-Z0-9\s]/.test(sensorData.nameSensor)) {
+        showError('El nombre del sensor no puede contener caracteres especiales');
         return;
     }
 
