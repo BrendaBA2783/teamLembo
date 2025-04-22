@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilitar/deshabilitar usuario</title>
+    <title>Habilitar/deshabilitar cultivo</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/id-enable-disable.css">
@@ -20,19 +20,17 @@
     <div class="hero--general"></div>
 
     <!-- Form -->
-    <form class="form">
+    <form class="form form__container--cropForm">
         <div class="form__container">
             <div class="form__header">
-                <h2 class="form__title">Usuarios</h2>
-                <p class="form__text">Por favor, ingrese el ID del usuario</p>
+                <h2 class="form__title">Cultivos</h2>
+                <p class="form__text">Por favor, ingrese el ID del cultivo</p>
             </div>
             <div class="form__container-input">
-                <input class="form__input" type="text"/>
+                <input class="form__input form__input--cropId" type="text" />
             </div><br>
-
             <div class="form__box">
-                <button type="button" onclick="location.href='enabled.html'">HABILITAR</button><br/>
-                <button type="button" onclick="location.href='disable.html'">DESHABILITAR</button>
+                <button type="submit" onclick="location.href='disable.html'">CONTINUAR</button>
             </div>
         </div>
     </form>
@@ -43,5 +41,8 @@
             <button class="button-end__return" type="button">CANCELAR</button>
         </a>
     </div>
+
+    <script src="/backend/middleware.js/crop-validation-enable-disable.js"></script>
+
 </body>
 </html>
