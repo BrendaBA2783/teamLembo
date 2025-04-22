@@ -29,7 +29,7 @@ sensorType.addEventListener('input', readText);
 scanTime.addEventListener('input', readText);
 nameSensor.addEventListener('input', readText);
 statusSensor.addEventListener('input', readText);
-image.addEventListener('change', readText); // Changed to 'change' for file fields
+image.addEventListener('change', readText); 
 description.addEventListener('input', readText);
 
 // Validación modificada para sensorId para permitir letras y números
@@ -106,7 +106,7 @@ updateButton.addEventListener('click', function(e) {
 
     // Specific validation for image (ensuring one was uploaded)
     if (sensorData.image === '') {
-        showError('Es obligatorio subir una imagen');
+        showError('Se debe subir una imágen');
         return;
     }
 
