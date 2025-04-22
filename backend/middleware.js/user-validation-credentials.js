@@ -8,22 +8,44 @@ const userData = {
 //Se seleccionan los objetos 
 const userName = document.querySelector('.main__form-field--userName'); 
 const userPassword = document.querySelector('.main__form-field--userPassword'); 
+const buttonRegister = document.querySelector('.main__form-field--buttonRegister');
 const userForm = document.querySelector('.main__container--userForm');
+
+//Función para verificar si una cadena contiene caracteres especiales
+function hasSpecialChars(str) {
+    return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(str);
+};
 
 //Seleccionando inputs
 userName.addEventListener('input', readText);
 userPassword.addEventListener('input', readText);
 
-userForm.addEventListener("submit", function(e) {
-    e.preventDefault(); 
-    console.log('Me estoy intentando enviar')
-    const { userName, userPassword } = userData;
-    
-    if (userName === '' || userPassword === '') {
-            showError('Todos los campos son obligatorios');
-            return;
+userName.addEventListener('input', function(e) {
+    if (hasSpecialChars(e.target.value)) {
+        e.preventDefault();
+        showError('El nombre del usuario no puede contener caracteres especiales');
+        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
     }
-    showSuccess('El registro a sido completado con exito!');
+});
+
+buttonRegister.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('Intentando registrar usuario');
+    
+    // Validar que todos los campos estén completos
+    if (userData.userName === '' || userData.userPassword === '') {
+        showError('Todos los campos son obligatorios');
+        return;
+    }
+    
+    // Validar que los campos específicos no contengan caracteres especiales
+    if (hasSpecialChars(userData.userName)) {
+        showError('El nombre del usuario no puede contener caracteres especiales');
+        return;
+    }
+
+    showSuccess('El formulario ha sido completado correctamente');
+
 });
 
 function showError(message) {
@@ -51,7 +73,7 @@ function showSuccess(message) {
         goodData.remove();
 
         // Redirige a otra vista después de que se quite el mensaje
-        // window.location.href = '/frontend/public/views/user/confirm-update-register-enable-disable.html';
+        window.location.href = 'confirm-update-register-enable-disable.html';
     }, 4000);
 };
 

@@ -111,7 +111,6 @@ buttonRegister.addEventListener('click', function(e) {
     
 });
 
-
 function showError(message) {
     console.log(message); 
     const error = document.createElement('P'); 
@@ -137,7 +136,7 @@ function showSuccess(message) {
         goodData.remove();
 
         // Redirige a otra vista después de que se quite el mensaje
-        window.location.href = 'register-credentials.html';
+        window.location.href = 'confirm-update-register-enable-disable.html';
     }, 1000);
 };
 
@@ -170,5 +169,3 @@ function readText(e){
     }
     console.log(userData); 
 };
-
-

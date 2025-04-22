@@ -16,21 +16,42 @@ const cropForm = document.querySelector('.form__container--cropForm');
 const cropIdentificationForm = document.querySelector('.main__container--cropIdentification');
 const cropVisualizationForm = document.querySelector('.main__container--cropVisualization');
 
-// Se agregan los event listeners a los inputs para leer el texto
+// Se agregan los event listeners a los inputs para leer el texto y permitir solo números
 if (cropIdInput) {
-    cropIdInput.addEventListener('input', readText);
+    cropIdInput.addEventListener('input', function(e) {
+        if (isNaN(this.value)) {
+            e.preventDefault();
+            showError('El ID del cultivo debe contener solo números', cropForm); // Usamos cropForm como contenedor de error
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        readText(e);
+    });
 }
 if (cropUpdateInput) {
-    cropUpdateInput.addEventListener('input', readText);
+    cropUpdateInput.addEventListener('input', function(e) {
+        if (isNaN(this.value)) {
+            e.preventDefault();
+            showError('Este campo debe contener solo números', cropIdentificationForm); // Usamos cropIdentificationForm
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        readText(e);
+    });
 }
 if (cropViewInput) {
-    cropViewInput.addEventListener('input', readText);
+    cropViewInput.addEventListener('input', function(e) {
+        if (isNaN(this.value)) {
+            e.preventDefault();
+            showError('Este campo debe contener solo números', cropVisualizationForm); // Usamos cropVisualizationForm
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        readText(e);
+    });
 }
 
 // Se agregan los event listeners a los formularios para la validación
 if (cropForm) {
     cropForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Evita el envío del formulario
         console.log('Intento de envío del formulario Crop');
         validateField(cropData.cropId, cropForm);
     });
@@ -38,7 +59,7 @@ if (cropForm) {
 
 if (cropIdentificationForm) {
     cropIdentificationForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Evita el envío del formulario
         console.log('Intento de envío del formulario');
         validateField(cropData.cropUpdate, cropIdentificationForm);
     });
@@ -46,7 +67,7 @@ if (cropIdentificationForm) {
 
 if (cropVisualizationForm) {
     cropVisualizationForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Evita el envío del formulario
         console.log('Intento de envío del formulario');
         validateField(cropData.cropView, cropVisualizationForm);
     });
@@ -57,10 +78,12 @@ function validateField(fieldValue, formElement) {
         showError('Este campo es obligatorio', formElement);
         return;
     }
+    if (isNaN(fieldValue)) {
+        showError('Este campo debe contener solo números', formElement);
+        return;
+    }
     showSuccess('Datos enviados satisfactoriamente', formElement);
-    // Aquí puedes agregar la lógica para la redirección si es necesario
-    // window.location.href = '/otra-vista.html';
-}
+};
 
 function showError(message, formElement) {
     console.log(message);
@@ -90,13 +113,13 @@ function showSuccess(message, formElement) {
         setTimeout(() => {
             goodData.remove();
             // Se redirecciona la pagína
-            // if (formElement === cropForm) {
-            //     window.location.href = '.....';
-            // } else if (formElement === cropIdentificationForm) {
-            //     window.location.href = '../frontend/public/views/crop/update.htm';
-            // } else if (formElement === cropVisualizationForm) {
-            //     window.location.href = '../frontend/public/views/crop/visualise.html';
-            // } 
+            if (formElement === cropForm) {
+                window.location.href = '.....';
+            } else if (formElement === cropIdentificationForm) {
+                window.location.href = 'update.html';
+            } else if (formElement === cropVisualizationForm) {
+                window.location.href = 'visualise.html';
+            }
         }, 4000);
     }
 }
