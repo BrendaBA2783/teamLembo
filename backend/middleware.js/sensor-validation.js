@@ -32,12 +32,16 @@ statusSensor.addEventListener('input', readText);
 image.addEventListener('change', readText); // Changed to 'change' for file fields
 description.addEventListener('input', readText);
 
-// Specific validations for fields
+// Validación modificada para sensorId para permitir letras y números
 sensorId.addEventListener('input', function(e) {
-    if (isNaN(e.target.value)) {
+    
+    // Regex que permite solo letras y números (sin caracteres especiales)
+    const regex = /[^a-zA-Z0-9]/g;
+    
+    if (regex.test(e.target.value)) {
         e.preventDefault();
-        showError('El ID del sensor debe contener solo números');
-        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        showError('El ID del sensor solo puede contener letras y números');
+        e.target.value = e.target.value.replace(regex, '');
     }
 });
 
@@ -106,9 +110,9 @@ updateButton.addEventListener('click', function(e) {
         return;
     }
 
-    // Validation to ensure ID and measure unit contain only numbers
-    if (!/^\d+$/.test(sensorData.sensorId)) {
-        showError('El ID del sensor debe contener solo números');
+    // Validación modificada para asegurar que el ID contenga solo letras y números
+    if (/[^a-zA-Z0-9]/.test(sensorData.sensorId)) {
+        showError('El ID del sensor solo puede contener letras y números');
         return;
     }
 
