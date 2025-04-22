@@ -17,7 +17,7 @@ const sensorType = document.querySelector('.main__form-field--sensor-type');
 const scanTime = document.querySelector('.main__form-field--scan-time');
 const nameSensor = document.querySelector('.main__form-field--name');
 const statusSensor = document.querySelector('.main__form-field--state');
-const image = document.querySelector('.main__form-field--sensor-image');
+const image = document.querySelector('.main__form-upload input[type="file"]');
 const description = document.querySelector('.main__form-field--description');
 const updateButton = document.querySelector('.main__form-button');
 const mainContainer = document.querySelector('.main__container');
@@ -81,6 +81,16 @@ scanTime.addEventListener('input', function(e) {
 updateButton.addEventListener('click', function(e) {
     e.preventDefault();
     console.log('Attempting to update sensor');
+
+    // Actualiza los datos del objeto sensorData
+    sensorData.sensorId = sensorId.value;
+    sensorData.measureUnit = measureUnit.value;
+    sensorData.sensorType = sensorType.value;
+    sensorData.scanTime = scanTime.value;
+    sensorData.nameSensor = nameSensor.value;
+    sensorData.statusSensor = statusSensor.value;
+    sensorData.image = image.files.length > 0 ? image.files[0].name : '';
+    sensorData.description = description.value;
     
     // Validate all fields are completed
     if (sensorData.sensorId === '' || sensorData.measureUnit === '' || sensorData.sensorType === '' || 
@@ -89,36 +99,36 @@ updateButton.addEventListener('click', function(e) {
         showError('Todos los campos son obligatorios');
         return;
     }
-    
+
     // Specific validation for image (ensuring one was uploaded)
     if (sensorData.image === '') {
         showError('Es obligatorio subir una imagen');
         return;
     }
-    
+
     // Validation to ensure ID and measure unit contain only numbers
     if (!/^\d+$/.test(sensorData.sensorId)) {
         showError('El ID del sensor debe contener solo números');
         return;
     }
-    
+
     // Modificada la validación para permitir letras y números en unidad de medida
     if (/[^a-zA-Z0-9\s]/.test(sensorData.measureUnit)) {
         showError('La unidad de medida solo puede contener letras y números');
         return;
     }
-    
+
     // Validation to ensure sensor type and scan time don't contain special characters
     if (/[^a-zA-Z0-9\s]/.test(sensorData.sensorType)) {
         showError('El tipo de sensor no puede contener caracteres especiales');
         return;
     }
-    
+
     if (/[^a-zA-Z0-9\s]/.test(sensorData.scanTime)) {
         showError('El tiempo de escaneo no puede contener caracteres especiales');
         return;
     }
-    
+
     showSuccess('Formulario finalizado');
 });
 
@@ -173,7 +183,7 @@ function readText(e) {
     else if (e.target.classList.contains('main__form-field--state')) {
         sensorData.statusSensor = e.target.value;
     } 
-    else if (e.target.classList.contains('main__form-field--sensor-image')) {
+    else if (e.target.classList.contains('main__form-upload input[type="file"]')) {
         // For file fields, we save the filename
         sensorData.image = e.target.files.length > 0 ? e.target.files[0].name : '';
     } 
