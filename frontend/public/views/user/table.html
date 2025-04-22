@@ -12,13 +12,13 @@
     <script src="/backend/middleware.js/display_drop-down.js"></script>
     <script src="/backend/middleware.js/search-table.js"></script>
 
-    <!-- Tipografia Work Sans -->
+    <!-- Tipografía Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Integración del general_header.hmtl -->
+    <!-- Integración del general_header.html -->
     <div class="hero--general"></div>
 
     <!-- Título de la tabla -->
@@ -82,75 +82,12 @@
                 </tr>
             </thead>
             <tbody class="main__tbody">
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Administrador</td>
-                    <td class="main__table-cell">Carlos</td>
-                    <td class="main__table-cell">Pérez</td>
-                    <td class="main__table-cell">2023-01-15</td>
-                    <td class="main__table-cell main__table-cell--right">Activo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Técnico</td>
-                    <td class="main__table-cell">Laura</td>
-                    <td class="main__table-cell">Gómez</td>
-                    <td class="main__table-cell">2022-09-03</td>
-                    <td class="main__table-cell main__table-cell--right">Activo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Supervisor</td>
-                    <td class="main__table-cell">Andrés</td>
-                    <td class="main__table-cell">Rodríguez</td>
-                    <td class="main__table-cell">2021-06-21</td>
-                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">04</td>
-                    <td class="main__table-cell">Analista</td>
-                    <td class="main__table-cell">Sofía</td>
-                    <td class="main__table-cell">Martínez</td>
-                    <td class="main__table-cell">2024-02-10</td>
-                    <td class="main__table-cell main__table-cell--right">Activo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Supervisor</td>
-                    <td class="main__table-cell">Andrés</td>
-                    <td class="main__table-cell">Rodríguez</td>
-                    <td class="main__table-cell">2021-06-21</td>
-                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">04</td>
-                    <td class="main__table-cell">Analista</td>
-                    <td class="main__table-cell">Sofía</td>
-                    <td class="main__table-cell">Martínez</td>
-                    <td class="main__table-cell">2024-02-10</td>
-                    <td class="main__table-cell main__table-cell--right">Activo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Supervisor</td>
-                    <td class="main__table-cell">Andrés</td>
-                    <td class="main__table-cell">Rodríguez</td>
-                    <td class="main__table-cell">2021-06-21</td>
-                    <td class="main__table-cell main__table-cell--right">Inactivo</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">04</td>
-                    <td class="main__table-cell">Analista</td>
-                    <td class="main__table-cell">Sofía</td>
-                    <td class="main__table-cell">Martínez</td>
-                    <td class="main__table-cell">2024-02-10</td>
-                    <td class="main__table-cell main__table-cell--right">Activo</td>
-                </tr>
+                <!-- Las filas serán insertadas dinámicamente con JavaScript -->
             </tbody>
         </table>
     </main>
 
-    <!-- Seccion de botones finales - registrar/actualizar-->
+    <!-- Sección de botones finales - registrar/actualizar-->
     <div class="button-end">
         <a href="register.html">
             <button class="button-end__return--top-none" type="button">REGISTRAR</button>
@@ -159,5 +96,7 @@
             <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
         </a>
     </div>
+
+    <script src="/backend/middleware.js/table-dinamic.js"></script>
 </body>
 </html>

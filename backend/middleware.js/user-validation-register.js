@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         user_identification_number: '',
         user_phone: '',
         user_email: '',
-        user_confirmation_email: ''
+        confirmation_email: ''
     };
 
     // Validación de caracteres especiales
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.target.classList.contains('main__form-field--userEmail')) {
             userData.user_email = e.target.value;
         } else if (e.target.classList.contains('main__form-field--userConfirmationEmail')) {
-            userData.user_confirmation_email = e.target.value;
+            userData.confirmation_email = e.target.value;
         }
         console.log(userData);
     }
@@ -119,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Número de teléfono inválido');
             }
 
-            if (userData.user_email !== userData.user_confirmation_email) {
+            if (userData.user_email !== userData.confirmation_email) {
                 throw new Error('Los correos no coinciden');
             }
 
-            const response = await fetch('http://localhost:3001/users', {
+            const response = await fetch('http://localhost:3000/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -138,9 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
             console.log('Usuario registrado:', result);
             showSuccess('El formulario ha sido completado correctamente');
-        } catch (error) {
-            showError(error.message);
-        }
+            } catch (error) {
+                showError(error.message);
+            }
     });
 
     function showError(message) {

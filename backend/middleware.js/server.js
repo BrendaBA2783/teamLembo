@@ -25,25 +25,46 @@ db.connect(err => {
 
 // Ruta para agregar un usuario
 app.post('/users', (req, res) => {
-  const{user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email } = req.body;
+  const{user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, confirmation_email } = req.body;
 
   db.query (
-    'INSERT INTO users (user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+    'INSERT INTO users (user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, confirmation_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
 
-    [user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, user_confirmation_email],
+    [user_type, user_document_type, user_name, user_last_name, user_identification_number, user_phone, user_email, confirmation_email],
     (err, result) => {
       if (err) {
-        result.status(500).send('Error al insertar datos');
+        res.status(500).json({ error: 'Error al insertar datos' });
         return;
       }
-        result.status(200).send('Usuario agregado');
+      res.status(200).json({ message: 'Usuario agregado' });
     }
   );
 });
 
-app.listen(3000, () => {
-  console.log ('Servidor corriendo en http://localhost:3000/user');
+// Ruta para agregar un cultivo
+app.post('/crop', (req, res) => {
+  const{crop_id, crop_type, crop_location, crop_size, crop_name, crop_state, crop_image, crop_description } = req.body;
+
+  db.query (
+    'INSERT INTO crop (crop_type, crop_location, crop_size, crop_name, crop_state, crop_image, crop_description) VALUES (?, ?, ?, ?, ?, ?, ?)',
+
+    [crop_type, crop_location, crop_size, crop_name, crop_state, crop_image, crop_description],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al insertar datos' });
+        return;
+      }
+      res.status(200).json({ message: 'Cultivo agregado' });
+    }
+  );
 });
+
+
+app.listen(3000, () => {
+  console.log ('Servidor corriendo en http://localhost:3000');
+});
+
+
 // Ruta para obtener los usuarios
 /* app.get('/users', (req, res) => {
   const query = 'SELECT * FROM usuarios ORDER BY id_usuario DESC';
