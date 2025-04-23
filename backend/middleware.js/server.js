@@ -59,6 +59,24 @@ app.post('/crop', (req, res) => {
   );
 });
 
+// Ruta para agregar un ciclo de cultivo
+app.post('/cycle', (req, res) => {
+  const{cycle_location, cycle_name, cycle_status, cycle_news, cycle_start_date, cycle_end_date, cycle_description} = req.body;
+
+  db.query (
+    'INSERT INTO cycle (cycle_location, cycle_name, cycle_status, cycle_news, cycle_start_date, cycle_end_date, cycle_description) VALUES (?, ?, ?, ?, ?, ?, ?)',
+
+    [cycle_location, cycle_name, cycle_status, cycle_news, cycle_start_date, cycle_end_date, cycle_description],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al insertar datos' });
+        return;
+      }
+      res.status(200).json({ message: 'Ciclo agregado' });
+    }
+  );
+});
+
 
 app.listen(3000, () => {
   console.log ('Servidor corriendo en http://localhost:3000');

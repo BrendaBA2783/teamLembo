@@ -97,12 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         try {
+            // Verificar que todos los campos esten completos
             for (const key in userData) {
                 if (userData[key].trim() === '') {
                     throw new Error('Todos los campos son obligatorios');
                 }
             }
 
+            // Validaciones
             if (hasSpecialChars(userData.user_name)) {
                 throw new Error('El nombre no puede contener caracteres especiales');
             }

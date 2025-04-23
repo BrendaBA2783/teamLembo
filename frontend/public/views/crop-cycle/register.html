@@ -24,7 +24,7 @@
 
     <!-- Main -->
     <main class="main">
-        <div class="main__container">
+        <form class="main__container main__container--cycleForm" method="POST" novalidate>
             <h2 class="main__title">Registrar el ciclo de cultivo</h2>
             <div class="main__container-form">
                 <div class="main__form-group">
@@ -41,7 +41,11 @@
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input class="main__form-field main__form-field--state" type="text">
+                    <select class="main__form-field main__form-field--cycleState">
+                        <option value="">Seleccione una opción</option>
+                        <option value="CC">Activo</option>
+                        <option value="TI">Inactivo</option>
+                    </select>
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Novedades</p>
@@ -61,9 +65,9 @@
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
-                <button class="main__form-button main__form-field--register-button">REGISTRAR</button>
+                <button class="main__form-button main__form-field--register-button" type="submit">REGISTRAR</button>
             </div><!-- main__form-end -->
-        </div> <!-- main__container -->
+        </form> <!-- main__container -->
     </main>
 
     <!-- Sección de botón final, regresar -->
@@ -73,7 +77,7 @@
         </a>
     </div>
 
-    <script src="/backend/middleware.js/cycle_validation.js"></script>
+    <script src="/backend//middleware.js//cycle_validation.js"></script>
 </body>
 
 </html>

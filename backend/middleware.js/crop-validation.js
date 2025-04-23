@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cropState = document.querySelector('.main__form-field--cropState'); 
     const cropImage = document.querySelector('.main__form-field--upload-input'); 
     const cropDescription = document.querySelector('.main__form-field--cropDescription'); 
-    const buttonRegister = document.querySelector('.main__form-field--buttonRegister');  
 
     //Se crea el objeto 
     const cropData = {
@@ -175,9 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const error = document.createElement('P'); 
         error.textContent = message; 
         error.classList.add('error'); 
-
-        cropForm.appendChild(error);
-        
+        cropForm.appendChild(error);   
         setTimeout(() => {
             error.remove(); 
         }, 4000);
