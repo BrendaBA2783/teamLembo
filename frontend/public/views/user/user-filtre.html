@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro usuarios</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../../css/form-update-register.css">
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Integración del general_header.hmtl -->
+    <div class="hero--general"></div>
+
+        <!-- Main -->
+        <main class="main">
+            <form class="main__container main__container--user main__container--userForm" action="http://localhost:3000/users" method="POST"><!-- userForm -->
+                <h2 class="main__title">Escoja uno o más filtros para la tabla</h2>
+                <div class="main__container-form">
+    
+                    <div class="main__form-group">
+                        <p class="main__form-label">Tipo de usuario</p>
+                        <select class="main__form-field main__form-field--userType">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Técnico">Personal de apoyo</option>
+                            <option value="Agricultor">Visitante</option>
+                        </select>
+                    </div>
+                    
+                    <div class="main__form-group">
+                        <p class="main__form-label">Fecha ingreso</p>
+                        <input 
+                            class="main__form-field main__form-field--userIdentificationNumber" 
+                            type="text"/>
+                    </div>
+                    
+                    <div class="main__form-group">
+                        <p class="main__form-label">Nombre/s</p>
+                        <select class="main__form-field main__form-field--select">
+                            <option value="">Seleccione una opción</option>
+                        </select>
+                    </div>
+
+                    <div class="main__form-group">
+                        <p class="main__form-label">Apellido/s</p>
+                        <select class="main__form-field main__form-field--select">
+                            <option value="">Seleccione una opción</option>
+                        </select>
+                    </div>
+
+                    <div class="main__form-group">
+                        <p class="main__form-label">Estado</p>
+                        <select class="main__form-field main__form-field--userDocumentType">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Deshabilitado">Deshabilitado</option>
+                            <option value="Habilitado">Habilitado</option>
+                        </select>
+                    </div>                            
+
+                    <div class="main__form-group">
+                        <p class="main__form-label">Deshabilitado</p>
+                        <select class="main__form-field main__form-field--userDocumentType">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div> 
+
+                    <div class="main__form-group">
+                        <p class="main__form-label">Habilitado</p>
+                        <select class="main__form-field main__form-field--userDocumentType">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div> 
+    
+                </div><!-- main__container-form -->
+                <div class="main__form-end">
+                    <button type="submit" class="main__form-button main__form-field--buttonFilter">FILTRAR</button>
+                </div> <!-- main__form-end -->
+            </form><!-- main__container -->
+        </main><!-- main -->
+    
+        <!-- Sección de botón final, regresar -->
+        <div class="button-end">
+            <a href="table.html">
+                <button class="button-end__return" type="button">CANCELAR</button>
+            </a>
+        </div>
+
+        <script src="/backend/middleware.js/filter.js"></script>
+
+</body>
+</html>

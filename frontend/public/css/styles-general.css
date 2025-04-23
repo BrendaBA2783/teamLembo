@@ -145,6 +145,7 @@ button:hover {
     background-color: var(--gray_20);
     box-shadow: 0rem 0.5rem 0.8rem var(--gray-shadow-input);
 }
+
 .main__field--email {
     margin-bottom: 2rem;
 }
