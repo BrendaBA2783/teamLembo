@@ -77,6 +77,24 @@ app.post('/cycle', (req, res) => {
   );
 });
 
+// Ruta para agregar un insumo
+app.post('/supplies', (req, res) => {
+  const{supplies_id, crop_cycle_id, crop_id, supplies_type, supplies_cuantity, supplies_name, supplies_state, supplies_unit_value, supplies_total_value, supplies_measure, supplies_description} = req.body;
+
+  db.query (
+    'INSERT INTO supplies (supplies_id, crop_cycle_id, crop_id, supplies_type, supplies_cuantity, supplies_name, supplies_state, supplies_unit_value, supplies_total_value, supplies_measure, supplies_description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+
+    [supplies_id, crop_cycle_id, crop_id, supplies_type, supplies_cuantity, supplies_name, supplies_state, supplies_unit_value, supplies_total_value, supplies_measure, supplies_description],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al insertar datos' });
+        return;
+      }
+      res.status(200).json({ message: 'Insumo agregado' });
+    }
+  );
+});
+
 
 app.listen(3000, () => {
   console.log ('Servidor corriendo en http://localhost:3000');

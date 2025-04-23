@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+});
+
 // Object with form fields
 const sensorData = {
     sensorId: '',
@@ -20,7 +24,7 @@ const statusSensor = document.querySelector('.main__form-field--state');
 const image = document.querySelector('.main__form-upload input[type="file"]');
 const description = document.querySelector('.main__form-field--description');
 const updateButton = document.querySelector('.main__form-button');
-const mainContainer = document.querySelector('.main__container');
+const mainContainer = document.querySelector('.main__container--sensorForm');
 
 // Adding event listeners to each field
 sensorId.addEventListener('input', readText);
