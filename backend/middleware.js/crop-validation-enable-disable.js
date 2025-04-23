@@ -118,7 +118,7 @@ function showSuccess(message, formElement) {
             } else if (formElement === cropIdentificationForm) {
                 window.location.href = 'update.html';
             } else if (formElement === cropVisualizationForm) {
-                window.location.href = 'visualise.html';
+                window.location.href = 'visualisase_date.html';
             }
         }, 4000);
     }
