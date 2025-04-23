@@ -44,7 +44,7 @@ header {
 .main__form-end {
     margin-top: 2rem;
 }
-.main__form-upload {
+.main__form-field--upload {
     position: relative;
     cursor: pointer;
     border-radius: 0.8rem;
@@ -60,7 +60,7 @@ header {
     transition: border 0.2s, box-shadow 0.2s;
 }
   
-.main__form-upload:focus-within {
+.main__form-field--upload:focus-within {
     border-color: var(--primary_green_900);
     box-shadow: 0rem 0.5rem 0.8rem var(--primary_green_900);
 }

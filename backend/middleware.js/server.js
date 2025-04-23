@@ -95,6 +95,24 @@ app.post('/supplies', (req, res) => {
   );
 });
 
+// Ruta para agregar un sensor
+app.post('/sensor', (req, res) => {
+  const{sensor_id, sensor_measure, sensor_type, sensor_scan_time, sensor_name, sensor_status, sensor_image, sensor_description} = req.body;
+
+  db.query (
+    'INSERT INTO sensor (sensor_id, sensor_measure, sensor_type, sensor_scan_time, sensor_name, sensor_status, sensor_image, sensor_description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+
+    [sensor_id, sensor_measure, sensor_type, sensor_scan_time, sensor_name, sensor_status, sensor_image, sensor_description],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al insertar datos' });
+        return;
+      }
+      res.status(200).json({ message: 'Sensor agregado' });
+    }
+  );
+});
+
 
 app.listen(3000, () => {
   console.log ('Servidor corriendo en http://localhost:3000');

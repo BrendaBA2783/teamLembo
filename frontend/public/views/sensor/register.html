@@ -23,7 +23,7 @@
 
   <!-- Main -->
   <main class="main">
-    <form class="main__container main__container--sensorForm">
+    <form class="main__container main__container--sensorForm" method="POST">
         <h2 class="main__title">Registrar sensor</h2>
         <div class="main__container-form">
 
@@ -37,11 +37,18 @@
 
             <div class="main__form-group">
                 <p class="main__form-label">Unidad de medida</p>
-                <input 
-                type="text" 
-                class="main__form-field main__form-field--unit-measure" 
-                />
+                <select class="main__form-field main__form-field--unit-measure">
+                    <option value="">Seleccione una opción</option>
+                    <option value="m">Metros (m)</option>
+                    <option value="cm">Centímetros (cm)</option>
+                    <option value="mm">Milímetros (mm)</option>
+                    <option value="kg">Kilogramos (kg)</option>
+                    <option value="g">Gramos (g)</option>
+                    <option value="l">Litros (l)</option>
+                    <option value="ml">Mililitros (ml)</option>
+                </select>
             </div>
+            
 
             <div class="main__form-group">
                 <p class="main__form-label">Tipo de sensor</p>
@@ -49,9 +56,10 @@
             </div>
 
             <div class="main__form-group">
-                <p class="main__form-label">Tiempo escaneo</p>
-                <input type="text" class="main__form-field main__form-field--scan-time">
+                <p class="main__form-label">Tiempo de escaneo (minutos)</p>
+                <input type="number" class="main__form-field main__form-field--scan-time" min="0" step="1" placeholder="Minutos">
             </div>
+            
 
             <div class="main__form-group">
                 <p class="main__form-label">Nombre</p>
@@ -60,14 +68,18 @@
 
             <div class="main__form-group">
                 <p class="main__form-label">Estado</p>
-                <input type="text" class="main__form-field main__form-field--state">
+                <select class="main__form-field main__form-field--state">
+                    <option value="">Seleccione una opción</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
             </div>
 
             <div class="main__form-group">
                 <p class="main__form-label">
                     Imágen del sensor
                 </p>
-                <label class="main__form-field main__form-upload">
+                <label class="main__form-field main__form-field--upload">
                     <input type="file" class="main__form-field--upload-input" id="imagenSensor">
                     <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
                     <i class="main__upload-icon fas fa-upload"></i>
