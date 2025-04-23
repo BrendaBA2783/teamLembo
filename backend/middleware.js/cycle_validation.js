@@ -1,178 +1,177 @@
-// Se realiza un objeto con los campos del formulario
-const cycleData = {
-    cycleId: '',
-    locationField: '',
-    cycleName: '',
-    statusField: '',
-    news: '',
-    startDate: '',
-    endDate: '',
-    description: ''
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const cycleForm = document.querySelector('.main__container--cycleForm');
 
-// Función para verificar si contiene caracteres especiales
-function hasSpecialChars(text) {
-    const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-    return specialCharsRegex.test(text);
-}
+    // Selección de los inputs
+    const cycleLocation = document.querySelector('.main__form-field--location');
+    const cycleName = document.querySelector('.main__form-field--cycle-name');
+    const cycleStatus = document.querySelector('.main__form-field--cycleState');
+    const cycleNews = document.querySelector('.main__form-field--news');
+    const cycleStartDate = document.querySelector('.main__form-field--start-date');
+    const cycleEndDate = document.querySelector('.main__form-field--end-date');
+    const cycleDescription = document.querySelector('.main__form-field--description');
+    const cycleId = document.querySelector('.main__form-field--cycle-id');
 
-// Seleccionando los elementos del formulario
-const cycleId = document.querySelector('.main__form-field--cycle-id');
-const locationField = document.querySelector('.main__form-field--location');
-const cycleName = document.querySelector('.main__form-field--cycle-name');
-const statusField = document.querySelector('.main__form-field--state');
-const news = document.querySelector('.main__form-field--news');
-const startDate = document.querySelector('.main__form-field--start-date');
-const endDate = document.querySelector('.main__form-field--end-date');
-const description = document.querySelector('.main__form-field--description');
-const registerButton = document.querySelector('.main__form-field--register-button');
-const mainContainer = document.querySelector('.main__container');
+    // Se crea el objeto
+    const cycleData = {
+        cycle_id: '',
+        cycle_location: '',
+        cycle_name: '',
+        cycle_status: '',
+        cycle_news: '',
+        cycle_start_date: '',
+        cycle_end_date: '',
+        cycle_description: ''
+    };
 
-// Agregando event listeners a cada campo
-cycleId.addEventListener('input', readText);
-locationField.addEventListener('input', readText);
-cycleName.addEventListener('input', readText);
-statusField.addEventListener('input', readText);
-news.addEventListener('input', readText);
-startDate.addEventListener('input', readText);
-endDate.addEventListener('input', readText);
-description.addEventListener('input', readText);
-
-// Validación modificada para el ID del ciclo (letras y números)
-cycleId.addEventListener('input', function(e) {
-    // Regex que permite solo letras y números (sin caracteres especiales)
-    const regex = /[^a-zA-Z0-9]/g;
-    
-    if (regex.test(e.target.value)) {
-        e.preventDefault();
-        showError('El ID del ciclo debe contener solo letras y números');
-        e.target.value = e.target.value.replace(regex, '');
+    // Función para verificar si contiene caracteres especiales
+    function hasSpecialChars(text) {
+        const specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        return specialCharsRegex.test(text);
     }
-});
 
-// Validación para nombre del ciclo (sin caracteres especiales)
-cycleName.addEventListener('input', function(e) {
-    if (hasSpecialChars(e.target.value)) {
-        e.preventDefault();
-        showError('El nombre del ciclo no puede contener caracteres especiales');
-        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-    }
-});
+    // Validaciones en tiempo real
+    cycleId.addEventListener('input', function(e) {
+        const regex = /[^a-zA-Z0-9]/g;
+        if (regex.test(e.target.value)) {
+            e.preventDefault();
+            showError('El ID del ciclo debe contener solo letras y números');
+            e.target.value = e.target.value.replace(regex, '');
+        }
+    });
+    
+    cycleLocation.addEventListener('input', function(e) {
+        if (hasSpecialChars(e.target.value)) {
+            e.preventDefault();
+            showError('La ubicación del ciclo no puede contener caracteres especiales');
+            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+        }
+    });
 
-// Validación para descripción (sin caracteres especiales)
-description.addEventListener('input', function(e) {
-    if (hasSpecialChars(e.target.value)) {
-        e.preventDefault();
-        showError('La descripción no puede contener caracteres especiales');
-        e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-    }
-});
+    cycleName.addEventListener('input', function(e) {
+        if (hasSpecialChars(e.target.value)) {
+            e.preventDefault();
+            showError('El nombre del ciclo no puede contener caracteres especiales');
+            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+        }
+    });
+    
+    cycleEndDate.addEventListener('change', function(e) {
+        const start = new Date (cycleStartDate.value);
+        const end = new Date (cycleEndDate.value);
+        if (cycleStartDate.value && cycleEndDate.value && start >= end) {
+            e.preventDefault();
+            showError('La fecha inicial debe ser menor a la fecha final');
+            cycleEndDate.value = ''; // Limpiar el campo de fecha final
+        }
+    });
 
-// Validación para las fechas
-endDate.addEventListener('change', function(e) {
-    const start = new Date(startDate.value);
-    const end = new Date(endDate.value);
-    
-    if (startDate.value && endDate.value && start >= end) {
-        e.preventDefault();
-        showError('La fecha inicial debe ser menor a la fecha final');
-        endDate.value = ''; // Limpiar el campo de fecha final
-    }
-});
+    // Actualizar el objeto cropData en tiempo real
+    cycleId.addEventListener('input', readText);
+    cycleLocation.addEventListener('input', readText);
+    cycleName.addEventListener('input', readText);
+    cycleStatus.addEventListener('input', readText);
+    cycleNews.addEventListener('input', readText);
+    cycleStartDate.addEventListener('input', readText);
+    cycleEndDate.addEventListener('input', readText);
+    cycleDescription.addEventListener('input', readText);
 
-// Event listener para el botón de registrar
-registerButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    console.log('Intentando registrar ciclo de cultivo');
-    
-    // Validar que todos los campos estén completos
-    if (cycleData.cycleId === '' || cycleData.locationField === '' || cycleData.cycleName === '' || cycleData.statusField === '' || 
-        cycleData.news === '' || cycleData.startDate === '' || cycleData.endDate === '' || cycleData.description === '') {
-        showError('Todos los campos son obligatorios');
-        return;
+    // Función callback para leer el texto de los inputs
+    function readText(e) {
+        if (e.target.classList.contains('main__form-field--cycle-id')) {
+            cycleData.cycle_id = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--location')) {
+            cycleData.cycle_location = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--cycle-name')) {
+            cycleData.cycle_name = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--cycleState')) {
+            cycleData.cycle_status = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--news')) {
+            cycleData.cycle_news = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--start-date')) {
+            cycleData.cycle_start_date = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--end-date')) {
+            cycleData.cycle_end_date = e.target.value;
+        } 
+        else if (e.target.classList.contains('main__form-field--description')) {
+            cycleData.cycle_description = e.target.value;
+        }
+        console.log(cycleData);
     }
-    
-    // Validación modificada para el ID (permite letras y números)
-    if (/[^a-zA-Z0-9]/.test(cycleData.cycleId)) {
-        showError('El ID del ciclo debe contener solo letras y números');
-        return;
-    }
-    
-    // Validar que los campos específicos no contengan caracteres especiales
-    if (hasSpecialChars(cycleData.cycleName)) {
-        showError('El nombre del ciclo no puede contener caracteres especiales');
-        return;
-    }
-    
-    if (hasSpecialChars(cycleData.description)) {
-        showError('La descripción no puede contener caracteres especiales');
-        return;
-    }
-    
-    // Validar que la fecha fin sea posterior a la fecha inicio
-    if (new Date(cycleData.endDate) <= new Date(cycleData.startDate)) {
-        showError('La fecha inicial debe ser menor a la fecha final');
-        return;
-    }
-    
-    showSuccess('El formulario ha sido completado correctamente');
-});
 
-// Función para mostrar mensajes de error
-function showError(message) {
-    console.log(message);
-    const error = document.createElement('P');
-    error.textContent = message;
-    error.classList.add('error');
-    
-    mainContainer.appendChild(error);
-    
-    setTimeout(() => {
-        error.remove();
-    }, 4000);
-}
-
-// Función para mostrar mensajes de éxito
-function showSuccess(message) {
-    const goodData = document.createElement('P');
-    goodData.textContent = message;
-    goodData.classList.add('correct');
-    
-    mainContainer.appendChild(goodData);
-    
-    // Elimina el mensaje después de 1 segundo
-    setTimeout(() => {
-        goodData.remove();
+    // Event listener para el botón de registrar
+    cycleForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
         
-        // Redirige a otra vista después de que se quite el mensaje
-        window.location.href = 'confirm-update-register-enable-disable.html';
-    }, 1000);
-}
+        try {
+            // Verificar que todos los campos esten completos
+            for (const key in cycleData) {
+                if (cycleData[key].trim() === '') {
+                    throw new Error('Todos los campos son obligatorios');
+                }
+            }
 
-// Función callback para leer el texto de los inputs
-function readText(e) {
-    if (e.target.classList.contains('main__form-field--cycle-id')) {
-        cycleData.cycleId = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--location')) {
-        cycleData.locationField = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--cycle-name')) {
-        cycleData.cycleName = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--state')) {
-        cycleData.statusField = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--news')) {
-        cycleData.news = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--start-date')) {
-        cycleData.startDate = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--end-date')) {
-        cycleData.endDate = e.target.value;
-    } 
-    else if (e.target.classList.contains('main__form-field--description')) {
-        cycleData.description = e.target.value;
+            // Validaciones
+            if (/[^a-zA-Z0-9]/.test(cycleData.cycle_id)) {
+                showError('El ID del ciclo debe contener solo letras y números');
+                return;
+            }
+            
+            if (hasSpecialChars(cycleData.cycle_name)) {
+                showError('El nombre del ciclo no puede contener caracteres especiales');
+                return;
+            }
+            
+            if (new Date(cycleData.cycle_end_date) <= new Date(cycleData.cycle_start_date)) {
+                showError('La fecha inicial debe ser menor a la fecha final');
+                return;
+            }
+
+            const response = await fetch('http://localhost:3000/cycle', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cycleData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Error en la conexión con el servidor');
+            }
+
+            const result = await response.json();
+            console.log('ciclo registrado:', result);
+            showSuccess('El formulario ha sido completado correctamente');
+        } catch (error) {
+            showError(error.message);
+        }
+    });
+
+    // Función para mostrar mensajes de error
+    function showError(message) {
+        console.log(message);
+        const error = document.createElement('P');
+        error.textContent = message;
+        error.classList.add('error');
+        cycleForm.appendChild(error);
+        setTimeout(() => error.remove(), 4000);
     }
-}
+
+    // Función para mostrar mensajes de éxito
+    function showSuccess(message) {
+        const success = document.createElement('P');
+        success.textContent = message;
+        success.classList.add('correct');
+        cycleForm.appendChild(success);
+        setTimeout(() => {
+            success.remove();
+            window.location.href = '/frontend/public/views/crop-cycle/confirm-update-register-enable-disable.html';
+        }, 1500);
+    }
+});
+

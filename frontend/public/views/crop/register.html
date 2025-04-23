@@ -23,7 +23,7 @@
 
     <!-- Main -->
     <main class="main">
-        <form class="main__container main__container--cropForm">
+        <form class="main__container main__container--cropForm" action="http://localhost:3000/crop" method="POST">
             <h2 class="main__title">Registrar cultivo</h2>
             <div class="main__container-form">
                 <div class="main__form-group">
@@ -48,13 +48,17 @@
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
-                    <input class="main__form-field main__form-field--cropState" type="text">
+                    <select class="main__form-field main__form-field--cropState">
+                        <option value="">Seleccione una opción</option>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">
                         Imágen del cultivo
                     </p>
-                    <label class="main__form-field main__form-upload">
+                    <label class="main__form-field main__form-field--upload">
                         <input type="file" class="main__form-field--upload-input" id="imagenCrop">
                         <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
                         <i class="main__upload-icon fas fa-upload"></i>
@@ -62,7 +66,7 @@
                 </div>
                 <div class="main__form-group">
                     <p class="main__form-label">Descripción</p>
-                    <input class="main__form-field main__form-field--cropDescription" type="text" />
+                    <input class="main__form-field main__form-field--description main__form-field--cropDescription" type="text" />
                 </div>
             </div><!-- main__container-form -->
             <div class="main__form-end">
