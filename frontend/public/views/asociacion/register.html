@@ -23,40 +23,53 @@
     <!-- Main -->
     <main class="main">
         <div class="main__container">
-            <h2 class="main__title">Registrar asociación</h2>
-            <div class="main__container-form">
-                <div class="main__form-group">
-                    <p class="main__form-label">ID de la asociación</p>
-                    <input class="main__form-field" type="text" name="id_cultivo">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del cultivo</p>
-                    <input class="main__form-field" type="text" name="id_cultivo">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del ciclo de cultivo</p>
-                    <input class="main__form-field" type="text" name="id_ciclo">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del sensor asociado</p>
-                    <input class="main__form-field" type="text" name="id_sensor">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del insumo asociado</p>
-                    <input class="main__form-field" type="text" name="id_insumo">
-                </div>
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del usuario asociado</p>
-                    <input class="main__form-field" type="text" name="id_usuario">
-                </div>
-            </div><!-- main__container-form -->
+          <h2 class="main__title">Registrar asociación</h2>
+          <form id="form-asociacion" class="main__container-form">
+            
+            <div class="main__form-group">
+              <p class="main__form-label">ID de la asociación</p>
+              <input class="main__form-field main__form-field--asociacion-id" type="text" name="id_asociacion">
+            </div>
+      
+            <div class="main__form-group">
+              <p class="main__form-label">Cultivo asociado</p>
+              <select name="id_cultivo" class="main__form-field main__form-field--select-cultivo">
+                <option value="">Selecciona un cultivo</option>
+              </select>
+            </div>
+      
+            <div class="main__form-group">
+              <p class="main__form-label">Ciclo de cultivo asociado</p>
+              <select name="id_ciclo" class="main__form-field main__form-field--select-cycle">
+                <option value="">Seleccionar ciclo</option>
+              </select>
+            </div>
+      
+            <div class="main__form-group">
+              <p class="main__form-label">Sensores asociados</p>
+              <select name="id_sensor[]" class="main__form-field main__form-field--select-sensor" multiple></select>
+            </div>
+      
+            <div class="main__form-group">
+              <p class="main__form-label">Insumos asociados</p>
+              <select name="id_insumo[]" class="main__form-field main__form-field--select-insumo" multiple></select>
+            </div>
+      
+            <div class="main__form-group">
+              <p class="main__form-label">Usuarios asociados</p>
+              <select name="id_usuario[]" class="main__form-field main__form-field--select-usuario" multiple></select>
+            </div>
+      
             <div class="main__form-end">
-                <a href="confirm-update-register-enable-disable.html" >
-                    <button class="main__form-button">REGISTRAR</button>
-                </a>
-            </div><!-- main__form-end -->
-        </div> <!-- main__container -->
-    </main>
+              <a href="confirm-update-register-enable-disable.html">
+                <button type="button" class="main__form-button">REGISTRAR</button>
+              </a>
+              
+            </div>
+      
+          </form>
+        </div>
+      </main>      
 
     <!-- Sección de botón final, regresar -->
     <div class="button-end">
@@ -64,5 +77,8 @@
             <button class="button-end__return" type="button">CANCELAR</button>
         </a>
     </div>
+
+    <!-- <script src="/backend/middleware.js/asociacion-validation.js"></script> -->
+    <script src="/backend/middleware.js/load-selects.js"></script>
 </body>
 </html>

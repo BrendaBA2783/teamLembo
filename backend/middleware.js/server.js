@@ -40,6 +40,17 @@ app.post('/users', (req, res) => {
     }
   );
 });
+// Ruta para obtener los usuarios
+app.get('/users', (req, res) => {
+  const query = 'SELECT * FROM users ORDER BY user_name DESC';
+  db.query(query, (err, result) => {
+    if (err) {
+      res.status(500).send('Error al obtener los usuarios');
+      return;
+    }
+    res.json(result);
+  });
+});
 
 // Ruta para agregar un cultivo
 app.post('/crop', (req, res) => {
@@ -57,6 +68,17 @@ app.post('/crop', (req, res) => {
       res.status(200).json({ message: 'Cultivo agregado' });
     }
   );
+});
+// Ruta para obtener los cultivos
+app.get('/crop', (req, res) => {
+  const query = 'SELECT * FROM crop ORDER BY crop_name DESC';
+  db.query(query, (err, result) => {
+    if (err) {
+      res.status(500).send('Error al obtener los cultivos');
+      return;
+    }
+    res.json(result);
+  });
 });
 
 // Ruta para agregar un ciclo de cultivo
@@ -76,6 +98,18 @@ app.post('/cycle', (req, res) => {
     }
   );
 });
+// Ruta para obtener los ciclos
+app.get('/cycle', (req, res) => {
+  const query = 'SELECT * FROM cycle ORDER BY cycle_name DESC';
+  db.query(query, (err, result) => {
+    if (err) {
+      res.status(500).send('Error al obtener los ciclos');
+      return;
+    }
+    res.json(result);
+  });
+});
+
 
 // Ruta para agregar un insumo
 app.post('/supplies', (req, res) => {
@@ -93,6 +127,17 @@ app.post('/supplies', (req, res) => {
       res.status(200).json({ message: 'Insumo agregado' });
     }
   );
+});
+// Ruta para obtener los insumos
+app.get('/supplies', (req, res) => {
+  const query = 'SELECT * FROM supplies ORDER BY supplies_name DESC';
+  db.query(query, (err, result) => {
+    if (err) {
+      res.status(500).send('Error al obtener los insumos');
+      return;
+    }
+    res.json(result);
+  });
 });
 
 // Ruta para agregar un sensor
@@ -112,7 +157,35 @@ app.post('/sensor', (req, res) => {
     }
   );
 });
+// Ruta para obtener los sensores
+app.get('/sensor', (req, res) => {
+  const query = 'SELECT * FROM sensor ORDER BY sensor_name DESC';
+  db.query(query, (err, result) => {
+    if (err) {
+      res.status(500).send('Error al obtener los sensores');
+      return;
+    }
+    res.json(result);
+  });
+});
 
+// Ruta para agregar asociacion
+/* app.post('/asociacion', (req, res) => {
+  const{asociacion_id, crop_id, cycle_id, sensor_id, supplies_id, users_id} = req.body;
+
+  db.query (
+    'INSERT INTO asociacion (asociacion_id, crop_id, cycle_id, sensor_id, supplies_id, users_id) VALUES (?, ?, ?, ?, ?, ?)',
+
+    [asociacion_id, crop_id, cycle_id, sensor_id, supplies_id, users_id],
+    (err, result) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al insertar datos' });
+        return;
+      }
+      res.status(200).json({ message: 'Asociacion agregada' });
+    }
+  );
+}); */
 
 app.listen(3000, () => {
   console.log ('Servidor corriendo en http://localhost:3000');

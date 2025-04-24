@@ -145,7 +145,11 @@ button:hover {
     background-color: var(--gray_20);
     box-shadow: 0rem 0.5rem 0.8rem var(--gray-shadow-input);
 }
-
+.main__form-field--select-sensor,
+.main__form-field--select-insumo,
+.main__form-field--select-usuario {
+    height: 10rem;
+}
 .main__field--email {
     margin-bottom: 2rem;
 }

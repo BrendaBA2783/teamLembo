@@ -80,7 +80,7 @@ Este proyecto es un aplicativo web para el lembo de santa rosa. (Mejorar descrip
 │   │   │   ├── footer.html  # Footer
 │   │   │   ├── sidebar.html # Sidebar
 │   │-- package.json         # Dependencias del frontend (si usas npm para frontend)
-│
+│   |-- /json/  
 │-- /database/               # Archivos relacionados con la base de datos
 │   │-- esquema.sql          # Script SQL para crear la base de datos
 │   │-- datos_prueba.sql     # Datos de prueba
