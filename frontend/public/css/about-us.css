@@ -1,4 +1,9 @@
 /* Container aboug-us */
+/* header */
+header {
+    border-bottom: 0.4rem solid var(--primary_green_900);
+}
+
 .main {
     max-width: 96rem;
     margin: 4rem auto;
