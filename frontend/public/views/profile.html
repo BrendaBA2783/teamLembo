@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar usuario</title>
+
+    <!-- Links de css y js -->
+    <link rel="stylesheet" href="../css/styles-general.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../views/components/js/general_header.js"></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+
+<div class="hero--general"></div>
+
+<body>
+    <main class="main">
+        <div class="main__container">
+            <h2 class="main__title">Informacion Perfil</h2>
+            <div class="profile">
+                <div class="profile__column">
+                    <div class="profile__field-group">
+                        <label class="profile__label">Nombre del usuario</label>
+                        <input type="text" class="main__field" value="Juan Pérez" readonly>
+                    </div>
+                    <div class="profile__field-group">
+                        <label class="profile__label">Edad</label>
+                        <input type="number" class="main__field" value="35" readonly>
+                    </div>
+                </div>
+                <div class="profile__column">
+                    <div class="profile__field-group">
+                        <label class="profile__label">Número de documento</label>
+                        <input type="text" class="main__field" value="1234567890" maxlength="10" readonly>
+                    </div>
+                    <div class="profile__field-group">
+                        <label class="profile__label">Ocupación</label>
+                        <input type="text" class="main__field" value="Agricultor" readonly>
+                    </div>
+                </div>
+                <!-- El campo de número de celular ahora está fuera de las columnas para ocupar todo el ancho -->
+                <div class="profile__field-group profile__field-group--full-width">
+                    <label class="profile__label">Número de celular</label>
+                    <input type="tel" class="main__field" value="3001234567" maxlength="10" readonly>
+                </div>
+            </div>
+        </div> <!-- main__container -->
+    </main>
+
+    <div class="button-end">
+        <a href="home-before.html">
+            <button class="button-end__return" type="button">VOLVER</button>
+        </a>
+    </div>
+</body>
+</html>
