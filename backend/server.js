@@ -1,4 +1,4 @@
-// 📌 Importación de módulos necesarios
+/* // 📌 Importación de módulos necesarios
 const express = require('express'); // Framework para crear el servidor
 const cors = require('cors'); // Middleware para manejar políticas de CORS
 
@@ -22,3 +22,9 @@ const PORT = process.env.PORT || 3000; // Usa el puerto de las variables de ento
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`); // Mensaje de confirmación
 });
+
+const cropRouters = require('./routes/cropRouters'); // Importamos las rutas de cultivos
+
+// Configuración de middleware
+app.use(cors()); // Habilitar CORS si es necesario
+app.use(express.json()); // Parsear JSON en las solicitudes */
