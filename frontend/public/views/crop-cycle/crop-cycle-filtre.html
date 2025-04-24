@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtro usuarios</title>
+    <title>Filtro Ciclo Cultivo</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/form-update-register.css">
@@ -27,34 +27,27 @@
                 <div class="main__container-form">
     
                     <div class="main__form-group">
-                        <p class="main__form-label">Tipo de usuario</p>
+                        <p class="main__form-label">Tipo de ciclo</p>
                         <select class="main__form-field main__form-field--userType">
                             <option value="">Seleccione una opción</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Técnico">Personal de apoyo</option>
-                            <option value="Agricultor">Visitante</option>
+                            <option value="Anuales">Anuales</option>
+                            <option value="Binuales">Binuales</option>
+                            <option value="perennes">Perennes</option>
                         </select>
                     </div>
-                    
-                    <div class="main__form-group">
-                        <p class="main__form-label">Fecha ingreso</p>
-                        <input 
-                            class="main__form-field main__form-field--userIdentificationNumber" 
-                            type="text"/>
-                    </div>
-                    
+
                     <div class="main__form-group">
                         <p class="main__form-label">Nombre/s</p>
                         <select class="main__form-field main__form-field--select">
                             <option value="">Seleccione una opción</option>
                         </select>
                     </div>
-
+                    
                     <div class="main__form-group">
-                        <p class="main__form-label">Apellido/s</p>
-                        <select class="main__form-field main__form-field--select">
-                            <option value="">Seleccione una opción</option>
-                        </select>
+                        <p class="main__form-label">Unidad de medida</p>
+                        <input 
+                            class="main__form-field main__form-field--userIdentificationNumber" 
+                            type="text"/>
                     </div>
 
                     <div class="main__form-group">
@@ -86,7 +79,7 @@
     
                 </div><!-- main__container-form -->
                 <div class="main__form-end">
-                    <a href="/frontend/public/views/user/table.html">
+                    <a href="/frontend/public/views/crop-cycle/table.html">
                         <button type="submit" class="main__form-button main__form-field--buttonFilter">FILTRAR</button>
                     </a>
                 </div> <!-- main__form-end -->
@@ -96,11 +89,10 @@
         <!-- Sección de botón final, regresar -->
         <div class="button-end">
             <a href="table.html">
-                <button class="button-end__return" type="button">CANCELAR</button>
+                <button class="button-end__return" type="submit">CANCELAR</button>
             </a>
         </div>
 
-        <script src="/backend/middleware.js/filter.js"></script>
-
+        <script src="/backend/middleware.js/filtre.js"></script>
 </body>
 </html>

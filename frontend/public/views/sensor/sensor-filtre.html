@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtro usuarios</title>
+    <title>Filtro Sensores</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/form-update-register.css">
@@ -27,39 +27,34 @@
                 <div class="main__container-form">
     
                     <div class="main__form-group">
-                        <p class="main__form-label">Tipo de usuario</p>
-                        <select class="main__form-field main__form-field--userType">
+                        <p class="main__form-label">Tipo de sensor</p>
+                        <select class="main__form-field">
                             <option value="">Seleccione una opción</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Técnico">Personal de apoyo</option>
-                            <option value="Agricultor">Visitante</option>
-                        </select>
-                    </div>
-                    
-                    <div class="main__form-group">
-                        <p class="main__form-label">Fecha ingreso</p>
-                        <input 
-                            class="main__form-field main__form-field--userIdentificationNumber" 
-                            type="text"/>
-                    </div>
-                    
-                    <div class="main__form-group">
-                        <p class="main__form-label">Nombre/s</p>
-                        <select class="main__form-field main__form-field--select">
-                            <option value="">Seleccione una opción</option>
+                            <option value="Temperatura">Temperatura</option>
+                            <option value="Humedad">Humedad</option>
+                            <option value="Movimiento">Movimiento</option>
+                            <option value="Luz">Luz</option>
+                            <option value="Presión">Presión</option>
                         </select>
                     </div>
 
                     <div class="main__form-group">
-                        <p class="main__form-label">Apellido/s</p>
-                        <select class="main__form-field main__form-field--select">
+                        <p class="main__form-label">Nombre/s</p>
+                        <select class="main__form-field">
                             <option value="">Seleccione una opción</option>
                         </select>
+                    </div>
+                    
+                    <div class="main__form-group">
+                        <p class="main__form-label">Tiempo de escaneo</p>
+                        <input 
+                            class="main__form-field" 
+                            type="text"/>
                     </div>
 
                     <div class="main__form-group">
                         <p class="main__form-label">Estado</p>
-                        <select class="main__form-field main__form-field--userDocumentType">
+                        <select class="main__form-field">
                             <option value="">Seleccione una opción</option>
                             <option value="Deshabilitado">Deshabilitado</option>
                             <option value="Habilitado">Habilitado</option>
@@ -68,7 +63,7 @@
 
                     <div class="main__form-group">
                         <p class="main__form-label">Deshabilitado</p>
-                        <select class="main__form-field main__form-field--userDocumentType">
+                        <select class="main__form-field">
                             <option value="">Seleccione una opción</option>
                             <option value="Activo">Activo</option>
                             <option value="Inactivo">Inactivo</option>
@@ -77,7 +72,7 @@
 
                     <div class="main__form-group">
                         <p class="main__form-label">Habilitado</p>
-                        <select class="main__form-field main__form-field--userDocumentType">
+                        <select class="main__form-field">
                             <option value="">Seleccione una opción</option>
                             <option value="Activo">Activo</option>
                             <option value="Inactivo">Inactivo</option>
@@ -86,9 +81,8 @@
     
                 </div><!-- main__container-form -->
                 <div class="main__form-end">
-                    <a href="/frontend/public/views/user/table.html">
-                        <button type="submit" class="main__form-button main__form-field--buttonFilter">FILTRAR</button>
-                    </a>
+                    <a href="/frontend/public/views/sensor/table.html"></a>
+                    <button type="submit" class="main__form-button main__form-field--buttonFilter">FILTRAR</button>
                 </div> <!-- main__form-end -->
             </form><!-- main__container -->
         </main><!-- main -->
@@ -96,11 +90,10 @@
         <!-- Sección de botón final, regresar -->
         <div class="button-end">
             <a href="table.html">
-                <button class="button-end__return" type="button">CANCELAR</button>
+                <button class="button-end__return" type="submit">CANCELAR</button>
             </a>
         </div>
 
-        <script src="/backend/middleware.js/filter.js"></script>
-
+        <script src="/backend/middleware.js/filtre.js"></script>
 </body>
 </html>
