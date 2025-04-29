@@ -36,6 +36,16 @@
             </div>
 
             <div class="main__form-group">
+                <p class="main__form-label">Tipo de sensor</p>
+                <input type="text" class="main__form-field main__form-field--sensor-type">
+            </div>
+
+            <div class="main__form-group">
+                <p class="main__form-label">Nombre del sensor</p>
+                <input type="text" class="main__form-field main__form-field--name">
+            </div>
+
+            <div class="main__form-group">
                 <p class="main__form-label">Unidad de medida</p>
                 <select class="main__form-field main__form-field--unit-measure">
                     <option value="">Seleccione una opción</option>
@@ -48,29 +58,10 @@
                     <option value="ml">Mililitros (ml)</option>
                 </select>
             </div>
-            
-            <div class="main__form-group">
-                <p class="main__form-label">Tipo de sensor</p>
-                <input type="text" class="main__form-field main__form-field--sensor-type">
-            </div>
 
             <div class="main__form-group">
                 <p class="main__form-label">Tiempo de escaneo (minutos)</p>
                 <input type="number" class="main__form-field main__form-field--scan-time" min="0" step="1" placeholder="Minutos">
-            </div>
-
-            <div class="main__form-group">
-                <p class="main__form-label">Nombre</p>
-                <input type="text" class="main__form-field main__form-field--name">
-            </div>
-
-            <div class="main__form-group">
-                <p class="main__form-label">Estado</p>
-                <select class="main__form-field main__form-field--state">
-                    <option value="">Seleccione una opción</option>
-                    <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>
-                </select>
             </div>
 
             <div class="main__form-group">
@@ -82,6 +73,14 @@
                     <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
                     <i class="main__upload-icon fas fa-upload"></i>
                 </label>
+            </div>
+
+            <div class="main__form-group">
+                <p class="main__form-label">Estado</p>
+                <select class="main__form-field main__form-field--state">
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
             </div>
 
             <div class="main__form-group form__field-group--description">

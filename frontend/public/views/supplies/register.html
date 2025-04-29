@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <!-- Link para icono de carga -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Integración del general_header.hmtl -->
@@ -30,21 +32,6 @@
                     <input 
                         class="main__form-field main__form-field--suppliesId" 
                         type="text" />
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del ciclo de cultivo</p>
-                    <input 
-                        class="main__form-field main__form-field--cropcycleId" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del cultivo</p>
-                    <input 
-                        class="main__form-field 
-                        main__form-field--cropId" 
-                        type="text">
                 </div>
 
                 <div class="main__form-group">
@@ -71,7 +58,6 @@
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
                     <select class="main__form-field main__form-field--suppliesState">
-                        <option value="">Seleccione una opción</option>
                         <option value="activo">Activo</option>
                         <option value="inactivo">Inactivo</option>
                     </select>
@@ -89,6 +75,17 @@
                     <input 
                         class="main__form-field main__form-field--suppliesTotalvalue" 
                         type="text">
+                </div>
+
+                <div class="main__form-group">
+                    <p class="main__form-label">
+                        Imágen del insumo
+                    </p>
+                    <label class="main__form-field main__form-field--upload">
+                        <input type="file" class="main__form-field--upload-input" id="imagenInsumo">
+                        <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
+                        <i class="main__upload-icon fas fa-upload"></i>
+                    </label>
                 </div>
 
                 <div class="main__form-group">
