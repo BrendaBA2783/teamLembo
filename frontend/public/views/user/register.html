@@ -26,11 +26,18 @@
             <div class="main__container-form">
 
                 <div class="main__form-group">
+                    <p class="main__form-label">ID de usuario</p>
+                    <input 
+                        class="main__form-field main__form-field--userId" 
+                        type="text" name="user_id" readonly/>
+                </div>
+
+                <div class="main__form-group">
                     <p class="main__form-label">Tipo de usuario</p>
                     <select class="main__form-field main__form-field--userType">
                         <option value="">Seleccione una opción</option>
                         <option value="Administrador">Administrador</option>
-                        <option value="Personal de apoyo">Personal de apoyo</option>
+                        <option value="Personal apoyo">Personal de apoyo</option>
                         <option value="Visitante">Visitante</option>
                     </select>
                 </div>
@@ -39,16 +46,16 @@
                     <p class="main__form-label">Tipo de documento</p>
                     <select class="main__form-field main__form-field--userDocumentType">
                         <option value="">Seleccione una opción</option>
-                        <option value="CC">Cédula de ciudadanía (CC)</option>
-                        <option value="TI">Tarjeta de identidad (TI)</option>
-                        <option value="CE">Cédula de extranjería (CE)</option>
-                        <option value="PEP">Permiso Especial de Permanencia (PEP)</option>
-                        <option value="PPT">Permiso por Protección Temporal (PPT)</option>
+                        <option value="Cédula de ciudadanía (CC)">Cédula de ciudadanía (CC)</option>
+                        <option value="Tarjeta de identidad (TI)">Tarjeta de identidad (TI)</option>
+                        <option value="Cédula de extranjería (CE)">Cédula de extranjería (CE)</option>
+                        <option value="Permiso Especial de Permanencia (PEP)">Permiso Especial de Permanencia (PEP)</option>
+                        <option value="Permiso por Protección Temporal (PPT)">Permiso por Protección Temporal (PPT)</option>
                     </select>
                 </div>                            
 
                 <div class="main__form-group">
-                    <p class="main__form-label">Número de identificación</p>
+                    <p class="main__form-label">Número de documento</p>
                     <input 
                         class="main__form-field main__form-field--userIdentificationNumber" 
                         type="text"/>
@@ -78,8 +85,8 @@
                 <div class="main__form-group">
                     <p class="main__form-label">Estado</p>
                     <select class="main__form-field main__form-field--userState">
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
+                        <option value="Habilitado">Activo</option>
+                        <option value="Deshabilitado">Inactivo</option>
                     </select>
                 </div>
 
@@ -112,5 +119,6 @@
     </div>
 
     <script src="/backend/middleware.js/user-validation-register.js"></script>
+    <script src="/backend/middleware.js/user-id-generate.js"></script>
 </body>
 </html>
