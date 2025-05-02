@@ -128,6 +128,28 @@ button:hover {
 .button-end__return--top-none {
     margin-top: 1.2rem;
 }
+.main__form-action {
+    width: 22rem;
+}
+.main__form-action--icon-supplies, .main__form-action--icon-sensor, .main__form-action--remove {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 0.2rem solid var(--primary_green_900);
+    cursor: pointer;
+    padding: 0;
+}
+.main__form-action--remove {
+    border: 0.2rem solid var(--yellow_secundary_950);
+    color: var(--yellow_secundary_950);
+}
+.main__form-action--icon-supplies .fa-plus {
+    color: var(--primary_green_900);
+}
+.main__form-action--icon-sensor .fa-plus {
+    color: var(--primary_green_900);
+}
 @media (max-width: 768px) {
     .button-end {
         justify-content: center;
@@ -145,10 +167,14 @@ button:hover {
     background-color: var(--gray_20);
     box-shadow: 0rem 0.5rem 0.8rem var(--gray-shadow-input);
 }
-.main__form-field--select-sensor,
-.main__form-field--select-insumo,
-.main__form-field--select-usuario {
-    height: 10rem;
+.main__form-group--line {
+    border-bottom: 0.2rem solid var(--primary_green_900);
+}
+.main__form-field--produccion-end-date, .main__form-field--produccion-start-date, .main__form-field--produccion-description {
+    margin-bottom: 2rem;
+}
+.main__form-field--select-cultivo, .main__form-field--select-cycle, .main__form-field--select-usuario, .main__form-field--select-sensor, .main__form-field--select-insumo {
+    width: 64rem;
 }
 .main__field--email {
     margin-bottom: 2rem;
@@ -409,3 +435,24 @@ button:hover {
         top: 102rem;
     }
 }
+
+.main__modal-crop, .main__modal-cycle, .main__modal-user, .main__modal-sensor, .main__modal-supplies {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .main__modal-crop--content, .main__modal-cycle--content, .main__modal-user--content, .main__modal-sensor--content, .main__modal-supplies--content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }

@@ -33,36 +33,10 @@ header {
     flex-wrap: wrap;
     gap: 1rem;
 }
-.main__container-section--one {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-.main__container-section--two {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
 .main__form-group {
     text-align: start;
     display: flex;
     flex-direction: column;
-}
-.main__form-group--flex {
-    display: flex;
-    flex-direction: row;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-}
-.main__form-actions {
-    margin-top: 3rem;
-    display: flex;
-    gap: 1.2rem;
-}
-.main__form-box--sensor, .main__form-box--supplies {
-    margin-bottom: 0.8rem;
 }
 .main__form-label {
     margin: 0.4rem;
