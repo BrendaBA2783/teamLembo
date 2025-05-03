@@ -5,7 +5,7 @@ const selectSensor = document.querySelector(".main__form-field--select-sensor");
 const selectCycle = document.querySelector(".main__form-field--select-cycle");
 const selectSupplies = document.querySelector(".main__form-field--select-insumo");
 
-// Función para cargar los sensores
+// Función para cargar los insumos
 const loadInsumos = async () => {
     try {
         const response = await fetch('http://localhost:3000/supplies');
