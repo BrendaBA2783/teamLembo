@@ -1,153 +1,140 @@
-const API_URL = 'http://localhost:3000';
+// Importar funciones de exportación
+import { initializeExportButtons, showError } from '../utils/export-utils.js';
 
+const API_URL = 'http://localhost:3001/api';
+
+// Función para cargar los cultivos en la tabla
 async function loadCrops() {
     try {
-        const response = await fetch(`${API_URL}/crop`);
-        const data = await response.json();
-        renderTablaCrops(data);
+        const response = await fetch(`${API_URL}/crops`);
+        if (!response.ok) {
+            throw new Error('Error al cargar los cultivos');
+        }
+        const crops = await response.json();
+        const tbody = document.querySelector('.main__tbody');
+        tbody.innerHTML = '';
+
+        crops.forEach(crop => {
+            const row = document.createElement('tr');
+            row.className = 'main__table-row';
+            row.innerHTML = `
+                <td class="main__table-cell main__table-cell--checkbox">
+                    <input type="checkbox" class="main__table-checkbox" data-id="${crop.id}">
+                </td>
+                <td class="main__table-cell">${crop.id}</td>
+                <td class="main__table-cell">${crop.type}</td>
+                <td class="main__table-cell">${crop.name}</td>
+                <td class="main__table-cell">${crop.size}</td>
+                <td class="main__table-cell">${crop.description}</td>
+                <td class="main__table-cell">${crop.state}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // Inicializar checkbox "Seleccionar todos"
+        initializeSelectAll();
+        // Inicializar botones de exportación
+        initializeExportButtons('crops');
     } catch (error) {
-        console.error('Error:', error);
-        alert('Error al cargar los cultivos');
+        showError('Error al cargar los cultivos: ' + error.message);
     }
 }
 
-function renderTablaCrops(crops) {
-    const tbody = document.querySelector('.main__tbody');
-    tbody.innerHTML = crops.map(crop => `
-        <tr class="main__table-row" data-id="${crop.crop_id}">
-            <td class="main__table-cell">
-                <input type="checkbox" class="main__table-checkbox">
-            </td>
-            <td class="main__table-cell">${crop.crop_id}</td>
-            <td class="main__table-cell">${crop.crop_type}</td>
-            <td class="main__table-cell">${crop.crop_name}</td>
-            <td class="main__table-cell">${crop.crop_size}</td>
-            <td class="main__table-cell">${crop.crop_description}</td>
-            <td class="main__table-cell">${crop.crop_state}</td>
-        </tr>
-    `).join('');
-
-    setupCheckboxes();
+// Función para mostrar mensajes de éxito
+function showSuccess(message) {
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.textContent = message;
+    document.querySelector('.main').prepend(successDiv);
+    setTimeout(() => successDiv.remove(), 3000);
 }
 
-function setupCheckboxes() {
+// Inicializar checkbox "Seleccionar todos"
+function initializeSelectAll() {
     const selectAll = document.getElementById('selectAll');
+    const checkboxes = document.querySelectorAll('.main__table-checkbox:not(#selectAll)');
+    
     if (selectAll) {
-        selectAll.addEventListener('change', (e) => {
-            document.querySelectorAll('.main__table-checkbox:not(#selectAll)').forEach(checkbox => {
-                checkbox.checked = e.target.checked;
-                checkbox.closest('tr').classList.toggle('selected', e.target.checked);
+        selectAll.addEventListener('change', () => {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAll.checked;
             });
         });
     }
-
-    document.querySelectorAll('.main__table-checkbox:not(#selectAll)').forEach(checkbox => {
-        checkbox.addEventListener('change', (e) => {
-            const row = e.target.closest('tr');
-            row.classList.toggle('selected', e.target.checked);
-        });
-    });
 }
 
-async function toggleEstado(estado) {
+// Función para manejar el cambio de estado
+async function toggleCropState(state) {
     const selectedCheckboxes = document.querySelectorAll('.main__table-checkbox:checked:not(#selectAll)');
-    if (selectedCheckboxes.length === 0) {
-        alert('Por favor seleccione al menos un cultivo');
+    const ids = Array.from(selectedCheckboxes).map(cb => cb.dataset.id);
+    
+    if (ids.length === 0) {
+        showError('Por favor, seleccione al menos un cultivo');
         return;
     }
 
     try {
-        for (const checkbox of selectedCheckboxes) {
-            const row = checkbox.closest('tr');
-            const id = row.dataset.id;
-            
+        for (const id of ids) {
             const response = await fetch(`${API_URL}/crop/${id}/state`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ state: estado })
+                body: JSON.stringify({ state })
             });
 
-            if (!response.ok) {
-                throw new Error(`Error al actualizar estado: ${response.statusText}`);
-            }
+            if (!response.ok) throw new Error('Error al actualizar el estado');
         }
-        await loadCrops(); // Recargar la tabla
+
+        showSuccess('Estados actualizados correctamente');
+        loadCrops(); // Recargar la tabla
     } catch (error) {
         console.error('Error:', error);
-        alert('Error al actualizar el estado');
+        showError('Error al actualizar los estados');
     }
 }
 
-async function handleDownload(format) {
-    try {
-        console.log(`Iniciando descarga en formato: ${format}`);
-        const response = await fetch(`${API_URL}/crop/export?format=${format}`);
-        
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        const extension = format === 'excel' ? 'xlsx' : 'pdf';
-        
-        a.href = url;
-        a.download = `cultivos.${extension}`;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-    } catch (error) {
-        console.error('Error en la descarga:', error);
-        alert(`Error al descargar el archivo: ${error.message}`);
-    }
-}
-
-// Update visualization handler
+// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     loadCrops();
 
-    // Visualizar handler
-    const visualizarButton = document.querySelector('a[href="id-visualise.html"]');
-    visualizarButton?.addEventListener('click', (e) => {
+    // Manejar cambios de estado
+    const stateLinks = document.querySelectorAll('#deshabilitarHabilitarMenu a');
+    stateLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleCropState(e.target.dataset.state);
+        });
+    });
+
+    // Manejar búsqueda
+    const searchInput = document.querySelector('.search__input');
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const rows = document.querySelectorAll('.main__tbody .main__table-row');
+        
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+    });
+
+    // Manejar visualización
+    const visualizeLink = document.getElementById('visualizarLink');
+    visualizeLink?.addEventListener('click', (e) => {
         e.preventDefault();
         const selectedCheckboxes = document.querySelectorAll('.main__table-checkbox:checked:not(#selectAll)');
         
         if (selectedCheckboxes.length !== 1) {
-            alert('Por favor seleccione un único cultivo para visualizar');
+            showError('Por favor, seleccione un único cultivo para visualizar');
             return;
         }
 
-        const row = selectedCheckboxes[0].closest('tr');
-        console.log('Row selected:', row); // Debug
-        console.log('Row dataset:', row.dataset); // Debug
-        
-        const id = row.dataset.id;
-        if (id) {
-            window.location.href = `id-visualise.html?id=${id}`;
+        const cropId = selectedCheckboxes[0].dataset.id;
+        if (cropId) {
+            window.location.href = `visualise.html?id=${cropId}`;
         } else {
-            console.error('No ID found in row');
-        }
-    });
-
-    // Agregar handler para habilitar/deshabilitar
-    document.getElementById('deshabilitarHabilitarMenu').addEventListener('click', (e) => {
-        if (e.target.matches('a[data-state]')) {
-            e.preventDefault();
-            const estado = e.target.dataset.state;
-            toggleEstado(estado);
-        }
-    });
-
-    // Agregar handler para descargas
-    document.getElementById('descargarMenu')?.addEventListener('click', (e) => {
-        if (e.target.matches('a')) {
-            e.preventDefault();
-            const format = e.target.textContent.toLowerCase();
-            handleDownload(format);
+            showError('Error al obtener el ID del cultivo');
         }
     });
 });

@@ -1,0 +1,3 @@
+const API_URL = 'http://localhost:3001/api';
+
+// ... resto del código sin cambios ... 

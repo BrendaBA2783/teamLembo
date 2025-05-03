@@ -3,51 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar sensor</title>
+    <title>Visualizar Sensor - LEMBO</title>
+    <style>
+        /* Estilos principales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+        }
 
-    <!-- Links de css y js -->
-    <link rel="stylesheet" href="../../css/visualise.css">
-    <link rel="stylesheet" href="../../css/styles-general.css">
-    <script src="../../views/components/js/general_header.js"></script>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    <!-- Tipografia Work Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos específicos del sensor */
+        .sensor-details {
+            padding: 2rem;
+        }
+
+        .detail-group {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-group h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .detail-group p {
+            margin: 0.5rem 0;
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        .detail-group strong {
+            color: #343a40;
+            font-weight: 600;
+        }
+
+        .status-active {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .status-inactive {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .sensor-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <!-- Integración del general_header.hmtl -->
-    <div class="hero--general"></div>
+    <div class="container">
+        <header class="header">
+            <h1>Detalles del Sensor</h1>
+            <nav class="nav">
+                <a href="table.html" class="btn btn-secondary">← Volver a la lista</a>
+            </nav>
+        </header>
 
-    <!-- Main -->
-    <main class="main">
-        <div class="main__container">
-            <div class="main__container-information">
-                <div class="main__container-image">
-                    <h1 class="main__title">Visualizar asociaciones de sensores</h1>
-                    <img class="main__image" src="../../img/image_sensor.png">
-                </div>
-                <div class="main__container-text">
-                    <h2 class="main__subtitle">Sensor: Humedad Suelo 01</h2>
-                    <p>ID del sensor: sens201</p>
-                    <p>Unidad de medida: porcentaje(45%)</p>
-                    <p>Tipo de sensor: Humedad de suelo</p>
-                    <p>Tiempo escaneo: 1 hora</p>
-                    <p>Estado: HABILITADO</p>
-                    <p>Descripción: Mide el nivel de humedad en el suelo.</p>
-                    <h2 class="main__subtitle">Datos de asociación de módulos</h2>
-                    <p>Asociado al cultivo: Tomate</p>
-                    <p>Relacionado al ciclo de cultivo: Ciclo 2 - Tomate 2024</p>
-                    <p>Monitorea insumo: Fertilizante líquido tipo A</p>
-                    <p>Usuario encargado: Carlos Ramírez</p>
+        <main class="main">
+            <div class="card">
+                <div id="sensorDetails" class="sensor-details">
+                    <!-- Los detalles del sensor se cargarán dinámicamente aquí -->
+                    <div class="loading">Cargando detalles del sensor...</div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <!-- Sección de botón final, regresar -->
-    <div class="button-end">
-        <a href="table.html"><button class="button-end__return" type="submit">VOLVER</button></a>
+        </main>
     </div>
+
+    <script src="../../js/sensor/sensor-visualise.js"></script>
 </body>
 </html>

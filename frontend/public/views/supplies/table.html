@@ -41,8 +41,8 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="deshabilitarHabilitarMenu">
-                <a href="/frontend/public/views/supplies/id-enable.html">Habilitar</a>
-                <a href="/frontend/public/views/supplies/id-disable.html">Deshabilitar</a>
+                <a href="#" data-state="active">Habilitar</a>
+                <a href="#" data-state="inactive">Deshabilitar</a>
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
@@ -55,12 +55,11 @@
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
-            <h4 class="table-options__title table-options__title--dropdown-toggle" id="visualizarBtn">Visualizar
+            <h4 class="table-options__title table-options__title--dropdown-toggle">Visualizar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-            <div class="dropdown-menu" id="visualizarMenu">
-                <a href="../asociacion/id-visualise.html">Visualizar asociación</a>
-                <a href="id-visualise.html">Visualizar datos</a>
+            <div class="dropdown-menu">
+                <a href="#" id="visualizarLink">Visualizar insumo</a>
             </div>
         </div>
         <a class="table-options__link" href="filtro.html">
@@ -68,142 +67,27 @@
         </a>
     </div>
 
-
     <!-- Tabla -->
     <main class="main">
         <div class="main__table-container">
             <table class="main__table">
                 <thead class="main__thead">
                     <tr class="main__table-row">
+                        <th class="main__table-header main__table-header--checkbox">
+                            <input type="checkbox" class="main__table-checkbox" id="selectAll">
+                        </th>
                         <th class="main__table-header">ID INSUMO</th>
-                        <th class="main__table-header">TIPO INSUMO</th>
                         <th class="main__table-header">NOMBRE</th>
-                        <th class="main__table-header">UNIDAD MEDIDA</th>
-                        <th class="main__table-header">DESCRIPCIÓN</th>
+                        <th class="main__table-header">TIPO</th>
+                        <th class="main__table-header">CANTIDAD</th>
+                        <th class="main__table-header">UNIDAD</th>
+                        <th class="main__table-header">VALOR UNITARIO</th>
+                        <th class="main__table-header">VALOR TOTAL</th>
                         <th class="main__table-header">ESTADO</th>
                     </tr>
                 </thead>
                 <tbody class="main__tbody">
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Agotado</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Agotado</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">01</td>
-                        <td class="main__table-cell">Granos</td>
-                        <td class="main__table-cell">Trigo</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">02</td>
-                        <td class="main__table-cell">Frutas</td>
-                        <td class="main__table-cell">Manzana</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">03</td>
-                        <td class="main__table-cell">Hortalizas</td>
-                        <td class="main__table-cell">Zanahoria</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                        <td class="main__table-cell main__table-cell--right">Agotado</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">04</td>
-                        <td class="main__table-cell">Legumbres</td>
-                        <td class="main__table-cell">Lentejas</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Fuente de proteínas vegetales de fácil digestión</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
-                    <tr class="main__table-row">
-                        <td class="main__table-cell main__table-cell--left">05</td>
-                        <td class="main__table-cell">Tubérculos</td>
-                        <td class="main__table-cell">Papa</td>
-                        <td class="main__table-cell">Kilogramos</td>
-                        <td class="main__table-cell">Alimento básico en muchas culturas, rico en carbohidratos</td>
-                        <td class="main__table-cell main__table-cell--right">Disponible</td>
-                    </tr>
+                    <!-- Las filas se generarán dinámicamente mediante JavaScript -->
                 </tbody>
             </table>
         </div>
@@ -218,5 +102,9 @@
             <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
         </a>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="/frontend/public/js/supplies/supplies.js" type="module" defer></script>
 </body>
 </html>

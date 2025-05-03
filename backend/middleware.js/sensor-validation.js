@@ -1,139 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sensorForm = document.querySelector('.main__container--sensorForm');
+    const fileInput = document.querySelector('.main__form-field--upload-input');
+    const fileNameDisplay = document.getElementById('fileName');
 
-    // Selección de los inputs
-    const sensorId = document.querySelector('.main__form-field--sensor-id');
-    const sensorMeasure = document.querySelector('.main__form-field--unit-measure');
-    const sensorType = document.querySelector('.main__form-field--sensor-type');
-    const sensorScanTime = document.querySelector('.main__form-field--scan-time');
-    const sensorName = document.querySelector('.main__form-field--name');
-    const sensorStatus = document.querySelector('.main__form-field--state');
-    const sensorImage = document.querySelector('.main__form-field--upload-input');
-    const sensorDescription = document.querySelector('.main__form-field--description');
-
-    // Se crea el objeto
+    // Objeto para almacenar los datos del sensor
     const sensorData = {
-        sensor_id: '',
-        sensor_measure: '',
         sensor_type: '',
-        sensor_scan_time: '',
         sensor_name: '',
-        sensor_status: '',
+        unit_measure: '',
+        scan_time: '',
+        sensor_state: 'activo',
         sensor_image: '',
         sensor_description: ''
     };
 
-    // Validacióones
-    sensorId.addEventListener('input', function(e) {
-        const regex = /[^a-zA-Z0-9]/g;
-        if (regex.test(e.target.value)) {
-            e.preventDefault();
-            showError('El id no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(regex, '');
+    // Manejar la selección de archivo
+    fileInput?.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            fileNameDisplay.textContent = file.name;
+            // Convertir imagen a Base64
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                sensorData.sensor_image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            fileNameDisplay.textContent = 'Seleccionar archivo';
+            sensorData.sensor_image = '';
         }
     });
 
-    sensorMeasure.addEventListener('input', function(e) {
-        const regex = /[^a-zA-Z0-9\s]/;
-        if (regex.test(e.target.value)) {
-            e.preventDefault();
-            showError('La unidad de medida no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(regex, '');
+    // Actualizar datos del sensor cuando se modifican los campos
+    sensorForm?.addEventListener('input', (e) => {
+        const field = e.target;
+        const fieldName = field.classList[1]?.split('--')[1];
+        
+        if (fieldName === 'sensor-type') {
+            sensorData.sensor_type = field.value;
+        } else if (fieldName === 'name') {
+            sensorData.sensor_name = field.value;
+        } else if (fieldName === 'unit-measure') {
+            sensorData.unit_measure = field.value;
+        } else if (fieldName === 'scan-time') {
+            sensorData.scan_time = field.value;
+        } else if (fieldName === 'state') {
+            sensorData.sensor_state = field.value;
+        } else if (fieldName === 'description') {
+            sensorData.sensor_description = field.value;
         }
     });
 
-    sensorType.addEventListener('input', function(e) {
-        const regex = /[^a-zA-Z0-9\s]/;
-        if (regex.test(e.target.value)) {
-            e.preventDefault();
-            showError('El tipo de sensor no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(regex, '');
-        }
-    });
-
-    sensorName.addEventListener('input', function(e) {
-        const regex = /[^a-zA-Z0-9\s]/;
-        if (regex.test(e.target.value)) {
-            e.preventDefault();
-            showError('El nombre del sensor no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(regex, '');
-        }
-    });
-
-    // Actualizar el objeto sensorData
-    sensorId.addEventListener('input', readText);
-    sensorMeasure.addEventListener('input', readText);
-    sensorType.addEventListener('input', readText);
-    sensorScanTime.addEventListener('input', readText);
-    sensorName.addEventListener('input', readText);
-    sensorStatus.addEventListener('input', readText);
-    sensorImage.addEventListener('change', readText); 
-    sensorDescription.addEventListener('input', readText);
-
-    // Callback function to read input text
-    function readText(e) {
-        if (e.target.classList.contains('main__form-field--sensor-id')) {
-            sensorData.sensor_id = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--unit-measure')) {
-            sensorData.sensor_measure = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--sensor-type')) {
-            sensorData.sensor_type = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--scan-time')) {
-            sensorData.sensor_scan_time = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--name')) {
-            sensorData.sensor_name = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--state')) {
-            sensorData.sensor_status = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--upload-input')) {
-            sensorData.sensor_image = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--description')) {
-            sensorData.sensor_description = e.target.value;
-        }
-        console.log(sensorData);
-    }
-
-    // Event listener for update button
-    sensorForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    // Manejar el envío del formulario
+    sensorForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
         try {
-            for (const key in sensorData) {
-                if (sensorData[key].trim() === '') {
-                    throw new Error('Todos los campos son obligatorios');
-                }
-            }
-        
-            // Validaciones
-            if (/[^a-zA-Z0-9]/.test(sensorData.sensor_id)) {
-                showError('El ID del sensor no puede contener caracteres especiales');
-                return;
-            }
-            
-            if (sensorData.sensor_image === '') {
-                showError('Se debe subir una imágen');
-                return;
+            // Validar campos requeridos
+            const requiredFields = ['sensor_type', 'sensor_name', 'unit_measure', 'scan_time'];
+            const missingFields = requiredFields.filter(field => !sensorData[field].trim());
+
+            if (missingFields.length > 0) {
+                throw new Error('Por favor complete todos los campos requeridos');
             }
 
-            if (/[^a-zA-Z0-9\s]/.test(sensorData.sensor_measure)) {
-                showError('La unidad de medida no puede contener caracteres especiales');
-                return;
-            }
-
-            if (/[^a-zA-Z0-9\s]/.test(sensorData.sensor_type)) {
-                showError('El tipo de sensor no puede contener caracteres especiales');
-                return;
-            }
-
-            if (/[^a-zA-Z0-9\s]/.test(sensorData.sensor_name)) {
-                showError('El nombre del sensor no puede contener caracteres especiales');
-                return;
+            // Validar que el tiempo de escaneo sea un número positivo
+            if (isNaN(sensorData.scan_time) || Number(sensorData.scan_time) <= 0) {
+                throw new Error('El tiempo de escaneo debe ser un número positivo');
             }
 
             const response = await fetch('http://localhost:3000/sensor', {
@@ -145,36 +78,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!response.ok) {
-                throw new Error('Error en la conexión con el servidor');
+                throw new Error('Error al registrar el sensor');
             }
 
             const result = await response.json();
-            console.log('Sensor registrado:', result);
-            showSuccess('El formulario ha sido completado correctamente');
+            showSuccess('Sensor registrado exitosamente');
+            
+            // Limpiar formulario
+            sensorForm.reset();
+            fileNameDisplay.textContent = 'Seleccionar archivo';
+            
+            // Redirigir a la tabla después de 1 segundo
+            setTimeout(() => {
+                window.location.href = 'table.html';
+            }, 1000);
+
         } catch (error) {
             showError(error.message);
         }
     });
 
+    // Función para mostrar mensajes de error
     function showError(message) {
-        console.log(message); 
-        const error = document.createElement('P'); 
-        error.textContent = message; 
-        error.classList.add('error'); 
-        sensorForm.appendChild(error);   
-        setTimeout(() => {
-            error.remove(); 
-        }, 4000);
-    };
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        sensorForm.insertBefore(errorDiv, sensorForm.firstChild);
+        setTimeout(() => errorDiv.remove(), 3000);
+    }
 
+    // Función para mostrar mensajes de éxito
     function showSuccess(message) {
-        const success = document.createElement('P');
-        success.textContent = message;
-        success.classList.add('correct');
-        sensorForm.appendChild(success);
-        setTimeout(() => {
-            success.remove();
-            window.location.href = 'confirm-update-register-enable-disable.html';
-        }, 1000);
-    };
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-message';
+        successDiv.textContent = message;
+        sensorForm.insertBefore(successDiv, sensorForm.firstChild);
+        setTimeout(() => successDiv.remove(), 3000);
+    }
 });

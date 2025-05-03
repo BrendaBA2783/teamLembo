@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../../css/form-update-register.css">
     <link rel="stylesheet" href="../../css/styles-general.css">
     <script src="../../views/components/js/general_header.js"></script>
-    <script src="/backend/middleware.js/supplies-validacion.js"></script>
+    <script src="../../js/config.js"></script>
+    <script src="../../js/asociacion/register.js"></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,32 +31,32 @@
             <div class="main__container-section main__container-section--one">
               <div class="main__form-group">
                 <p class="main__form-label">ID de la producción</p>
-                <input class="main__form-field main__form-field--produccion-id" type="text" name="id_asociacion" disabled>
+                <input class="main__form-field main__form-field--produccion-id" type="text" name="production_code" readonly>
               </div>
 
               <div class="main__form-group">
                 <p class="main__form-label">Nombre de producción</p>
-                <input class="main__form-field main__form-field--produccion-name" type="text" name="nombre_asociacion">
+                <input class="main__form-field main__form-field--produccion-name" type="text" name="production_name" required>
               </div>
 
               <div class="main__form-group">
                 <p class="main__form-label">Ubicación</p>
-                <input class="main__form-field main__form-field--produccion-locate" type="text" name="nombre_asociacion">
+                <input class="main__form-field main__form-field--produccion-locate" type="text" name="production_location" required>
               </div>
 
               <div class="main__form-group main__form-group--line">
                 <p class="main__form-label">Fecha inicial</p>
-                <input class="main__form-field main__form-field--produccion-start-date" type="date" name="nombre_asociacion">
+                <input class="main__form-field main__form-field--produccion-start-date" type="date" name="production_start_date" required>
               </div>
 
               <div class="main__form-group main__form-group--line">
                 <p class="main__form-label">Fecha final</p>
-                <input class="main__form-field main__form-field--produccion-end-date" type="date" name="nombre_asociacion">
+                <input class="main__form-field main__form-field--produccion-end-date" type="date" name="production_end_date" required>
               </div>
 
               <div class="main__form-group main__form-group--line">
                 <p class="main__form-label">Descripción</p>
-                <input class="main__form-field main__form-field--produccion-description" type="text" name="nombre_asociacion">
+                <input class="main__form-field main__form-field--produccion-description" type="text" name="production_description" required>
               </div>
             </div>
 
@@ -137,9 +138,7 @@
             </div>
 
             <div class="main__form-end">
-              <a href="confirm-update-register-enable-disable.html">
-                <button type="button" class="main__form-button">REGISTRAR</button>
-              </a>
+              <button type="submit" class="main__form-button">REGISTRAR</button>
             </div>
           </form>
         </div>
@@ -150,54 +149,39 @@
         <div class="main__modal-crop--content">
           <!-- Cerrar el modal -->
           <span class="main__modal-crop--close">&times;</span>
-          <h2>Registrar nuevo cultivo</h2>
-          <form class="main__container main__container--cropForm">
-            <div class="main__container-form">
-              <div class="main__form-group">
-                  <p class="main__form-label">ID del cultivo</p>
-                  <input class="main__form-field main__form-field--cropId" type="text">
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Tipo de cultivo</p>
-                  <input class="main__form-field main__form-field--cropType" type="text">
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Ubicación</p>
-                  <input class="main__form-field main__form-field--cropLocation" type="text">
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Tamaño</p>
-                  <input class="main__form-field main__form-field--cropSize" type="text">
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Nombre</p>
-                  <input class="main__form-field main__form-field--cropName" type="text">
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Estado</p>
-                  <select class="main__form-field main__form-field--cropState">
-                      <option value="activo">Activo</option>
-                      <option value="inactivo">Inactivo</option>
-                  </select>
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">
-                      Imágen del cultivo
-                  </p>
-                  <label class="main__form-field main__form-field--upload">
-                      <input type="file" class="main__form-field--upload-input" id="imagenCrop">
-                      <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
-                      <i class="main__upload-icon fas fa-upload"></i>
-                  </label>
-              </div>
-              <div class="main__form-group">
-                  <p class="main__form-label">Descripción</p>
-                  <input class="main__form-field main__form-field--description main__form-field--cropDescription" type="text" />
-              </div>
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-              <button type="submit" class="main__form-button main__form-field--buttonRegister">REGISTRAR</button>
-            </div><!-- main__form-end -->
+          <h2>Registrar Nuevo Cultivo</h2>
+          <form class="main__container--cropForm">
+            <div class="main__form-group">
+                <label class="main__form-label">Tipo de Cultivo</label>
+                <input type="text" name="crop_type" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Ubicación</label>
+                <input type="text" name="crop_location" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Tamaño (m²)</label>
+                <input type="number" name="crop_size" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Nombre</label>
+                <input type="text" name="crop_name" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Descripción</label>
+                <textarea name="crop_description" class="main__form-field" rows="3"></textarea>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Imagen</label>
+                <div class="main__form-field--upload">
+                    <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
+                    <i class="fas fa-upload main__upload-icon"></i>
+                    <input type="file" name="crop_image" class="main__form-field--upload-input" accept="image/*">
+                </div>
+            </div>
+            <div class="main__form-actions">
+                <button type="submit" class="main__form-action">Registrar</button>
+            </div>
           </form>
         </div>
       </section>
@@ -208,53 +192,40 @@
           <!-- Cerrar el modal -->
           <span class="main__modal-cycle--close">&times;</span>
           <h2>Registrar nuevo ciclo</h2>
-          <form class="main__container main__container--cycleForm">
-            <div class="main__container-form">
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del ciclo de cultivo</p>
-                    <input class="main__form-field main__form-field--cycle-id" type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Nombre del ciclo</p>
-                    <input class="main__form-field main__form-field--cycle-name" type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Ubicación</p>
-                    <input class="main__form-field main__form-field--location" type="text">
-                </div>
-                
-                <div class="main__form-group">
-                    <p class="main__form-label">Periodo / fecha inicio</p>
-                    <input class="main__form-field main__form-field--start-date" type="date">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Periodo / fecha fin</p>
-                    <input class="main__form-field main__form-field--end-date" type="date">
-                </div>
-                
-                <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
-                    <select class="main__form-field main__form-field--cycleState">
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
-                    </select>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Novedades</p>
-                    <input class="main__form-field main__form-field--news" type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Descripción</p>
-                    <input class="main__form-field main__form-field--description" type="text" />
-                </div>
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-                <button class="main__form-button main__form-field--register-button" type="submit">REGISTRAR</button>
+          <form class="main__container--cycleForm">
+            <div class="main__form-group">
+                <label class="main__form-label">Nombre del ciclo</label>
+                <input type="text" name="cycle_name" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Ubicación</label>
+                <input type="text" name="cycle_location" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Fecha inicio</label>
+                <input type="date" name="cycle_start_date" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Fecha fin</label>
+                <input type="date" name="cycle_end_date" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Estado</label>
+                <select name="cycle_state" class="main__form-field" required>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Novedades</label>
+                <input type="text" name="cycle_news" class="main__form-field">
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Descripción</label>
+                <textarea name="cycle_description" class="main__form-field" rows="3"></textarea>
+            </div>
+            <div class="main__form-actions">
+                <button type="submit" class="main__form-action">Registrar</button>
             </div>
           </form> 
         </div>
@@ -266,92 +237,61 @@
           <!-- Cerrar el modal -->
           <span class="main__modal-user--close">&times;</span>
           <h2>Registrar nuevo usuario</h2>
-          <form class="main__container main__container--user main__container--userForm"><!-- userForm -->
-            <div class="main__container-form">
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID de usuario</p>
-                    <input 
-                        class="main__form-field main__form-field--userId" 
-                        type="text" name="user_id" readonly/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo de usuario</p>
-                    <select class="main__form-field main__form-field--userType">
-                        <option value="">Seleccione una opción</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Personal apoyo">Personal de apoyo</option>
-                        <option value="Visitante">Visitante</option>
-                    </select>
-                </div>
-                
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo de documento</p>
-                    <select class="main__form-field main__form-field--userDocumentType">
-                        <option value="">Seleccione una opción</option>
-                        <option value="Cédula de ciudadanía (CC)">Cédula de ciudadanía (CC)</option>
-                        <option value="Tarjeta de identidad (TI)">Tarjeta de identidad (TI)</option>
-                        <option value="Cédula de extranjería (CE)">Cédula de extranjería (CE)</option>
-                        <option value="Permiso Especial de Permanencia (PEP)">Permiso Especial de Permanencia (PEP)</option>
-                        <option value="Permiso por Protección Temporal (PPT)">Permiso por Protección Temporal (PPT)</option>
-                    </select>
-                </div>                            
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Número de documento</p>
-                    <input 
-                        class="main__form-field main__form-field--userIdentificationNumber" 
-                        type="text"/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Nombre/s</p>
-                    <input 
-                        class="main__form-field main__form-field--userName" 
-                        type="text"/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Apellido/s</p>
-                    <input 
-                        class="main__form-field main__form-field--userLastName" 
-                        type="text"/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Número telefónico</p>
-                    <input 
-                        class="main__form-field main__form-field--userCellPhone" 
-                        type="text"/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
-                    <select class="main__form-field main__form-field--userState">
-                        <option value="Habilitado">Activo</option>
-                        <option value="Deshabilitado">Inactivo</option>
-                    </select>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Correo electrónico</p>
-                    <input 
-                        class="main__form-field main__form-field--userEmail" 
-                        type="email"/>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Confirmación de correo electrónico</p>
-                    <input 
-                        class="main__form-field main__form-field--userConfirmationEmail" 
-                        type="email"/>
-                </div>
-
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-                <button type="submit" class="main__form-button main__form-field--buttonRegister">REGISTRAR</button>
-            </div> <!-- main__form-end -->
+          <form class="main__container--userForm">
+            <div class="main__form-group">
+                <label class="main__form-label">Tipo de usuario</label>
+                <select name="user_type" class="main__form-field" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Personal apoyo">Personal de apoyo</option>
+                    <option value="Visitante">Visitante</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Tipo de documento</label>
+                <select name="user_document_type" class="main__form-field" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Cédula de ciudadanía (CC)">Cédula de ciudadanía (CC)</option>
+                    <option value="Tarjeta de identidad (TI)">Tarjeta de identidad (TI)</option>
+                    <option value="Cédula de extranjería (CE)">Cédula de extranjería (CE)</option>
+                    <option value="Permiso Especial de Permanencia (PEP)">Permiso Especial de Permanencia (PEP)</option>
+                    <option value="Permiso por Protección Temporal (PPT)">Permiso por Protección Temporal (PPT)</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Número de documento</label>
+                <input type="text" name="user_identification_number" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Nombre/s</label>
+                <input type="text" name="user_name" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Apellido/s</label>
+                <input type="text" name="user_lastname" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Número telefónico</label>
+                <input type="text" name="user_cellphone" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Estado</label>
+                <select name="user_state" class="main__form-field" required>
+                    <option value="Habilitado">Activo</option>
+                    <option value="Deshabilitado">Inactivo</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Correo electrónico</label>
+                <input type="email" name="user_email" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Confirmación de correo electrónico</label>
+                <input type="email" name="user_confirmation_email" class="main__form-field" required>
+            </div>
+            <div class="main__form-actions">
+                <button type="submit" class="main__form-action">Registrar</button>
+            </div>
           </form><!-- main__container -->
         </div>
       </section><!-- main__modal-user -->
@@ -362,72 +302,53 @@
           <!-- Cerrar el modal -->
           <span class="main__modal-sensor--close">&times;</span>
           <h2>Registrar nuevo sensor</h2>
-          <form class="main__container main__container--sensorForm">
-            <div class="main__container-form">
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del sensor</p>
-                    <input 
-                    type="text" 
-                    class="main__form-field main__form-field--sensor-id" 
-                    />
+          <form class="main__container--sensorForm">
+            <div class="main__form-group">
+                <label class="main__form-label">Tipo de sensor</label>
+                <input type="text" name="sensor_type" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Nombre del sensor</label>
+                <input type="text" name="sensor_name" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Unidad de medida</label>
+                <select name="sensor_unit_measure" class="main__form-field" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="m">Metros (m)</option>
+                    <option value="cm">Centímetros (cm)</option>
+                    <option value="mm">Milímetros (mm)</option>
+                    <option value="kg">Kilogramos (kg)</option>
+                    <option value="g">Gramos (g)</option>
+                    <option value="l">Litros (l)</option>
+                    <option value="ml">Mililitros (ml)</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Tiempo de escaneo (minutos)</label>
+                <input type="number" name="sensor_scan_time" class="main__form-field" min="0" step="1" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Imagen del sensor</label>
+                <div class="main__form-field--upload">
+                    <span class="main__upload-text" id="sensorFileName">Seleccionar archivo</span>
+                    <i class="fas fa-upload main__upload-icon"></i>
+                    <input type="file" name="sensor_image" class="main__form-field--upload-input" accept="image/*">
                 </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo de sensor</p>
-                    <input type="text" class="main__form-field main__form-field--sensor-type">
-                </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">Nombre del sensor</p>
-                    <input type="text" class="main__form-field main__form-field--name">
-                </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">Unidad de medida</p>
-                    <select class="main__form-field main__form-field--unit-measure">
-                        <option value="">Seleccione una opción</option>
-                        <option value="m">Metros (m)</option>
-                        <option value="cm">Centímetros (cm)</option>
-                        <option value="mm">Milímetros (mm)</option>
-                        <option value="kg">Kilogramos (kg)</option>
-                        <option value="g">Gramos (g)</option>
-                        <option value="l">Litros (l)</option>
-                        <option value="ml">Mililitros (ml)</option>
-                    </select>
-                </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">Tiempo de escaneo (minutos)</p>
-                    <input type="number" class="main__form-field main__form-field--scan-time" min="0" step="1" placeholder="Minutos">
-                </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">
-                        Imágen del sensor
-                    </p>
-                    <label class="main__form-field main__form-field--upload">
-                        <input type="file" class="main__form-field--upload-input" id="imagenSensor">
-                        <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
-                        <i class="main__upload-icon fas fa-upload"></i>
-                    </label>
-                </div>
-    
-                <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
-                    <select class="main__form-field main__form-field--state">
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
-                    </select>
-                </div>
-    
-                <div class="main__form-group form__field-group--description">
-                    <p class="main__form-label">Descripción</p>
-                    <input type="text" class="main__form-field main__form-field--description">
-                </div>
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-                <button class="main__form-button">REGISTRAR</button>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Estado</label>
+                <select name="sensor_state" class="main__form-field" required>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Descripción</label>
+                <textarea name="sensor_description" class="main__form-field" rows="3"></textarea>
+            </div>
+            <div class="main__form-actions">
+                <button type="submit" class="main__form-action">Registrar</button>
             </div>
           </form><!-- main__container -->
         </div>
@@ -439,93 +360,57 @@
           <!-- Cerrar el modal -->
           <span class="main__modal-supplies--close">&times;</span>
           <h2>Registrar nuevo insumo</h2>
-          <form class="main__container main__container--suppliesForm">
-            <div class="main__container-form">
-
-                <div class="main__form-group">
-                    <p class="main__form-label">ID del insumo</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesId" 
-                        type="text" />
+          <form class="main__container--suppliesForm">
+            <div class="main__form-group">
+                <label class="main__form-label">Tipo</label>
+                <input type="text" name="supplies_type" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Cantidad</label>
+                <input type="number" name="supplies_quantity" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Nombre</label>
+                <input type="text" name="supplies_name" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Estado</label>
+                <select name="supplies_state" class="main__form-field" required>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Valor unitario</label>
+                <input type="number" name="supplies_unit_value" class="main__form-field" required>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Unidad de medida</label>
+                <select name="supplies_measure" class="main__form-field" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="kg">Kilogramos (kg)</option>
+                    <option value="g">Gramos (g)</option>
+                    <option value="l">Litros (l)</option>
+                    <option value="ml">Mililitros (ml)</option>
+                    <option value="unidad">Unidad</option>
+                    <option value="m">Metros (m)</option>
+                    <option value="cm">Centímetros (cm)</option>
+                </select>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Imagen del insumo</label>
+                <div class="main__form-field--upload">
+                    <span class="main__upload-text" id="suppliesFileName">Seleccionar archivo</span>
+                    <i class="fas fa-upload main__upload-icon"></i>
+                    <input type="file" name="supplies_image" class="main__form-field--upload-input" accept="image/*">
                 </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Tipo</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesType" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Cantidad</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesCuantity" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Nombre</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesName" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Estado</p>
-                    <select class="main__form-field main__form-field--suppliesState">
-                        <option value="activo">Activo</option>
-                        <option value="inactivo">Inactivo</option>
-                    </select>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Valor unitario</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesUnitvalue" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Valor total</p>
-                    <input 
-                        class="main__form-field main__form-field--suppliesTotalvalue" 
-                        type="text">
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">
-                        Imágen del insumo
-                    </p>
-                    <label class="main__form-field main__form-field--upload">
-                        <input type="file" class="main__form-field--upload-input" id="imagenInsumo">
-                        <span class="main__upload-text" id="fileName">Seleccionar archivo</span>
-                        <i class="main__upload-icon fas fa-upload"></i>
-                    </label>
-                </div>
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Unidad de medida</p>
-                    <select class="main__form-field main__form-field--suppliesMeasure">
-                        <option value="">Seleccione una opción</option>
-                        <option value="kg">Kilogramos (kg)</option>
-                        <option value="g">Gramos (g)</option>
-                        <option value="l">Litros (l)</option>
-                        <option value="ml">Mililitros (ml)</option>
-                        <option value="unidad">Unidad</option>
-                        <option value="m">Metros (m)</option>
-                        <option value="cm">Centímetros (cm)</option>
-                    </select>
-                </div>                
-
-                <div class="main__form-group">
-                    <p class="main__form-label">Descripción</p>
-                    <input 
-                        class="main__form-field main__form-field--description main__form-field--suppliesDescription" 
-                        type="text" />
-                </div>
-            </div><!-- main__container-form -->
-            <div class="main__form-end">
-                <button class="main__form-button" type="submit">REGISTRAR</button>
+            </div>
+            <div class="main__form-group">
+                <label class="main__form-label">Descripción</label>
+                <textarea name="supplies_description" class="main__form-field" rows="3"></textarea>
+            </div>
+            <div class="main__form-actions">
+                <button type="submit" class="main__form-action">Registrar</button>
             </div>
           </form> <!-- main__container -->
         </div>

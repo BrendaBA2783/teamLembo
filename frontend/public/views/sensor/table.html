@@ -11,7 +11,6 @@
     <script src="../../views/components/js/general_header.js"></script>
     <script src="/backend/middleware.js/display_drop-down.js"></script>
     <script src="/backend/middleware.js/search-table.js"></script>
-    <script src="../../js/sensor/sensor.js" defer></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,8 +41,8 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="deshabilitarHabilitarMenu">
-                <a href="#" data-state="activo">Habilitar</a>
-                <a href="#" data-state="inactivo">Deshabilitar</a>
+                <a href="#" data-state="active">Habilitar</a>
+                <a href="#" data-state="inactive">Deshabilitar</a>
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
@@ -56,19 +55,17 @@
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
-            <h4 class="table-options__title table-options__title--dropdown-toggle" id="visualizarBtn">Visualizar
+            <h4 class="table-options__title table-options__title--dropdown-toggle">Visualizar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
-            <div class="dropdown-menu" id="visualizarMenu">
-                <a href="../asociacion/id-visualise.html">Visualizar asociación</a>
-                <a href="id-visualise.html">Visualizar datos</a>
+            <div class="dropdown-menu">
+                <a href="#" id="visualizarLink">Visualizar sensor</a>
             </div>
         </div>
         <a class="table-options__link" href="filtro.html">
             <img class="table-options__image--filter" src="../../img/icono_filtro.png" />
         </a>
     </div>
-
 
     <!-- Tabla -->
     <main class="main">
@@ -78,11 +75,10 @@
                     <th class="main__table-header main__table-header--checkbox">
                         <input type="checkbox" class="main__table-checkbox" id="selectAll">
                     </th>
-                    <th class="main__table-header">ID</th>
-                    <th class="main__table-header">TIPO</th>
+                    <th class="main__table-header">ID SENSOR</th>
                     <th class="main__table-header">NOMBRE</th>
-                    <th class="main__table-header">MEDIDA</th>
-                    <th class="main__table-header">TIEMPO ESCANEO</th>
+                    <th class="main__table-header">TIPO</th>
+                    <th class="main__table-header">UBICACIÓN</th>
                     <th class="main__table-header">ESTADO</th>
                 </tr>
             </thead>
@@ -101,5 +97,9 @@
             <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
         </a>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="/frontend/public/js/sensor/sensor.js" type="module" defer></script>
 </body>
 </html>

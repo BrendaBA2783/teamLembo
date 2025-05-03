@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ciclo Cultivos</title>
+    <title>Ciclos de Cultivo</title>
 
     <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/table.css">
@@ -23,7 +23,7 @@
 
     <!-- Título de la tabla -->
     <div class="table-title">
-        <h2 class="table-title__title">Ciclo Cultivos</h2>
+        <h2 class="table-title__title">Ciclos de Cultivo</h2>
     </div>
 
     <!-- Sección de búsqueda -->
@@ -41,12 +41,12 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="deshabilitarHabilitarMenu">
-                <a href="/frontend/public/views/crop-cycle/id-enable.html">Habilitar</a>
-                <a href="/frontend/public/views/crop-cycle/id-disable.html">Deshabilitar</a>
+                <a href="#" data-state="active">Habilitar</a>
+                <a href="#" data-state="inactive">Deshabilitar</a>
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
-            <h4 class="table-options__title table-options__title--dropdown-toggle">Descargar
+            <h4 class="table-options__title table-options__title--dropdown-toggle" id="descargarBtn">Descargar
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="descargarMenu">
@@ -59,8 +59,7 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu">
-                <a href="../asociacion/id-visualise.html">Visualizar asociación</a>
-                <a href="id-visualise.html">Visualizar datos</a>
+                <a href="#" id="visualizarLink">Visualizar ciclo</a>
             </div>
         </div>
         <a class="table-options__link" href="filtro.html">
@@ -176,5 +175,10 @@
             <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
         </a>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="/frontend/public/js/crop-cycle/crop-cycle.js" type="module" defer></script>
 </body>
 </html>

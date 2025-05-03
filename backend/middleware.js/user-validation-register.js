@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Los correos no coinciden');
             }
 
-            const response = await fetch('http://localhost:3000/users', {
+            const response = await fetch('http://localhost:3001/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -133,16 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(userData)
             });
 
+            const result = await response.json();
+
             if (!response.ok) {
-                throw new Error('Error en la conexión con el servidor');
+                throw new Error(result.message || 'Error en el servidor');
             }
 
-            const result = await response.json();
             console.log('Usuario registrado:', result);
-            showSuccess('El formulario ha sido completado correctamente');
-            } catch (error) {
-                showError(error.message);
-            }
+            showSuccess('Usuario registrado exitosamente');
+            
+        } catch (error) {
+            showError(error.message || 'Error al registrar el usuario');
+        }
     });
 
     function showError(message) {

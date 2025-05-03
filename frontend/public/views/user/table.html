@@ -11,6 +11,7 @@
     <script src="../../views/components/js/general_header.js"></script>
     <script src="/backend/middleware.js/display_drop-down.js"></script>
     <script src="/backend/middleware.js/search-table.js"></script>
+    <script src="/frontend/public/js/user/user.js" type="module" defer></script>
 
     <!-- Tipografía Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,8 +42,8 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="deshabilitarHabilitarMenu">
-                <a href="/frontend/public/views/user/id-enable.html">Habilitar</a>
-                <a href="/frontend/public/views/user/id-disable.html">Deshabilitar</a>
+                <a href="#" data-state="activo">Habilitar</a>
+                <a href="#" data-state="inactivo">Deshabilitar</a>
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
@@ -73,63 +74,21 @@
         <table class="main__table">
             <thead class="main__thead">
                 <tr class="main__table-row">
-                    <th class="main__table-header">ID USUARIO</th>
-                    <th class="main__table-header">TIPO USUARIO</th>
+                    <th class="main__table-header main__table-header--checkbox">
+                        <input type="checkbox" class="main__table-checkbox" id="selectAll">
+                    </th>
+                    <th class="main__table-header">ID</th>
+                    <th class="main__table-header">TIPO</th>
                     <th class="main__table-header">NOMBRE</th>
                     <th class="main__table-header">APELLIDO</th>
-                    <th class="main__table-header">FECHA INGRESO</th>
+                    <th class="main__table-header">DOCUMENTO</th>
+                    <th class="main__table-header">TELÉFONO</th>
+                    <th class="main__table-header">EMAIL</th>
                     <th class="main__table-header">ESTADO</th>
                 </tr>
             </thead>
             <tbody class="main__tbody">
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Temperatura</td>
-                    <td class="main__table-cell">Sensor T1</td>
-                    <td class="main__table-cell">5 segundos</td>
-                    <td class="main__table-cell">Mide la temperatura ambiental</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Humedad</td>
-                    <td class="main__table-cell">Sensor H1</td>
-                    <td class="main__table-cell">10 segundos</td>
-                    <td class="main__table-cell">Detecta la humedad relativa del aire</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_h1.jpg</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Presión</td>
-                    <td class="main__table-cell">Sensor P1</td>
-                    <td class="main__table-cell">15 segundos</td>
-                    <td class="main__table-cell">Registra la presión atmosférica</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_p1.jpg</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">04</td>
-                    <td class="main__table-cell">Movimiento</td>
-                    <td class="main__table-cell">Sensor M1</td>
-                    <td class="main__table-cell">5 segundos</td>
-                    <td class="main__table-cell">Detecta movimientos en un área</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_m1.jpg</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">05</td>
-                    <td class="main__table-cell">Luz</td>
-                    <td class="main__table-cell">Sensor L1</td>
-                    <td class="main__table-cell">8 segundos</td>
-                    <td class="main__table-cell">Mide la intensidad lumínica</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_l1.jpg</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Temperatura</td>
-                    <td class="main__table-cell">Sensor T1</td>
-                    <td class="main__table-cell">5 segundos</td>
-                    <td class="main__table-cell">Mide la temperatura ambiental</td>
-                    <td class="main__table-cell main__table-cell--right">sensor_t1.jpg</td>
-                </tr>
+                <!-- Las filas se generarán dinámicamente mediante JavaScript -->
             </tbody>
         </table>
     </main>
@@ -143,7 +102,5 @@
             <button class="button-end__return--top-none" type="button">ACTUALIZAR</button>
         </a>
     </div>
-
-    <script src="/backend/middleware.js/table-dinamic.js"></script>
 </body>
 </html>

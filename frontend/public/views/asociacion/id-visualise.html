@@ -4,35 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar Asociación</title>
-    <link rel="stylesheet" href="../../css/styles-general.css">
+
+    <!-- Links de css y js -->
     <link rel="stylesheet" href="../../css/visualise.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../css/styles-general.css">
+    <script src="../../views/components/js/general_header.js"></script>
+    
+    <!-- ApexCharts para las gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <!-- Scripts propios -->
     <script src="../../js/asociacion/visualise.js" defer></script>
+
+    <!-- Tipografia Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 </head>
 <body>
+    <!-- Integración del general_header.html -->
     <div class="hero--general"></div>
-    
-    <div class="container">
-        <h2 class="title">Detalles de la Asociación</h2>
-        
-        <div id="associationDetails" class="details">
-            <!-- Los detalles se cargarán dinámicamente -->
-        </div>
 
-        <div class="charts-container">
-            <div class="chart-box">
-                <h3>Inversión por Mes</h3>
-                <canvas id="investmentChart"></canvas>
-            </div>
-            <div class="chart-box">
-                <h3>Lecturas del Sensor</h3>
-                <canvas id="sensorChart"></canvas>
-            </div>
+    <!-- Main -->
+    <main class="main">
+        <div class="main__container">
+            <!-- Información general de la asociación -->
+            <section class="main__section main__section--info">
+                <h2 class="main__title">Detalles de la Asociación</h2>
+                <div class="main__info-cards">
+                    <div class="info-card">
+                        <h3>Cultivo</h3>
+                        <p id="cropName">Fresas</p>
+                        <p id="cropLocation">Zona Norte</p>
+                        <span class="info-card__tag">500m²</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>Ciclo Actual</h3>
+                        <p id="cycleName">Ciclo Primavera 2024</p>
+                        <p id="cycleStatus">Activo</p>
+                        <span class="info-card__tag">21/03/24 - 21/06/24</span>
+                    </div>
+                    <div class="info-card">
+                        <h3>Responsable</h3>
+                        <p id="userName">Carlos Rodriguez</p>
+                        <p id="userRole">Administrador</p>
+                        <span class="info-card__tag">ID: 1234567890</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gráficas de sensores -->
+            <section class="main__section main__section--sensors">
+                <h2 class="main__title">Monitoreo de Sensores</h2>
+                <div class="sensor-grid">
+                    <!-- Gráfica de Temperatura -->
+                    <div class="sensor-card">
+                        <h3>Temperatura</h3>
+                        <div id="temperatureChart" class="chart-container"></div>
+                        <div class="sensor-stats">
+                            <div class="stat">
+                                <span class="stat__label">Actual</span>
+                                <span class="stat__value">24°C</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Promedio</span>
+                                <span class="stat__value">22°C</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfica de Humedad -->
+                    <div class="sensor-card">
+                        <h3>Humedad</h3>
+                        <div id="humidityChart" class="chart-container"></div>
+                        <div class="sensor-stats">
+                            <div class="stat">
+                                <span class="stat__label">Actual</span>
+                                <span class="stat__value">65%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Promedio</span>
+                                <span class="stat__value">60%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfica de pH -->
+                    <div class="sensor-card">
+                        <h3>pH del Suelo</h3>
+                        <div id="phChart" class="chart-container"></div>
+                        <div class="sensor-stats">
+                            <div class="stat">
+                                <span class="stat__label">Actual</span>
+                                <span class="stat__value">6.5</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Promedio</span>
+                                <span class="stat__value">6.8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfica de Luminosidad -->
+                    <div class="sensor-card">
+                        <h3>Luminosidad</h3>
+                        <div id="lightChart" class="chart-container"></div>
+                        <div class="sensor-stats">
+                            <div class="stat">
+                                <span class="stat__label">Actual</span>
+                                <span class="stat__value">850 lux</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__label">Promedio</span>
+                                <span class="stat__value">820 lux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Información del ciclo de cultivo -->
+            <section class="main__section main__section--cycle">
+                <h2 class="main__title">Progreso del Ciclo</h2>
+                <div class="cycle-progress">
+                    <div class="progress-bar">
+                        <div class="progress-bar__fill" style="width: 45%"></div>
+                        <span class="progress-bar__label">45% Completado</span>
+                    </div>
+                    <div class="cycle-stats">
+                        <div class="cycle-stat">
+                            <h4>Inicio</h4>
+                            <p>21 Marzo 2024</p>
+                        </div>
+                        <div class="cycle-stat">
+                            <h4>Fin Estimado</h4>
+                            <p>21 Junio 2024</p>
+                        </div>
+                        <div class="cycle-stat">
+                            <h4>Días Restantes</h4>
+                            <p>45 días</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        
-        <div class="button-container">
-            <button onclick="window.history.back()" class="button">Volver</button>
-        </div>
+    </main>
+
+    <!-- Botones de acción -->
+    <div class="button-end">
+        <a href="table.html">
+            <button class="button-end__return" type="button">VOLVER</button>
+        </a>
+        <button class="button-end__export" type="button">EXPORTAR DATOS</button>
     </div>
 </body>
 </html>

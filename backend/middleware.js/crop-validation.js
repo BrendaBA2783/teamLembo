@@ -1,152 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cropForm = document.querySelector('.main__container--cropForm');
+    const fileInput = document.querySelector('.main__form-field--upload-input');
+    const fileNameDisplay = document.getElementById('fileName');
 
-    // Selección de los inputs
-    const cropId = document.querySelector('.main__form-field--cropId'); 
-    const cropType = document.querySelector('.main__form-field--cropType'); 
-    const cropLocation = document.querySelector('.main__form-field--cropLocation'); 
-    const cropSize = document.querySelector('.main__form-field--cropSize'); 
-    const cropName = document.querySelector('.main__form-field--cropName'); 
-    const cropState = document.querySelector('.main__form-field--cropState'); 
-    const cropImage = document.querySelector('.main__form-field--upload-input'); 
-    const cropDescription = document.querySelector('.main__form-field--cropDescription'); 
-
-    //Se crea el objeto 
+    // Objeto para almacenar los datos del cultivo
     const cropData = {
-        crop_id: '', 
         crop_type: '',
-        crop_location: '', 
-        crop_size: '', 
-        crop_name: '', 
-        crop_state: '', 
-        crop_image: '', 
+        crop_location: '',
+        crop_size: '',
+        crop_name: '',
+        crop_state: 'activo',
+        crop_image: '',
         crop_description: ''
-    }; 
-
-    //Función para caracteres especiales
-    function hasSpecialChars(str) {
-        return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(str);
     };
 
-    // Validaciones de los campos
-    cropId.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('El ID del cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-        }
-    });
-    
-    cropType.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('El tipo de cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-        }
-    });
-    
-    cropLocation.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('La ubicación del cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-        }
-    });
-    
-    cropSize.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('El tamaño del cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-        }
-    });
-    
-    cropName.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('El nombre del cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
-        }
-    });
-    
-    cropDescription.addEventListener('input', function(e) {
-        if (hasSpecialChars(e.target.value)) {
-            e.preventDefault();
-            showError('La descripción del cultivo no puede contener caracteres especiales');
-            e.target.value = e.target.value.replace(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g, '');
+    // Manejar la selección de archivo
+    fileInput?.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            fileNameDisplay.textContent = file.name;
+            // Convertir imagen a Base64
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                cropData.crop_image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            fileNameDisplay.textContent = 'Seleccionar archivo';
+            cropData.crop_image = '';
         }
     });
 
-    // Actualizar el objeto cropData en tiempo real
-    cropId.addEventListener('input', readText); 
-    cropType.addEventListener('input', readText); 
-    cropLocation.addEventListener('input', readText); 
-    cropSize.addEventListener('input', readText); 
-    cropName.addEventListener('input', readText); 
-    cropState.addEventListener('input', readText); 
-    cropImage.addEventListener('change', readText); 
-    cropDescription.addEventListener('input', readText); 
-
-    // Funcion para leer el texto
-    //colback
-    function readText(e){
-        if(e.target.classList.contains('main__form-field--cropId')) {
-            cropData.crop_id = e.target.value;
+    // Actualizar datos del cultivo cuando se modifican los campos
+    cropForm?.addEventListener('input', (e) => {
+        const field = e.target;
+        const fieldName = field.name;
+        
+        if (fieldName && fieldName in cropData) {
+            cropData[fieldName] = field.value;
         }
-        else if (e.target.classList.contains('main__form-field--cropType')) {
-            cropData.crop_type = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--cropLocation')) {
-            cropData.crop_location = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--cropSize')) {
-            cropData.crop_size = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--cropName')) {
-            cropData.crop_name = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--cropState')) {
-            cropData.crop_state = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--upload-input')) {
-            cropData.crop_image = e.target.value;
-        } 
-        else if (e.target.classList.contains('main__form-field--cropDescription')) {
-            cropData.crop_description = e.target.value;
-        }
-        console.log(cropData); 
-    }
+    });
 
-    // Envío del formulario
-    // Event listener para el botón de registrar
-    cropForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    // Manejar el envío del formulario
+    cropForm?.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
         try {
-            for (const key in cropData) {
-                if (cropData[key].trim() === '') {
-                    throw new Error('Todos los campos son obligatorios');
-                }
-            }
+            // Validar campos requeridos
+            const requiredFields = ['crop_type', 'crop_location', 'crop_size', 'crop_name'];
+            const missingFields = requiredFields.filter(field => !cropData[field].trim());
 
-            // Validaciones de no permitir caracteres especiales
-            if (hasSpecialChars(cropData.crop_id)) {
-                throw new Error('El id no puede contener caracteres especiales');
-            }
-            if (hasSpecialChars(cropData.crop_type)) {
-                throw new Error('El tipo de cultivo no puede contener caracteres especiales');
-            }
-            if (hasSpecialChars(cropData.crop_location)) {
-                throw new Error('La ubicación del cultivo no puede contener caracteres especiales');
-            }
-            if (hasSpecialChars(cropData.crop_size)) {
-                throw new Error('El tamaño del cultivo no puede contener caracteres especiales');
-            }
-            if (hasSpecialChars(cropData.crop_name)) {
-                throw new Error('El nombre de cultivo no puede contener caracteres especiales');
-            }
-            if (hasSpecialChars(cropData.crop_description)) {
-                throw new Error('La descripcion no puede contener caracteres especiales');
+            if (missingFields.length > 0) {
+                throw new Error('Por favor complete todos los campos requeridos');
             }
 
             const response = await fetch('http://localhost:3000/crop', {
@@ -158,36 +63,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!response.ok) {
-                throw new Error('Error en la conexión con el servidor');
+                throw new Error('Error al registrar el cultivo');
             }
 
             const result = await response.json();
-            console.log('Cultivo registrado:', result);
-            showSuccess('El formulario ha sido completado correctamente');
+            showSuccess('Cultivo registrado exitosamente');
+            
+            // Limpiar formulario
+            cropForm.reset();
+            fileNameDisplay.textContent = 'Seleccionar archivo';
+            
+            // Redirigir a la tabla después de 1 segundo
+            setTimeout(() => {
+                window.location.href = 'table.html';
+            }, 1000);
+
         } catch (error) {
             showError(error.message);
         }
     });
 
+    // Función para mostrar mensajes de error
     function showError(message) {
-        console.log(message); 
-        const error = document.createElement('P'); 
-        error.textContent = message; 
-        error.classList.add('error'); 
-        cropForm.appendChild(error);   
-        setTimeout(() => {
-            error.remove(); 
-        }, 4000);
-    };
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        cropForm.insertBefore(errorDiv, cropForm.firstChild);
+        setTimeout(() => errorDiv.remove(), 3000);
+    }
 
+    // Función para mostrar mensajes de éxito
     function showSuccess(message) {
-        const success = document.createElement('P');
-        success.textContent = message;
-        success.classList.add('correct');
-        cropForm.appendChild(success);
-        setTimeout(() => {
-            success.remove();
-            window.location.href = 'confirm-update-register-enable-disable.html';
-        }, 1000);
-    };
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-message';
+        successDiv.textContent = message;
+        cropForm.insertBefore(successDiv, cropForm.firstChild);
+        setTimeout(() => successDiv.remove(), 3000);
+    }
 });

@@ -3,54 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar insumo</title>
+    <title>Visualizar Insumo - LEMBO</title>
+    <style>
+        /* Estilos principales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+        }
 
-    <!-- Links de css y js -->
-    <link rel="stylesheet" href="../../css/visualise.css">
-    <link rel="stylesheet" href="../../css/styles-general.css">
-    <script src="../../views/components/js/general_header.js"></script>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    <!-- Tipografia Work Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos específicos del insumo */
+        .supply-details {
+            padding: 2rem;
+        }
+
+        .detail-group {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-group h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .detail-group p {
+            margin: 0.5rem 0;
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        .detail-group strong {
+            color: #343a40;
+            font-weight: 600;
+        }
+
+        .status-active {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .status-inactive {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .value-box {
+            background-color: #e9ecef;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+
+        .value-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-box span {
+            font-size: 1.25rem;
+            color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
-    <!-- Integración del general_header.hmtl -->
-    <div class="hero--general"></div>
+    <div class="container">
+        <header class="header">
+            <h1>Detalles del Insumo</h1>
+            <nav class="nav">
+                <a href="table.html" class="btn btn-secondary">← Volver a la lista</a>
+            </nav>
+        </header>
 
-    <!-- Main -->
-    <main class="main">
-        <div class="main__container">
-            <div class="main__container-information">
-                <div class="main__container-image">
-                    <h1 class="main__title">Visualizar asociaciones de insumo</h1>
-                    <img class="main__image" src="../../img/image_supplies.png">
+        <main class="main">
+            <div class="card">
+                <div id="supplyDetails" class="supply-details">
+                    <!-- Los detalles del insumo se cargarán dinámicamente aquí -->
+                    <div class="loading">Cargando detalles del insumo...</div>
                 </div>
-                <div class="main__container-text">
-                    <h2 class="main__subtitle">Insumo: Fertilizante NPK</h2>
-                    <p>ID del insumo: Supp1001</p>
-                    <p>Tipo de insumo: Fertilizante</p>
-                    <p>Unidad de medida: Kilogramos (kg)</p>
-                    <p>Cantidad disponible: 250</p>
-                    <p>Valor unitario: $45.000</p>
-                    <p>Valor total: 11'250.000</p>
-                    <p>Estado: HABILITADO</p>
-                    <p>Descripción: Fertilizante compuesto de nitrógeno, fósforo y potasio</p>
-                    <h2 class="main__subtitle">Datos de asociación de módulos</h2>
-                    <p>Usado en cultivos: Maíz, Tomate</p>
-                    <p>Ciclos de cultivo asociados: Ciclo 1 - Maíz 2024, Ciclo 2 - Tomate 2024</p>
-                    <p>Relacionado con sensores: Sensor de humedad de suelo</p>
-                    <p>Fecha de última actualización: 15/03/2025</p>
-                </div>
-                
             </div>
-        </div>
-    </main>
-
-    <!-- Sección de botón final, regresar -->
-    <div class="button-end">
-        <a href="table.html"><button class="button-end__return" type="submit">VOLVER</button></a>
+        </main>
     </div>
+
+    <script src="../../js/supplies/supplies-visualise.js"></script>
 </body>
 </html>

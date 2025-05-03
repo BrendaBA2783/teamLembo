@@ -180,6 +180,12 @@ INSERT INTO users (user_type, user_document_type, user_name, user_last_name, use
 
 CREATE TABLE `association` (
   `association_id` int(11) NOT NULL AUTO_INCREMENT,
+  `production_code` varchar(20) NOT NULL,
+  `production_name` varchar(100) NOT NULL,
+  `production_location` varchar(100) NOT NULL,
+  `production_start_date` date NOT NULL,
+  `production_end_date` date NOT NULL,
+  `production_description` text,
   `crop_id` int(11) NOT NULL,
   `sensor_id` int(11) NOT NULL,
   `supplies_id` int(11) NOT NULL,
@@ -189,6 +195,7 @@ CREATE TABLE `association` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`association_id`),
+  UNIQUE KEY `production_code` (`production_code`),
   CONSTRAINT `fk_association_crop` FOREIGN KEY (`crop_id`) REFERENCES `crop` (`crop_id`),
   CONSTRAINT `fk_association_sensor` FOREIGN KEY (`sensor_id`) REFERENCES `sensor` (`sensor_id`),
   CONSTRAINT `fk_association_supplies` FOREIGN KEY (`supplies_id`) REFERENCES `supplies` (`supplies_id`),
@@ -200,11 +207,11 @@ CREATE TABLE `association` (
 -- Volcado de datos para la tabla `association`
 --
 
-INSERT INTO association (crop_id, sensor_id, supplies_id, cycle_id, user_id, association_state) VALUES
-(1, 1, 1, 1, 2, 'activo'),  -- Tomate con sensor de humedad y abono
-(2, 3, 4, 2, 2, 'activo'),  -- Fresa con sensor de riego
-(3, 2, 3, 3, 3, 'activo'),  -- Maíz con sensor de peso y semillas
-(4, 4, 2, 4, 4, 'inactivo'); -- Frijol con sensor de temperatura
+INSERT INTO association (production_code, production_name, production_location, production_start_date, production_end_date, production_description, crop_id, sensor_id, supplies_id, cycle_id, user_id, association_state) VALUES 
+('PROD-TOM-001', 'Producción Tomate 2025-1', 'Zona Norte', '2025-01-01', '2025-04-30', 'Producción de tomate cherry orgánico', 1, 1, 1, 1, 2, 'activo'),
+('PROD-FRE-001', 'Producción Fresa 2025-1', 'Zona Sur', '2025-02-01', '2025-07-31', 'Producción de fresas variedad dulce', 2, 3, 4, 2, 2, 'activo'),
+('PROD-MAI-001', 'Producción Maíz 2025', 'Zona Este', '2025-03-01', '2025-08-31', 'Producción de maíz amarillo', 3, 2, 3, 3, 3, 'activo'),
+('PROD-FRI-001', 'Producción Frijol 2025-1', 'Zona Oeste', '2025-01-15', '2025-05-15', 'Producción de frijol rojo', 4, 4, 2, 4, 4, 'inactivo');
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
