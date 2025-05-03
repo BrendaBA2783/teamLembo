@@ -11,6 +11,7 @@
     <script src="../../views/components/js/general_header.js"></script>
     <script src="/backend/middleware.js/display_drop-down.js"></script>
     <script src="/backend/middleware.js/search-table.js"></script>
+    <script src="../../js/crop/crop.js" defer></script>
 
     <!-- Tipografia Work Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,8 +42,8 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu" id="deshabilitarHabilitarMenu">
-                <a href="/frontend/public/views/crop/id-enable.html">Habilitar</a>
-                <a href="/frontend/public/views/crop/id-disable.html">Deshabilitar</a>
+                <a href="#" data-state="active">Habilitar</a>
+                <a href="#" data-state="inactive">Deshabilitar</a>
             </div>
         </div>
         <div class="table-options__link table-options__link--dropdown-wrapper">
@@ -59,8 +60,7 @@
                 <img class="table-options__image" src="../../img/icono_flecha.png" />
             </h4>
             <div class="dropdown-menu">
-                <a href="../asociacion/id-visualise.html">Visualizar asociación</a>
-                <a href="id-visualise.html">Visualizar datos</a>
+                <a href="id-visualise.html">Visualizar cultivo</a>
             </div>
         </div>
         <a class="table-options__link" href="filtro.html">
@@ -74,89 +74,21 @@
         <table class="main__table">
             <thead class="main__thead">
                 <tr class="main__table-row">
+                    <th class="main__table-header main__table-header--checkbox">
+                        <input type="checkbox" class="main__table-checkbox" id="selectAll">
+                    </th>
                     <th class="main__table-header">ID CULTIVO</th>
                     <th class="main__table-header">TIPO CULTIVO</th>
                     <th class="main__table-header">NOMBRE</th>
                     <th class="main__table-header">TAMAÑO</th>
                     <th class="main__table-header">DESCRIPCIÓN</th>
-                    <th class="main__table-header">IMÁGEN</th>
+                    <th class="main__table-header">ESTADO</th>
                 </tr>
             </thead>
             <tbody class="main__tbody">
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Granos</td>
-                    <td class="main__table-cell">Trigo</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Frutas</td>
-                    <td class="main__table-cell">Manzana</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Hortalizas</td>
-                    <td class="main__table-cell">Zanahoria</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Granos</td>
-                    <td class="main__table-cell">Trigo</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Frutas</td>
-                    <td class="main__table-cell">Manzana</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Hortalizas</td>
-                    <td class="main__table-cell">Zanahoria</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">01</td>
-                    <td class="main__table-cell">Granos</td>
-                    <td class="main__table-cell">Trigo</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Cereal ampliamente cultivado en climas templados</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">02</td>
-                    <td class="main__table-cell">Frutas</td>
-                    <td class="main__table-cell">Manzana</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Fruta de árbol con alto contenido en fibra</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
-                <tr class="main__table-row">
-                    <td class="main__table-cell main__table-cell--left">03</td>
-                    <td class="main__table-cell">Hortalizas</td>
-                    <td class="main__table-cell">Zanahoria</td>
-                    <td class="main__table-cell">Kilogramos</td>
-                    <td class="main__table-cell">Raíz comestible rica en betacaroteno</td>
-                    <td class="main__table-cell main__table-cell--right">Imágen</td>
-                </tr>
+                <!-- Las filas se generarán dinámicamente mediante JavaScript -->
             </tbody>
-            </table>
+        </table>
     </main>
 
     <!-- Seccion de botones finales - registrar/actualizar-->
